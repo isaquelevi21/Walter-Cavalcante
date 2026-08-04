@@ -42,7 +42,7 @@ const styles = {
     left: 0,
     width: '100%',
     backgroundColor: '#F8F9FA',
-    borderTop: '2px solid var(--accent-gold, #C08A2E)',
+    borderTop: '2px solid var(--accent-orange, #C08A2E)',
     padding: '15px 30px',
     display: 'flex',
     justifyContent: 'space-between',
@@ -59,13 +59,13 @@ const styles = {
     flex: '1 1 300px'
   },
   link: {
-    color: 'var(--primary-blue, #16294D)',
+    color: 'var(--primary-green, #16294D)',
     textDecoration: 'underline',
     fontWeight: 'bold'
   },
   button: {
     padding: '10px 25px',
-    backgroundColor: 'var(--primary-blue, #16294D)',
+    backgroundColor: 'var(--primary-green, #16294D)',
     color: '#fff',
     border: 'none',
     borderRadius: '4px',

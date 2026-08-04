@@ -1,9 +1,12 @@
 :root {
-  /* TODO: definir paleta oficial da campanha aqui — cores derivadas do
-     partido/identidade visual, mantendo contraste mínimo AA (4.5:1) */
-  --cor-fundo: #ffffff;
-  --cor-texto: #1a1a1a;
-  --cor-destaque: #0c447c;
+  /* Novas cores baseadas na referência */
+  --primary-green: #196B32; 
+  --accent-orange: #EF7C00; 
+  
+  /* Cores neutras mantidas */
+  --bg-light: #f7f7f7;  /* Cor do box */
+  --text-dark: #fafafa; 
+  --text-light: #000000; /* Cores do texto do footer*/
 }
 
 * {

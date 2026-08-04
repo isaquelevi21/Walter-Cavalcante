@@ -1,37 +1,136 @@
 import React from 'react';
 
-const Compromissos = () => {
-  const propostas = [
-    { title: "Saúde Mais Perto", desc: "Ampliação das unidades básicas e valorização dos profissionais da saúde." },
-    { title: "Educação de Futuro", desc: "Mais vagas em creches e tecnologia integrada às salas de aula." },
-    { title: "Geração de Empregos", desc: "Apoio ao pequeno empreendedor e atração de novos investimentos." },
-    { title: "Segurança Inteligente", desc: "Uso de tecnologia e inteligência para garantir a paz das nossas famílias." }
+const Bandeiras = () => {
+  // Array com as bandeiras baseadas no histórico do candidato
+  const bandeiras = [
+    {
+      icone: "🙏", 
+      titulo: "Promoção dos Princípios Cristãos",
+      descricao: "Defesa dos valores cristãos, da vida e da família, pautando o mandato na ética, no respeito e na construção do bem comum para a sociedade cearense."
+    },
+    {
+      icone: "🏠", 
+      titulo: "Habitação para Todos",
+      descricao: "Luta contínua pela redução do déficit habitacional, usando a experiência na construção de milhares de moradias para garantir um teto digno a quem mais precisa."
+    },
+    {
+      icone: "🚀", 
+      titulo: "Fomento ao Empreendedorismo",
+      descricao: "Incentivo a novos negócios e oportunidades. Como criador da Sala do Empreendedor, o foco é desburocratizar e gerar mais empregos e renda."
+    },
+    {
+      icone: "🤝", 
+      titulo: "Direitos Humanos e Cidadania",
+      descricao: "Trabalho firme pela inclusão e justiça social, dando continuidade ao legado iniciado com a criação da Sala de Direitos Humanos Dom Aloísio Lorscheider."
+    },
+    {
+      icone: "🏥", 
+      titulo: "Saúde e Qualidade de Vida",
+      descricao: "Apoio integral à estruturação de unidades de saúde e valorização dos profissionais, garantindo um atendimento mais humano e eficiente nos municípios."
+    },
+    {
+      icone: "🛡️", 
+      titulo: "Defesa do Setor Produtivo",
+      descricao: "Valorização do comércio e da indústria cearense, lutando por um ambiente econômico mais competitivo e por menos carga tributária para quem produz."
+    }
   ];
 
   return (
     <section id="propostas" style={styles.section}>
-      <div className="container">
-        <h2 style={styles.sectionTitle}>Nossos Compromissos</h2>
+      <div className="container" style={styles.container}>
+        
+        {/* Cabeçalho da Seção */}
+        <div style={styles.header}>
+          <span style={styles.subtitle}>POSICIONAMENTO</span>
+          <h2 style={styles.title}>Bandeiras</h2>
+        </div>
+
+        {/* Grid de Bandeiras */}
         <div style={styles.grid}>
-          {propostas.map((prop, index) => (
-            <div key={index} style={styles.card}>
-              <h4 style={styles.cardTitle}>{prop.title}</h4>
-              <p style={styles.cardDesc}>{prop.desc}</p>
+          {bandeiras.map((item, index) => (
+            <div key={index} style={styles.item}>
+              <div style={styles.iconBox}>
+                {item.icone}
+              </div>
+              <div style={styles.textBox}>
+                <h3 style={styles.itemTitle}>{item.titulo}</h3>
+                <p style={styles.itemDesc}>{item.descricao}</p>
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
 };
 
 const styles = {
-  section: { padding: '80px 0', backgroundColor: '#FFFFFF' },
-  sectionTitle: { textAlign: 'center', fontSize: '2.5rem', marginBottom: '50px' },
-  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px' },
-  card: { padding: '30px', borderLeft: '4px solid var(--accent-gold)', backgroundColor: 'var(--bg-light)', borderRadius: '0 8px 8px 0', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' },
-  cardTitle: { color: 'var(--primary-blue)', fontSize: '1.3rem', marginBottom: '15px' },
-  cardDesc: { color: '#555', lineHeight: '1.6' }
+  section: {
+    backgroundColor: '#FFFFFF', // Fundo branco e limpo conforme a referência
+    padding: '80px 5%',
+  },
+  container: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+  },
+  header: {
+    textAlign: 'center',
+    marginBottom: '60px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  subtitle: {
+    fontSize: '0.85rem',
+    fontWeight: '600',
+    color: '#6B7280',
+    letterSpacing: '2px',
+    textTransform: 'uppercase',
+    marginBottom: '5px'
+  },
+  title: {
+    fontSize: '2.5rem',
+    fontWeight: '800',
+    color: '#111827',
+    margin: '0',
+    borderBottom: '4px solid var(--primary-green, #196B32)', // Linha verde embaixo do título
+    paddingBottom: '5px',
+    display: 'inline-block'
+  },
+  grid: {
+    display: 'grid',
+    // Grid de 3 colunas para telas grandes, caindo para 2 ou 1 em telas menores
+    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+    gap: '40px 30px', // 40px de espaço vertical, 30px horizontal
+  },
+  item: {
+    display: 'flex', // Coloca o ícone e o texto lado a lado
+    alignItems: 'flex-start', // Alinha tudo pelo topo
+    gap: '15px',
+  },
+  iconBox: {
+    fontSize: '2rem', // Tamanho do ícone
+    color: 'var(--primary-green, #196B32)', // Se usar ícones em fonte depois, puxará essa cor
+    flexShrink: 0, // Impede que o ícone seja esmagado se o texto for muito longo
+    marginTop: '-5px' // Ajuste fino para alinhar visualmente com o título
+  },
+  textBox: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  itemTitle: {
+    fontSize: '1.15rem',
+    fontWeight: '700',
+    color: '#111827',
+    margin: '0 0 8px 0',
+  },
+  itemDesc: {
+    fontSize: '0.95rem',
+    color: '#4B5563',
+    lineHeight: '1.6',
+    margin: '0',
+  }
 };
 
-export default Compromissos;
+export default Bandeiras;

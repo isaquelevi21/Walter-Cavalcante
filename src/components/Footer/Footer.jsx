@@ -1,55 +1,59 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logoCampanha from '../../assets/images/logo_header.png';
+import './Footer.css'; // Vamos criar este arquivo no próximo passo
 
 const Footer = () => {
   return (
-    <footer style={styles.footer}>
-      <div className="container" style={styles.container}>
+    <footer className="footer-wrapper">
+      <div className="container footer-grid">
         
-        {/* Informações Obrigatórias - TSE */}
-        <div style={styles.tseInfo}>
-          <h4 style={styles.candidateName}>NOME DO CANDIDATO - WALTER CAVALCANTE</h4>
-          <p style={styles.party}>PARTIDO POLÍTICO (SIGLA)</p>
-          <p style={styles.details}>Cargo disputado: [Cargo]</p>
-          <p style={styles.details}>CNPJ da campanha: 00.000.000/0000-00</p>
-          <p style={styles.details}>Site oficial: www.campanha.com.br</p>
+        {/* Coluna 1: Identidade Visual */}
+        <div className="footer-col logo-col">
+          <img src={logoCampanha} alt="Logo Walter Cavalcante" className="footer-logo" />
         </div>
 
-        {/* Links Rápidos e Legais */}
-        <div style={styles.linksBlock}>
-          <h5 style={styles.linksTitle}>Navegação</h5>
-          <nav style={styles.nav}>
-            <Link to="/politica-de-privacidade" style={styles.link}>Política de Privacidade</Link>
-            <Link to="/termos-de-uso" style={styles.link}>Termos de Uso</Link>
-          </nav>
+        {/* Coluna 2: Informações Obrigatórias TSE e Contato */}
+        <div className="footer-col info-col">
+          <h4 className="footer-title">Informações</h4>
+          <ul className="footer-list">
+            <li><strong>Candidato:</strong> Walter Cavalcante - 43.640</li>
+            <li><strong>Partido:</strong> Partido Verde (PV)</li>
+            <li><strong>Cargo disputado:</strong> Deputado Estadual</li>
+            <li><strong>CNPJ da campanha:</strong> 00.000.000/0000-00</li>
+            <li className="contact-item"><strong>E-mail:</strong> contato@walter43640.com.br</li>
+          </ul>
         </div>
+
+        {/* Coluna 3: Redes Sociais e Páginas Legais */}
+        <div className="footer-col social-col">
+          <h4 className="footer-title">Siga-nos nas redes</h4>
+          <div className="social-icons">
+            {/* Mantive as siglas, mas com o formato circular da sua referência */}
+            <a href="#" aria-label="YouTube" className="icon-circle">YT</a>
+            <a href="#" aria-label="Instagram" className="icon-circle">IG</a>
+            <a href="#" aria-label="Facebook" className="icon-circle">FB</a>
+          </div>
+          
+          <div className="legal-links">
+            <Link to="/politica-de-privacidade">Política de Privacidade</Link>
+            <Link to="/termos-de-uso">Termos de Uso</Link>
+          </div>
+        </div>
+
       </div>
 
-      {/* Aviso de Transparência de IA (Obrigatório TSE 2026, se aplicável) */}
-      <div style={styles.aiNotice}>
-        <div className="container">
-          <p style={styles.aiText}>
-            Material de propaganda eleitoral. Este conteúdo não foi gerado ou alterado por inteligência artificial.
+      {/* Barra Inferior: Direitos Autorais e Regra de IA do TSE */}
+      <div className="footer-bottom">
+        <div className="container bottom-content">
+          <p>Walter Cavalcante © 2026 - Todos os direitos reservados.</p>
+          <p className="ai-notice">
+            Material de propaganda eleitoral.
           </p>
         </div>
       </div>
     </footer>
   );
-};
-
-const styles = {
-  footer: { backgroundColor: 'var(--text-dark)', color: 'var(--text-light)', paddingTop: '40px' },
-  container: { display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '30px', paddingBottom: '30px' },
-  tseInfo: { flex: '1 1 300px' },
-  candidateName: { fontSize: '1.2rem', margin: '0 0 5px 0', color: 'var(--accent-gold)' },
-  party: { fontSize: '1rem', fontWeight: 'bold', marginBottom: '15px' },
-  details: { fontSize: '0.9rem', marginBottom: '5px', color: '#000000' },
-  linksBlock: { flex: '1 1 200px' },
-  linksTitle: { fontSize: '1.1rem', marginBottom: '15px', color: 'var(--accent-gold)' },
-  nav: { display: 'flex', flexDirection: 'column', gap: '10px' },
-  link: { color: 'var(--text-light)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s' },
-  aiNotice: { backgroundColor: '#1A252F', padding: '15px 0', textAlign: 'center', borderTop: '1px solid #34495E' },
-  aiText: { fontSize: '0.8rem', color: '#95A5A6', margin: 0 }
 };
 
 export default Footer;

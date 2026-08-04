@@ -8,11 +8,11 @@ const Stats = () => {
   ];
 
   return (
-    <section className="stats-section" style={{ backgroundColor: 'var(--primary-blue)', color: 'white', padding: '60px 0' }}>
+    <section className="stats-section" style={{ backgroundColor: 'var(--primary-green)', color: 'white', padding: '60px 0' }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}>
         {statsData.map((stat, index) => (
           <div key={index} className="stat-item">
-            <h3 style={{ color: 'var(--accent-gold)', fontSize: '3rem', margin: '0' }}>{stat.number}</h3>
+            <h3 style={{ color: 'var(--accent-orange)', fontSize: '3rem', margin: '0' }}>{stat.number}</h3>
             <p style={{ fontSize: '1.1rem', fontWeight: '500', marginTop: '10px' }}>{stat.label}</p>
           </div>
         ))}

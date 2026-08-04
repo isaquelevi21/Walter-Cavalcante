@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--primary-blue, #16294D);
+  background-color: var(--primary-green, #196B32);
   color: white;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -13,27 +13,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 60px;
+  
+  /* Opção 1: Aumentar o limite máximo (ex: 1400px ou 100% para tela toda) */
+  max-width: 100%; 
+  margin: 0 auto;
+  
+  /* Opção 2: Diminuir o recuo lateral para a logo colar mais na borda */
+  padding: 0 4%; 
 }
-
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 15px;
 }
 
-.number-seal {
-  background-color: var(--accent-gold, #C08A2E);
-  color: white;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 50%;
-  font-size: 1.2rem;
-}
-
-.candidate-name {
-  color: white;
-  margin: 0;
+/* NOVA CLASSE: Para formatar a logo que você vai inserir */
+.header-logo {
+  height: 40px; /* Limita a altura da logo para caber perfeitamente no menu */
+  width: auto;
+  object-fit: contain; /* Garante que a imagem não seja esticada ou cortada */
 }
 
 .main-nav ul {
@@ -49,13 +47,29 @@
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  font-size: 0.95rem; /* Fonte levemente menor para um aspecto mais limpo */
 }
 
 .main-nav a:hover {
-  color: var(--accent-gold, #C08A2E);
+  color: var(--accent-orange, #EF7C00);
 }
 
-/* Espaço para não esconder o topo do site debaixo do header fixo */
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.social-links a:hover {
+  color: var(--accent-orange, #EF7C00);
+}
+
+/* IMPORTANTE: Como reduzimos o cabeçalho para 60px, o corpo também precisa de menos recuo no topo */
 body {
-  padding-top: 80px; 
+  padding-top: 60px; 
 }

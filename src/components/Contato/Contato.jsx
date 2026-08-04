@@ -41,7 +41,7 @@ const styles = {
   section: { padding: '80px 0', backgroundColor: 'var(--bg-light)' },
   container: { display: 'flex', gap: '50px', flexWrap: 'wrap' },
   infoBlock: { flex: '1 1 300px' },
-  title: { fontSize: '2.5rem', marginBottom: '20px', color: 'var(--primary-blue)' },
+  title: { fontSize: '2.5rem', marginBottom: '20px', color: 'var(--primary-green)' },
   text: { fontSize: '1.1rem', color: '#555', marginBottom: '30px' },
   contactDetails: { fontSize: '1.1rem', color: 'var(--text-dark)' },
   form: { flex: '2 1 400px', backgroundColor: 'white', padding: '30px', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' },
@@ -49,9 +49,9 @@ const styles = {
   label: { display: 'block', marginBottom: '8px', fontWeight: '500', color: 'var(--text-dark)' },
   input: { width: '100%', padding: '12px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '1rem' },
   textarea: { width: '100%', padding: '12px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '1rem', resize: 'vertical' },
-  button: { width: '100%', padding: '15px', backgroundColor: 'var(--primary-blue)', color: 'white', border: 'none', borderRadius: '4px', fontSize: '1.1rem', fontWeight: 'bold', cursor: 'pointer', transition: 'background-color 0.3s' },
+  button: { width: '100%', padding: '15px', backgroundColor: 'var(--primary-green)', color: 'white', border: 'none', borderRadius: '4px', fontSize: '1.1rem', fontWeight: 'bold', cursor: 'pointer', transition: 'background-color 0.3s' },
   lgpdNotice: { marginTop: '15px', fontSize: '0.85rem', color: '#666', textAlign: 'center' },
-  link: { color: 'var(--accent-gold)', textDecoration: 'underline' }
+  link: { color: 'var(--accent-orange)', textDecoration: 'underline' }
 };
 
 export default Contato;
