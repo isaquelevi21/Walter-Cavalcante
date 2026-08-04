@@ -1,0 +1,20 @@
+.site-footer {
+  padding: 2rem 1.5rem;
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.site-footer__identificacao p {
+  margin: 0.15rem 0;
+}
+
+.site-footer__legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-footer__disclaimer {
+  opacity: 0.7;
+}
