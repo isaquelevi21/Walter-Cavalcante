@@ -1,57 +1,110 @@
-import React from 'react';
-import './style.css'; // Opcional, para estilos específicos não cobertos no global.css
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Contato.css'; // Importando o arquivo CSS separado!
 
 const Contato = () => {
+  const [aceitouTermos, setAceitouTermos] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!aceitouTermos) {
+      alert("Por favor, confirme que você está de acordo com a Política de Privacidade.");
+      return;
+    }
+    alert("Sua mensagem foi enviada com sucesso! Em breve retornaremos.");
+  };
+
   return (
-    <section id="contato" style={styles.section}>
-      <div className="container" style={styles.container}>
-        <div style={styles.infoBlock}>
-          <h2 style={styles.title}>Fale Conosco</h2>
-          <p style={styles.text}>Sua voz é fundamental para construirmos um futuro melhor. Envie suas sugestões, dúvidas ou mensagens de apoio.</p>
-          <div style={styles.contactDetails}>
-            <p><strong>E-mail:</strong> contato@campanha.com.br</p>
-            <p><strong>WhatsApp:</strong> (00) 00000-0000</p>
-          </div>
+    <section id="contato" className="contato-section">
+      <div className="contato-container">
+        
+        {/* Cabeçalho */}
+        <div className="contato-header">
+          <h2 className="contato-title">Vamos Juntos pelo Ceará</h2>
+          <p className="contato-subtitle">
+            Sua voz é fundamental para construirmos um mandato participativo. Envie sua sugestão, denúncia ou venha somar forças na nossa campanha.
+          </p>
         </div>
 
-        <form style={styles.form}>
-          <div style={styles.inputGroup}>
-            <label htmlFor="nome" style={styles.label}>Nome Completo</label>
-            <input type="text" id="nome" name="nome" required style={styles.input} />
+        <div className="contato-content">
+          
+          {/* Coluna 1: Informações de Contato Direto */}
+          <div className="contato-info-box">
+            
+            <div className="info-item">
+              <div className="info-icon">📍</div>
+              <div className="info-text">
+                <h4>Comitê Central</h4>
+                <p>Av. Antônio Sales, 1234 - Dionísio Torres<br/>Fortaleza - CE</p>
+              </div>
+            </div>
+
+            <div className="info-item">
+              <div className="info-icon">📱</div>
+              <div className="info-text">
+                <h4>WhatsApp da Campanha</h4>
+                <p>(85) 99999-4364</p>
+              </div>
+            </div>
+
+            <div className="info-item">
+              <div className="info-icon">✉️</div>
+              <div className="info-text">
+                <h4>E-mail</h4>
+                <p>contato@walter43640.com.br</p>
+              </div>
+            </div>
+
           </div>
-          <div style={styles.inputGroup}>
-            <label htmlFor="email" style={styles.label}>E-mail</label>
-            <input type="email" id="email" name="email" required style={styles.input} />
+
+          {/* Coluna 2: Formulário (Card) */}
+          <div className="contato-form-card">
+            <form onSubmit={handleSubmit} className="contato-form">
+              
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Nome Completo</label>
+                  <input type="text" className="form-input" placeholder="Digite seu nome" required />
+                </div>
+                <div className="form-group">
+                  <label>WhatsApp</label>
+                  <input type="tel" className="form-input" placeholder="(85) 90000-0000" required />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Assunto</label>
+                <input type="text" className="form-input" placeholder="Ex: Sugestão para o bairro, Voluntariado..." required />
+              </div>
+
+              <div className="form-group">
+                <label>Sua Mensagem</label>
+                <textarea className="form-textarea" placeholder="Como o Deputado Walter Cavalcante pode te ajudar?" required></textarea>
+              </div>
+
+              <div className="form-checkbox-group">
+                <input 
+                  type="checkbox" 
+                  id="privacidade" 
+                  checked={aceitouTermos}
+                  onChange={(e) => setAceitouTermos(e.target.checked)}
+                />
+                <label htmlFor="privacidade">
+                  Concordo com a <Link to="/politica-de-privacidade" className="form-link">Política de Privacidade</Link>.
+                </label>
+              </div>
+
+              <button type="submit" className="btn-enviar">
+                Enviar Mensagem
+              </button>
+
+            </form>
           </div>
-          <div style={styles.inputGroup}>
-            <label htmlFor="mensagem" style={styles.label}>Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="4" required style={styles.textarea}></textarea>
-          </div>
-          <button type="submit" style={styles.button}>Enviar Mensagem</button>
-          <p style={styles.lgpdNotice}>
-            Ao enviar esta mensagem, você concorda com nossa <a href="/politica-de-privacidade" style={styles.link}>Política de Privacidade</a>.
-          </p>
-        </form>
+
+        </div>
       </div>
     </section>
   );
-};
-
-const styles = {
-  section: { padding: '80px 0', backgroundColor: 'var(--bg-light)' },
-  container: { display: 'flex', gap: '50px', flexWrap: 'wrap' },
-  infoBlock: { flex: '1 1 300px' },
-  title: { fontSize: '2.5rem', marginBottom: '20px', color: 'var(--primary-green)' },
-  text: { fontSize: '1.1rem', color: '#555', marginBottom: '30px' },
-  contactDetails: { fontSize: '1.1rem', color: 'var(--text-dark)' },
-  form: { flex: '2 1 400px', backgroundColor: 'white', padding: '30px', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' },
-  inputGroup: { marginBottom: '20px' },
-  label: { display: 'block', marginBottom: '8px', fontWeight: '500', color: 'var(--text-dark)' },
-  input: { width: '100%', padding: '12px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '1rem' },
-  textarea: { width: '100%', padding: '12px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '1rem', resize: 'vertical' },
-  button: { width: '100%', padding: '15px', backgroundColor: 'var(--primary-green)', color: 'white', border: 'none', borderRadius: '4px', fontSize: '1.1rem', fontWeight: 'bold', cursor: 'pointer', transition: 'background-color 0.3s' },
-  lgpdNotice: { marginTop: '15px', fontSize: '0.85rem', color: '#666', textAlign: 'center' },
-  link: { color: 'var(--accent-orange)', textDecoration: 'underline' }
 };
 
 export default Contato;

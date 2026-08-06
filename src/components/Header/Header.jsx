@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css'; 
+import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok } from 'react-icons/fa';
 
 // 1. IMPORTAÇÃO CORRETA DA IMAGEM
 // Voltamos duas pastas (../../) para sair de 'Header' e 'components', caindo em 'src'
@@ -29,11 +30,43 @@ const Header = () => {
           </ul>
         </nav>
 
-        <div className="social-links">
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="WhatsApp">WA</a>
-        </div>
+        <div className="redes-sociais">
+            <a 
+              href="https://www.instagram.com/walterlfcavalcante?igsh=MWQwYWNtdm1tYWh4" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="icone-social"
+            >
+              <FaInstagram size={24} />
+            </a>
+
+            <a 
+              href="https://www.facebook.com/depwaltercavalcante" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="icone-social"
+            >
+              <FaFacebookF size={24} />
+            </a>
+
+            <a 
+              href="https://www.youtube.com/@walterlfcavalcante" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="icone-social"
+            >
+              <FaYoutube size={24} />
+            </a>
+
+            <a 
+              href="https://www.tiktok.com/@walterlfcavalcante?_r=1&_t=ZS-98fEqpppcgP" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="icone-social"
+            >
+              <FaTiktok size={24} />
+            </a>
+          </div>
         
       </div>
     </header>

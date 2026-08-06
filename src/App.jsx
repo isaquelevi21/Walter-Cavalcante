@@ -1,28 +1,27 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-// Importação dos componentes fixos
-import Header from './components/Header/Header.jsx'; // ou './components/Header/index.jsx' dependendo de como você nomeou
-import Footer from './components/Footer/Footer.jsx';
-import CookieBanner from './components/Cookies/CookieBanner.jsx';
-
-// Importação das Páginas
-import Home from './pages/Home.jsx';
-import PoliticaPrivacidade from './pages/Legal/PoliticaPrivacidade.jsx';
-import TermosDeUso from './pages/Legal/TermosDeUso.jsx';
-
-export default function App() {
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import CookieBanner from "./components/Cookies/CookieBanner"; // 1. Importe aqui
+import Home from './pages/Home';
+import Privacidade from './pages/Legal/PoliticaPrivacidade';
+import Termos from './pages/Legal/TermosDeUso';
+function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
-          <Route path="/termos-de-uso" element={<TermosDeUso />} />
-        </Routes>
-      </main>
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/politica-de-privacidade" element={<Privacidade />} />
+        <Route path="/termos-de-uso" element={<Termos />} />
+      </Routes>
+      
       <Footer />
+      
+      {/* 2. Coloque o banner aqui, para que ele sobreponha todas as páginas */}
       <CookieBanner />
-    </BrowserRouter>
+    </Router>
   );
 }
+
+export default App;
