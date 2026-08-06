@@ -68,16 +68,16 @@ const Trajetoria = () => {
 
   const projetosLei = [
     {
-      id: "PL 01/2026",
+      id: "LEI 16.473/2017 ",
       categoria: "PROJETOS DE LEI",
-      descricao: "Dispõe sobre a criação de programa de incentivo fiscal para empresas que contratarem jovens aprendizes em situação de vulnerabilidade social no Estado do Ceará.",
-      data: "15/03/2026"
+      descricao: "CONSIDERA DE UTILIDADE PÚBLICA A ASSOCIAÇÃO DESPORTIVA, RECREATIVA E CULTURAL DO ESTADO DO CEARÁ (LIFEC), COM SEDE NO MUNICÍPIO DE FORTALEZA, ESTADO DO CEARÁ.",
+      data: "2017"
     },
     {
-      id: "PL 02/2026",
-      categoria: "PROJETOS DE LEI",
-      descricao: "Institui a Política Estadual de Apoio ao Microempreendedor, facilitando o acesso a crédito e desburocratizando a formalização de novos negócios.",
-      data: "02/04/2026"
+      id: "LEI 16.823/2019",
+      categoria: "LEIS ESTADUAIS",
+      descricao: "INSTITUI A OBRIGATORIEDADE NA REALIZAÇÃO DE PROCESSO SELETIVO PARA CONTRATAÇÃO DE MENOR APRENDIZ E ESTAGIÁRIO PELOS ÓRGÃOS PÚBLICOS ESTADUAIS, A RESERVA DE ATÉ 10% DAS VAGAS AOS PORTADORES DE NECESSIDADE ESPECIAL, NA FORMA QUE INDICA.",
+      data: "2019"
     },
     {
       id: "Indicação 45/2026",
