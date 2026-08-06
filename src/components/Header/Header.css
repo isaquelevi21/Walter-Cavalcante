@@ -68,6 +68,29 @@
 .social-links a:hover {
   color: var(--accent-orange, #EF7C00);
 }
+.redes-sociais {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icone-social {
+  color: #FFFFFF; /* Cor do ícone - mude de acordo com o fundo */
+  background-color: #196B32; /* Verde da campanha */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Deixa o ícone redondo */
+  transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse: o ícone levanta um pouquinho e muda a cor do fundo */
+.icone-social:hover {
+  transform: translateY(-3px);
+  background-color: #EF7C00; /* Laranja da campanha */
+}
 
 /* IMPORTANTE: Como reduzimos o cabeçalho para 60px, o corpo também precisa de menos recuo no topo */
 body {

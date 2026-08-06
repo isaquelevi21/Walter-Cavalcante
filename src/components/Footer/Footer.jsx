@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logoCampanha from '../../assets/images/logo_header.png';
 import './Footer.css'; // Vamos criar este arquivo no próximo passo
+import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -28,13 +29,43 @@ const Footer = () => {
         {/* Coluna 3: Redes Sociais e Páginas Legais */}
         <div className="footer-col social-col">
           <h4 className="footer-title">Siga-nos nas redes</h4>
-          <div className="social-icons">
-            {/* Mantive as siglas, mas com o formato circular da sua referência */}
-            <a href="#" aria-label="YouTube" className="icon-circle">YT</a>
-            <a href="#" aria-label="Instagram" className="icon-circle">IG</a>
-            <a href="#" aria-label="Facebook" className="icon-circle">FB</a>
-          </div>
-          
+          <div className="redes-sociais">
+  <a 
+    href="https://www.instagram.com/SEU_LINK_AQUI" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="icone-social"
+  >
+    <FaInstagram size={24} />
+  </a>
+
+  <a 
+    href="https://www.facebook.com/SEU_LINK_AQUI" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="icone-social"
+  >
+    <FaFacebookF size={24} />
+  </a>
+
+  <a 
+    href="https://www.youtube.com/SEU_LINK_AQUI" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="icone-social"
+  >
+    <FaYoutube size={24} />
+  </a>
+
+  <a 
+    href="https://www.tiktok.com/@SEU_LINK_AQUI" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="icone-social"
+  >
+    <FaTiktok size={24} />
+  </a>
+</div>
           <div className="legal-links">
             <Link to="/politica-de-privacidade">Política de Privacidade</Link>
             <Link to="/termos-de-uso">Termos de Uso</Link>
