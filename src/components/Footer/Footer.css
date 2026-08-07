@@ -138,3 +138,34 @@
   font-size: 0.75rem !important;
   color: #6B7280 !important;
 }
+
+/* =========================================
+   RESPONSIVIDADE - FOOTER (Celulares e Tablets)
+   ========================================= */
+@media (max-width: 768px) {
+  /* Altera a direção do flex para empilhar as colunas verticalmente */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px; /* Espaço entre as colunas empilhadas */
+  }
+
+  /* Garante que cada coluna ocupe 100% da largura da tela */
+  .footer-column {
+    width: 100%;
+    align-items: center; /* Centraliza o conteúdo interno das colunas */
+  }
+
+  /* Centraliza os ícones das redes sociais */
+  .redes-sociais {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  /* Ajusta o tamanho da logo no rodapé para não ficar desproporcional */
+  .footer-logo {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+}
