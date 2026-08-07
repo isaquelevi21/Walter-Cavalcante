@@ -3,96 +3,168 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--primary-green, #196B32);
+  height: 80px;
+  background: linear-gradient(90deg, var(--primary-green, #196B32), #1f7a3d);
   color: white;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
-  
-  /* Opção 1: Aumentar o limite máximo (ex: 1400px ou 100% para tela toda) */
-  max-width: 100%; 
+  height: 100%;
+  max-width: 100%;
   margin: 0 auto;
-  
-  /* Opção 2: Diminuir o recuo lateral para a logo colar mais na borda */
-  padding: 0 4%; 
+  padding: 0 4%;
+  gap: 1rem;
 }
+
 .logo-area {
   display: flex;
   align-items: center;
+  height: 100%;
+  padding: 0;
+  min-width: 180px;
 }
 
-/* NOVA CLASSE: Para formatar a logo que você vai inserir */
 .header-logo {
-  height: 40px; /* Limita a altura da logo para caber perfeitamente no menu */
+  height: 130px;
+  max-height: 200px;
   width: auto;
-  object-fit: contain; /* Garante que a imagem não seja esticada ou cortada */
+  object-fit: contain;
 }
 
 .main-nav ul {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 26px;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
+}
+
+.main-nav li {
+  position: relative;
+}
+
+
+.nav-dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropdown-arrow {
+  display: inline-block;
+  font-size: 0.76rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+  transform: translateY(1px);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translate(-50%, -10px);
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 12px;
+  box-shadow: 0 16px 28px rgba(0,0,0,0.14);
+  padding: 12px 0;
+  min-width: 210px;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 20;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  color: white;
+  padding: 10px 12px;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 0.96rem;
+  text-align: center;
+}
+
+.dropdown-menu a:hover {
+  color: var(--accent-orange, #EF7C00);
+  background: none;
 }
 
 .main-nav a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
   transition: color 0.3s;
-  font-size: 0.95rem; /* Fonte levemente menor para um aspecto mais limpo */
+  font-size: 1.12rem;
 }
 
 .main-nav a:hover {
   color: var(--accent-orange, #EF7C00);
 }
 
-.social-links {
-  display: flex;
-  gap: 15px;
-}
-
-.social-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.social-links a:hover {
-  color: var(--accent-orange, #EF7C00);
-}
 .redes-sociais {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .icone-social {
-  color: #FFFFFF; /* Cor do ícone - mude de acordo com o fundo */
-  background-color: #196B32; /* Verde da campanha */
+  color: #FFFFFF;
+  background-color: rgba(255,255,255,0.16);
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%; /* Deixa o ícone redondo */
+  border-radius: 50%;
   transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
 }
 
-/* Efeito ao passar o mouse: o ícone levanta um pouquinho e muda a cor do fundo */
 .icone-social:hover {
   transform: translateY(-3px);
-  background-color: #EF7C00; /* Laranja da campanha */
+  background-color: var(--accent-orange, #EF7C00);
 }
 
-/* IMPORTANTE: Como reduzimos o cabeçalho para 60px, o corpo também precisa de menos recuo no topo */
 body {
-  padding-top: 60px; 
+  padding-top: 72px;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+  }
+
+  .main-nav ul {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .redes-sociais {
+    justify-content: center;
+  }
 }

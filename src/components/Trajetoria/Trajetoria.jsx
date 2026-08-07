@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { candidato } from '../../data/candidato';
 
 // --- COMPONENTE DE ANIMAÇÃO ---
 // Este componente cuida exclusivamente de fazer o número subir até o valor final
@@ -68,55 +69,108 @@ const Trajetoria = () => {
 
   const projetosLei = [
     {
-      id: "LEI 16.473/2017 ",
+      id: "LEI 16.473/2017",
       categoria: "PROJETOS DE LEI",
-      descricao: "CONSIDERA DE UTILIDADE PÚBLICA A ASSOCIAÇÃO DESPORTIVA, RECREATIVA E CULTURAL DO ESTADO DO CEARÁ (LIFEC), COM SEDE NO MUNICÍPIO DE FORTALEZA, ESTADO DO CEARÁ.",
-      data: "2017"
+      descricao: "Considera de utilidade pública a Associação Desportiva, Recreativa e Cultural do Estado do Ceará (LIFEC), com sede no município de Fortaleza, Estado do Ceará.",
+      data: "2017",
+      link: "https://www.al.ce.gov.br"
     },
     {
       id: "LEI 16.823/2019",
       categoria: "LEIS ESTADUAIS",
-      descricao: "INSTITUI A OBRIGATORIEDADE NA REALIZAÇÃO DE PROCESSO SELETIVO PARA CONTRATAÇÃO DE MENOR APRENDIZ E ESTAGIÁRIO PELOS ÓRGÃOS PÚBLICOS ESTADUAIS, A RESERVA DE ATÉ 10% DAS VAGAS AOS PORTADORES DE NECESSIDADE ESPECIAL, NA FORMA QUE INDICA.",
-      data: "2019"
+      descricao: "Institui a obrigatoriedade na realização de processo seletivo para contratação de menor aprendiz e estagiário pelos órgãos públicos estaduais, com reserva de até 10% das vagas aos portadores de necessidade especial, na forma que indica.",
+      data: "2019",
+      link: "https://www.al.ce.gov.br"
     },
     {
       id: "Indicação 45/2026",
       categoria: "PROPOSIÇÕES",
       descricao: "Solicita a reforma e ampliação do Hospital Geral, visando melhorar o atendimento de emergência e aumentar o número de leitos de UTI disponíveis para a população.",
-      data: "20/05/2026"
+      data: "2026",
+      link: "https://www.al.ce.gov.br"
     },
     {
       id: "PL 03/2026",
       categoria: "PROJETOS DE LEI",
       descricao: "Cria o programa 'Educação do Amanhã', que viabiliza a construção de novas creches em tempo integral nas periferias de Fortaleza.",
-      data: "10/06/2026"
+      data: "2026",
+      link: "https://www.al.ce.gov.br"
     },
     {
-      id: "Indicação 46/2026",
-      categoria: "PROPOSIÇÕES",
-      descricao: "Propõe a implementação de sistema de iluminação inteligente e câmeras de monitoramento em praças públicas para aumentar a segurança nos bairros.",
-      data: "18/07/2026"
+      id: "Lei nº 15.847/2015",
+      categoria: "LEIS ESTADUAIS",
+      descricao: "Adequação e destinação de 5% das unidades habitacionais construídas pelo Estado do Ceará para famílias de pessoas com necessidades especiais.",
+      data: "2015",
+      link: "https://www.al.ce.gov.br"
     },
     {
       id: "PL 04/2026",
       categoria: "PROJETOS DE LEI",
       descricao: "Estabelece diretrizes para a preservação de áreas verdes urbanas e a criação de parques municipais focados na sustentabilidade ambiental.",
-      data: "05/08/2026"
+      data: "2026",
+      link: "https://www.al.ce.gov.br"
+    },
+    {
+      id: "LEI 16.823/2019",
+      categoria: "LEIS ESTADUAIS",
+      descricao: "Reserva de até 10% das vagas para pessoas com deficiência em processos seletivos de estágio e menor aprendiz nos órgãos públicos estaduais.",
+      data: "2019",
+      link: "https://www.al.ce.gov.br"
+    },
+    {
+      id: "LEI 17.226/2020",
+      categoria: "LEIS ESTADUAIS",
+      descricao: "Proibição do uso de cerol, linha chilena e outros materiais cortantes em pipas, com criação de semana estadual de conscientização.",
+      data: "2020",
+      link: "https://www.al.ce.gov.br"
+    },
+    {
+      id: "LEI 16.605/2018",
+      categoria: "LEIS ESTADUAIS",
+      descricao: "Alteração dos prazos das licenças ambientais para postos de combustíveis, simplificando o licenciamento e fortalecendo a atividade econômica do setor.",
+      data: "2018",
+      link: "https://www.al.ce.gov.br"
     }
   ];
 
   return (
     <section id="biografia" style={styles.section}>
+      <div className="container" style={styles.bioSummaryContainer}>
+        <div style={styles.bioCard}>
+          <span style={styles.bioEyebrow}>Quem Sou</span>
+          <h2 style={styles.bioTitle}>Uma trajetória construída com compromisso e serviço</h2>
+          <p style={styles.bioText}>
+            Uma vida dedicada ao trabalho, à família e ao desenvolvimento do Ceará. Walter Cavalcante construiu sua história com dedicação à gestão pública, à habitação, aos direitos humanos e ao fortalecimento do empreendedorismo.
+          </p>
+
+          <ul style={styles.bioList}>
+            <li><strong>Valores firmes:</strong> cristão, casado, pai de dois filhos e defensor da vida e da família.</li>
+            <li><strong>Gestão e habitação:</strong> de office boy a fundador da COHABECE, responsável por milhares de moradias populares.</li>
+            <li><strong>Por Fortaleza:</strong> vereador por 5 mandatos, presidente da Câmara e criador da Sala de Direitos Humanos.</li>
+            <li><strong>Pelo Ceará:</strong> deputado estadual reeleito, líder atuante e criador da Sala do Empreendedor.</li>
+          </ul>
+
+          <p style={styles.bioHighlight}>
+            Para continuarmos esse trabalho pelo povo cearense, peço o seu voto. <strong>Sou candidato à reeleição: {candidato.numero}.</strong>
+          </p>
+        </div>
+      </div>
       
       {/* Bloco de Números Dinâmicos */}
       <div style={styles.statsBanner}>
         <div className="container" style={styles.statsContainer}>
-          {statsData.map((stat, index) => (
-            <div key={index} style={styles.statCard}>
-              <AnimatedCounter finalValue={stat.finalValue} suffix={stat.suffix} />
-              <p style={styles.statLabel}>{stat.label}</p>
-            </div>
-          ))}
+          <div style={styles.statsIntro}>
+            <h2 style={styles.statsName}>{candidato.nomeCompleto}</h2>
+            <p style={styles.statsSubtitle}>em números</p>
+          </div>
+          <div style={styles.statsGrid}>
+            {statsData.map((stat, index) => (
+              <div key={index} style={styles.statCard}>
+                <AnimatedCounter finalValue={stat.finalValue} suffix={stat.suffix} />
+                <p style={styles.statLabel}>{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -133,7 +187,18 @@ const Trajetoria = () => {
               <p style={styles.cardDesc}>{projeto.descricao}</p>
               <div style={styles.cardFooter}>
                 <span style={styles.cardDate}>📅 {projeto.data}</span>
-                <button style={styles.cardButton}>CLIQUE E VEJA MAIS</button>
+                {projeto.link ? (
+                  <a
+                    href={projeto.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={styles.cardButton}
+                  >
+                    CLIQUE E VEJA MAIS
+                  </a>
+                ) : (
+                  <button style={styles.cardButton}>CLIQUE E VEJA MAIS</button>
+                )}
               </div>
             </div>
           ))}
@@ -150,18 +215,98 @@ const styles = {
     backgroundColor: '#FFFFFF', 
     paddingBottom: '80px' 
   },
+  bioSummaryContainer: {
+    padding: '60px 0 20px'
+  },
+  bioCard: {
+    background: 'linear-gradient(135deg, #f8faf8 0%, #ffffff 100%)',
+    border: '1px solid #e5e7eb',
+    borderRadius: '18px',
+    padding: '36px',
+    boxShadow: '0 14px 35px rgba(0,0,0,0.06)'
+  },
+  bioEyebrow: {
+    display: 'inline-block',
+    color: 'var(--accent-orange, #EF7C00)',
+    fontWeight: '700',
+    letterSpacing: '0.16em',
+    textTransform: 'uppercase',
+    marginBottom: '10px',
+    fontSize: '0.8rem'
+  },
+  bioTitle: {
+    fontSize: '2rem',
+    color: 'var(--primary-green, #196B32)',
+    margin: '0 0 16px',
+    lineHeight: '1.2'
+  },
+  bioText: {
+    fontSize: '1rem',
+    color: '#4B5563',
+    lineHeight: '1.7',
+    marginBottom: '18px'
+  },
+  bioList: {
+    paddingLeft: '20px',
+    color: '#374151',
+    lineHeight: '1.8',
+    marginBottom: '18px'
+  },
+  bioHighlight: {
+    fontSize: '1rem',
+    color: 'var(--primary-green, #196B32)',
+    borderLeft: '4px solid var(--accent-orange, #EF7C00)',
+    paddingLeft: '15px',
+    margin: 0
+  },
   statsBanner: { 
     backgroundColor: 'var(--primary-green, #196B32)', 
     padding: '40px 0', 
-    color: 'white' 
+    color: 'white',
+    borderRadius: '24px',
+    overflow: 'hidden'
   },
   statsContainer: { 
     display: 'flex', 
-    justifyContent: 'space-around', 
-    gap: '20px', 
+    alignItems: 'center',
+    justifyContent: 'space-between', 
+    gap: '30px', 
     flexWrap: 'wrap',
     maxWidth: '1200px',
     margin: '0 auto'
+  },
+  statsIntro: {
+    flex: '0 0 280px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    gap: '8px',
+    alignItems: 'flex-start'
+  },
+  statsName: {
+    fontSize: '3rem',
+    lineHeight: '1.02',
+    margin: 0,
+    color: '#FFFFFF',
+    fontWeight: '900',
+    fontFamily: 'Georgia, serif',
+    letterSpacing: '0.02em',
+    textTransform: 'capitalize'
+  },
+  statsSubtitle: {
+    fontSize: '1rem',
+    margin: 0,
+    color: '#E5E7EB',
+    fontStyle: 'italic',
+    fontFamily: 'Georgia, serif',
+    letterSpacing: '0.08em'
+  },
+  statsGrid: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    gap: '20px',
+    flex: '1 1 560px',
+    flexWrap: 'wrap'
   },
   statCard: { 
     textAlign: 'center', 
@@ -200,16 +345,23 @@ const styles = {
     padding: '30px', 
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
     boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
     border: '1px solid #E5E7EB'
   },
   cardHeader: {
-    marginBottom: '20px' 
+    marginBottom: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '10px'
   },
   cardTitle: {
-    fontSize: '1.75rem',
+    fontSize: '1.5rem',
     color: '#111827',
-    marginBottom: '10px'
+    margin: 0,
+    lineHeight: '1.2'
   },
   badge: {
     display: 'inline-block',
@@ -223,31 +375,40 @@ const styles = {
   cardDesc: {
     fontSize: '1rem', 
     color: '#4B5563',
-    lineHeight: '1.6',
+    lineHeight: '1.7',
     flexGrow: 1, 
-    marginBottom: '25px'
+    margin: '0 auto 25px',
+    maxWidth: '100%'
   },
   cardFooter: {
     display: 'flex',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
     borderTop: '1px solid #E5E7EB',
-    paddingTop: '20px' 
+    paddingTop: '20px',
+    gap: '10px'
   },
   cardDate: {
-    fontSize: '0.85rem',
-    color: '#6B7280'
+    fontSize: '0.9rem',
+    color: '#6B7280',
+    margin: 0
   },
   cardButton: {
     backgroundColor: '#6B7280', 
     color: 'white',
     border: 'none',
-    padding: '8px 16px', 
-    borderRadius: '20px', 
-    fontSize: '0.8rem', 
-    fontWeight: 'bold',
+    padding: '12px 22px', 
+    borderRadius: '24px', 
+    fontSize: '0.95rem', 
+    fontWeight: '700',
     cursor: 'pointer',
-    transition: 'background-color 0.2s'
+    transition: 'background-color 0.2s',
+    textDecoration: 'none',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: '220px'
   }
 };
 

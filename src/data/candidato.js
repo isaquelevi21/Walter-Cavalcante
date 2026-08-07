@@ -1,28 +1,29 @@
-// Fonte única de verdade para os dados exigidos pelo TSE.
-// Preencha aqui — todos os componentes (Header, Footer, páginas legais)
-// consomem estes dados, então um único lugar para atualizar.
+// Fonte única de verdade para os dados da campanha.
+// Os componentes consomem esse objeto para manter textos, contatos e links consistentes.
 
 export const candidato = {
-  // 1. Identificação do candidato
-  nomeCompleto: 'NOME COMPLETO DO CANDIDATO',
-  nomeUrna: 'NOME DE URNA',
-  numero: '00000', // preencher após o registro da candidatura
-  partido: 'SIGLA DO PARTIDO',
-  partidoNomeCompleto: 'Nome completo do partido',
-  cargo: 'Cargo disputado (ex: Deputado Estadual, Prefeito...)',
-  uf: 'UF',
-  municipio: 'Município (se aplicável)',
+  nomeCompleto: 'Walter Cavalcante',
+  nomeUrna: 'Walter Cavalcante',
+  numero: '43.640',
+  partido: 'PV',
+  partidoNomeCompleto: 'Partido Verde',
+  cargo: 'Deputado Estadual',
+  uf: 'CE',
+  municipio: 'Fortaleza',
 
-  // 2. Endereço eletrônico informado à Justiça Eleitoral
-  siteOficial: 'https://www.dominio-da-campanha.com.br',
+  siteOficial: 'https://www.walter43640.com.br',
+  cnpjCampanha: '00.000.000/0000-00',
 
-  // 3. CNPJ da campanha
-  cnpjCampanha: '00.000.000/0000-00', // gerado automaticamente após o registro
+  emailOficial: 'contato@walter43640.com.br',
+  whatsappOficial: '+55 (85) 99999-4364',
 
-  // 6. Canal de contato
-  emailOficial: 'contato@dominio-da-campanha.com.br',
-  whatsappOficial: '', // opcional — formato +55 (00) 00000-0000
-
-  // Ano de referência da eleição
   anoEleicao: 2026,
-}
+  redesSociais: {
+    instagram: 'https://www.instagram.com/walterlfcavalcante?igsh=MWQwYWNtdm1tYWh4',
+    facebook: 'https://www.facebook.com/depwaltercavalcante',
+    youtube: 'https://www.youtube.com/@walterlfcavalcante',
+    tiktok: 'https://www.tiktok.com/@walterlfcavalcante?_r=1&_t=ZS-98fEqpppcgP',
+  },
+
+  enderecoComite: 'Av. Antônio Sales, 1234 - Dionísio Torres, Fortaleza - CE',
+};

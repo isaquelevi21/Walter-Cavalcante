@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css'; 
 import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok } from 'react-icons/fa';
-
-// 1. IMPORTAÇÃO CORRETA DA IMAGEM
-// Voltamos duas pastas (../../) para sair de 'Header' e 'components', caindo em 'src'
 import logoCampanha from '../../assets/images/logo_header.png';
+import { candidato } from '../../data/candidato';
 
 const Header = () => {
+  const [submenuOpen, setSubmenuOpen] = useState(false);
+
   return (
     <header className="header-fixed">
       <div className="container header-content">
@@ -24,7 +24,27 @@ const Header = () => {
         <nav className="main-nav">
           <ul>
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#biografia">Quem Sou</a></li>
+            <li
+              className={`nav-dropdown ${submenuOpen ? 'open' : ''}`}
+              onMouseEnter={() => setSubmenuOpen(true)}
+              onMouseLeave={() => setSubmenuOpen(false)}
+            >
+              <a href="#biografia">
+                Quem Sou
+                <span
+                  className="dropdown-arrow"
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSubmenuOpen((prev) => !prev);
+                  }}
+                >▾</span>
+              </a>
+              <ul className="dropdown-menu">
+                <li><a href="#biografia">Ação Parlamentar</a></li>
+              </ul>
+            </li>
             <li><a href="#propostas">Compromissos</a></li>
             <li><a href="#contato">Contato</a></li>
           </ul>
@@ -32,7 +52,7 @@ const Header = () => {
 
         <div className="redes-sociais">
             <a 
-              href="https://www.instagram.com/walterlfcavalcante?igsh=MWQwYWNtdm1tYWh4" 
+              href={candidato.redesSociais.instagram} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="icone-social"
@@ -41,7 +61,7 @@ const Header = () => {
             </a>
 
             <a 
-              href="https://www.facebook.com/depwaltercavalcante" 
+              href={candidato.redesSociais.facebook} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="icone-social"
@@ -50,7 +70,7 @@ const Header = () => {
             </a>
 
             <a 
-              href="https://www.youtube.com/@walterlfcavalcante" 
+              href={candidato.redesSociais.youtube} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="icone-social"
@@ -59,7 +79,7 @@ const Header = () => {
             </a>
 
             <a 
-              href="https://www.tiktok.com/@walterlfcavalcante?_r=1&_t=ZS-98fEqpppcgP" 
+              href={candidato.redesSociais.tiktok} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="icone-social"
