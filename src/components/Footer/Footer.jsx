@@ -30,42 +30,42 @@ const Footer = () => {
         <div className="footer-col social-col">
           <h4 className="footer-title">Siga-nos nas redes</h4>
           <div className="redes-sociais">
-  <a 
-    href="https://www.instagram.com/SEU_LINK_AQUI" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="icone-social"
-  >
-    <FaInstagram size={24} />
-  </a>
+            <a 
+              href="https://www.instagram.com/walterlfcavalcante?igsh=MWQwYWNtdm1tYWh4" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="icone-social"
+            >
+              <FaInstagram size={24} />
+            </a>
 
-  <a 
-    href="https://www.facebook.com/SEU_LINK_AQUI" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="icone-social"
-  >
-    <FaFacebookF size={24} />
-  </a>
+            <a 
+              href="https://www.facebook.com/depwaltercavalcante" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="icone-social"
+            >
+              <FaFacebookF size={24} />
+            </a>
 
-  <a 
-    href="https://www.youtube.com/SEU_LINK_AQUI" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="icone-social"
-  >
-    <FaYoutube size={24} />
-  </a>
+            <a 
+              href="https://www.youtube.com/@walterlfcavalcante" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="icone-social"
+            >
+              <FaYoutube size={24} />
+            </a>
 
-  <a 
-    href="https://www.tiktok.com/@SEU_LINK_AQUI" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="icone-social"
-  >
-    <FaTiktok size={24} />
-  </a>
-</div>
+            <a 
+              href="https://www.tiktok.com/@walterlfcavalcante?_r=1&_t=ZS-98fEqpppcgP" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="icone-social"
+            >
+              <FaTiktok size={24} />
+            </a>
+          </div>
           <div className="legal-links">
             <Link to="/politica-de-privacidade">Política de Privacidade</Link>
             <Link to="/termos-de-uso">Termos de Uso</Link>

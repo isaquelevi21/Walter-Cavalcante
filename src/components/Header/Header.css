@@ -96,3 +96,46 @@
 body {
   padding-top: 60px; 
 }
+
+/* =========================================
+   RESPONSIVIDADE - FOOTER (Celulares e Tablets)
+   ========================================= */
+@media (max-width: 768px) {
+  /* Centraliza o container principal */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px; 
+  }
+
+  /* Força cada coluna a centralizar todo o seu conteúdo interno */
+  .footer-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza itens flexíveis */
+    text-align: center;  /* Centraliza os textos */
+  }
+
+  /* Garante que os textos de informações não fiquem puxados para a esquerda */
+  .footer-column p, 
+  .footer-column span, 
+  .footer-column a {
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Centraliza a div dos ícones sociais */
+  .redes-sociais {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Ajusta o espaçamento da logo */
+  .footer-logo {
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+}

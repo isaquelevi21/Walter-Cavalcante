@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <Trajetoria />
       <Compromissos />
-      {/* <Contato/>  */} {/* Para aparecer na interface a aba de contatos , basta retirar de comentário */}
+      {/* <Contato/>  Para aparecer na interface a aba de contatos , basta retirar de comentário */}
     </>
   );
 }
