@@ -1,5 +1,5 @@
 import React from 'react';
-import fotoEstatica from '../../assets/images/teste.png';
+import Interface from '../../assets/images/interface.png';
 
 const Hero = () => {
   return (
@@ -7,7 +7,7 @@ const Hero = () => {
       <div style={styles.carouselWrapper}>
         <div style={styles.imageBox}>
           <img
-            src={fotoEstatica}
+            src={Interface}
             alt="Foto de Walter Cavalcante em ação"
             style={styles.carouselImage}
           />
@@ -43,8 +43,6 @@ const styles = {
   imageBox: {
     position: 'relative',
     width: '100%',
-    // A MÁGICA ACONTECE AQUI:
-    aspectRatio: '16 / 9', // Trava na proporção padrão de monitores/artes horizontais
     maxHeight: '750px', // Trava de segurança para monitores gigantes (iMacs, etc)
     minHeight: '400px', // Trava de segurança para celulares
     overflow: 'hidden',

@@ -189,6 +189,8 @@
 /* --- Botão Saiba Mais --- */
 .biografia-acoes {
   margin-top: 25px;
+  display: flex;
+  justify-content: flex-end; /* Isso empurra o botão totalmente para a direita */
 }
 
 .biografia-acao-parlamentar {

@@ -1,16 +1,25 @@
 /* =========================================
-   1. BARRA PRINCIPAL E CONTAINERS
+   1. BARRA PRINCIPAL (GRADIENTE VERDE/LARANJA)
    ========================================= */
 .header-fixed {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px; /* Altura padrão da barra */
-  background: linear-gradient(90deg, var(--primary-green, #196B32), #1f7a3d);
-  color: white;
+  height: 70px;
+  
+  /* A MÁGICA DO GRADIENTE ASSIMÉTRICO AQUI: */
+  /* Começa verde, continua verde até 75% da tela, e vira laranja na ponta direita */
+  background: linear-gradient(
+    200deg, 
+    var(--primary-green, #196B32) 30%, 
+    #155c29 30%, 
+    var(--accent-orange, #EF7C00)110%
+  );
+  
+  color: rgb(254, 254, 254);
   z-index: 1000;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Sombra um pouquinho mais forte para destacar as cores */
 }
 
 .header-content {
@@ -26,7 +35,7 @@
 
 /* Compensar a barra fixa no resto do site */
 body {
-  padding-top: 80px;
+  padding-top: 70px;
 }
 
 /* =========================================
@@ -34,8 +43,8 @@ body {
    ========================================= */
 .logo-area {
   display: flex;
-  align-items: center;
-  height: 100%;
+  align-items: center; /* Isso centraliza a logo verticalmente no meio da barra */
+  height: 100%; /* Respeita o limite do cabeçalho */
 }
 
 .header-logo {
