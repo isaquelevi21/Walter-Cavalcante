@@ -41,8 +41,8 @@ const Bandeiras = () => {
         
         {/* Cabeçalho da Seção */}
         <div style={styles.header}>
-          <span style={styles.subtitle}>POSICIONAMENTO</span>
-          <h2 style={styles.title}>Bandeiras</h2>
+          <span style={styles.subtitle}>posicionamento</span>
+          <h2 style={styles.title}>bandeiras</h2>
         </div>
 
         {/* Grid de Bandeiras */}
@@ -67,7 +67,7 @@ const Bandeiras = () => {
 
 const styles = {
   section: {
-    backgroundColor: '#FFFFFF', // Fundo branco e limpo conforme a referência
+    backgroundColor: '#F8FAF8',
     padding: '80px 5%',
   },
   container: {
@@ -82,47 +82,50 @@ const styles = {
     alignItems: 'center'
   },
   subtitle: {
-    fontSize: '0.85rem',
-    fontWeight: '600',
-    color: '#6B7280',
-    letterSpacing: '2px',
+    fontSize: '0.8rem',
+    fontWeight: '700',
+    color: '#EF7C00',
+    letterSpacing: '0.08em',
     textTransform: 'uppercase',
-    marginBottom: '5px'
+    marginBottom: '8px'
   },
   title: {
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     fontWeight: '800',
-    color: '#111827',
+    color: '#196B32',
     margin: '0',
-    borderBottom: '4px solid var(--primary-green, #196B32)', // Linha verde embaixo do título
-    paddingBottom: '5px',
-    display: 'inline-block'
+    lineHeight: 1.3
   },
   grid: {
     display: 'grid',
-    // Grid de 3 colunas para telas grandes, caindo para 2 ou 1 em telas menores
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    gap: '40px 30px', // 40px de espaço vertical, 30px horizontal
+    gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+    gap: '18px',
   },
   item: {
-    display: 'flex', // Coloca o ícone e o texto lado a lado
-    alignItems: 'flex-start', // Alinha tudo pelo topo
+    display: 'flex',
+    alignItems: 'flex-start',
     gap: '15px',
+    padding: '18px 20px',
+    backgroundColor: '#FFFFFF',
+    border: '1px solid #E5E7EB',
+    borderLeft: '4px solid #EF7C00',
+    borderRadius: '12px',
+    boxShadow: '0 8px 20px rgba(0,0,0,0.04)',
   },
   iconBox: {
-    fontSize: '2rem', // Tamanho do ícone
-    color: 'var(--primary-green, #196B32)', // Se usar ícones em fonte depois, puxará essa cor
-    flexShrink: 0, // Impede que o ícone seja esmagado se o texto for muito longo
-    marginTop: '-5px' // Ajuste fino para alinhar visualmente com o título
+    fontSize: '1.8rem',
+    color: '#196B32',
+    flexShrink: 0,
+    marginTop: '-2px'
   },
   textBox: {
     display: 'flex',
     flexDirection: 'column',
   },
   itemTitle: {
-    fontSize: '1.15rem',
+    fontSize: '1rem',
     fontWeight: '700',
-    color: '#111827',
+    color: '#196B32',
     margin: '0 0 8px 0',
   },
   itemDesc: {

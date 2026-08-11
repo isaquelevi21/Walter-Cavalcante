@@ -1,46 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import foto1 from '../../assets/images/Carrosel.png';
-import foto2 from '../../assets/images/Carrosel02.png';
-import foto3 from '../../assets/images/Carrosel03.png';
-import foto5 from '../../assets/images/teste.png';
-import { candidato } from '../../data/candidato';
-
+import React from 'react';
+import fotoEstatica from '../../assets/images/teste.png';
 
 const Hero = () => {
-  const imagensCarrossel = [foto5, foto3, foto1, foto2];
-  const [indiceAtual, setIndiceAtual] = useState(0);
-
-  useEffect(() => {
-    const duracao = indiceAtual === 0 ? 8000 : 5000;
-    const timeout = setTimeout(() => {
-      setIndiceAtual((indiceAnterior) =>
-        indiceAnterior === imagensCarrossel.length - 1 ? 0 : indiceAnterior + 1
-      );
-    }, duracao);
-
-    return () => clearTimeout(timeout);
-  }, [indiceAtual, imagensCarrossel.length]);
-
-  const irParaAnterior = () => {
-    setIndiceAtual((indiceAnterior) =>
-      indiceAnterior === 0 ? imagensCarrossel.length - 1 : indiceAnterior - 1
-    );
-  };
-
-  const irParaProximo = () => {
-    setIndiceAtual((indiceAnterior) =>
-      indiceAnterior === imagensCarrossel.length - 1 ? 0 : indiceAnterior + 1
-    );
-  };
-
   return (
     <section id="inicio" className="hero-section" style={styles.hero}>
       <div style={styles.carouselWrapper}>
         <div style={styles.imageBox}>
-          
           <img
-            src={imagensCarrossel[indiceAtual]}
-            alt={`Foto de Walter Cavalcante em ação ${indiceAtual + 1}`}
+            src={fotoEstatica}
+            alt="Foto de Walter Cavalcante em ação"
             style={styles.carouselImage}
           />
 
@@ -53,14 +21,6 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          
-          <div style={styles.navArrowLeft}>
-            <button type="button" onClick={irParaAnterior} style={styles.navButton} aria-label="Imagem anterior">←</button>
-          </div>
-          <div style={styles.navArrowRight}>
-            <button type="button" onClick={irParaProximo} style={styles.navButton} aria-label="Próxima imagem">→</button>
-          </div>
-
         </div>
       </div>
     </section>
@@ -97,7 +57,7 @@ const styles = {
     width: '100%',
     height: '100%',
     objectFit: 'cover', // Com a proporção travada acima, o cover funciona perfeitamente
-    objectPosition: 'center top',
+    objectPosition: 'center 20%',
     display: 'block',
     transition: 'opacity 0.5s ease-in-out'
   },
@@ -127,35 +87,6 @@ const styles = {
     transition: 'all 0.3s',
     boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
     border: '2px solid white'
-  },
-  navArrowLeft: {
-    position: 'absolute',
-    left: '2%',
-    top: '50%',
-    transform: 'translateY(-50%)', 
-    zIndex: 10
-  },
-  navArrowRight: {
-    position: 'absolute',
-    right: '2%',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    zIndex: 10
-  },
-  navButton: {
-    width: '42px',
-    height: '42px',
-    borderRadius: '50%',
-    border: 'none',
-    backgroundColor: 'rgba(255,255,255,0.9)',
-    color: '#196B32',
-    fontSize: '1.2rem',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
-    transition: 'background-color 0.2s'
   }
 };
 

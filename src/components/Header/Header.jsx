@@ -3,11 +3,43 @@ import './Header.css';
 import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok } from 'react-icons/fa';
 import logoCampanha from '../../assets/images/logo_header.png';
 import { candidato } from '../../data/candidato';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [submenuOpen, setSubmenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-return (
+  const scrollToSection = (sectionId) => {
+    if (!sectionId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleMenuClick = (sectionId) => (event) => {
+    event.preventDefault();
+
+    if (location.pathname === '/' && location.hash === `#${sectionId}`) {
+      scrollToSection(sectionId);
+      return;
+    }
+
+    if (sectionId) {
+      navigate(`/#${sectionId}`);
+    } else {
+      navigate('/');
+    }
+  };
+
+  return (
     <header className="header-fixed">
       <div className="header-content">
         
@@ -23,18 +55,19 @@ return (
         <div className="header-direita">
           <nav className="main-nav">
             <ul>
-              <li><a href="#inicio">Início</a></li>
+              <li><a href="#inicio" onClick={handleMenuClick('inicio')}>Início</a></li>
               <li
                 className={`nav-dropdown ${submenuOpen ? 'open' : ''}`}
                 onMouseEnter={() => setSubmenuOpen(true)}
                 onMouseLeave={() => setSubmenuOpen(false)}
               >
-                <a href="#biografia">
+                <a href="#biografia" onClick={handleMenuClick('biografia')}>
                   Quem Sou
                 </a>
               </li>
-              <li><a href="#propostas">Compromissos</a></li>
-              <li><a href="#contato">Contato</a></li>
+              <li><a href="#acao-parlamentar" onClick={handleMenuClick('acao-parlamentar')}>Ação parlamentar</a></li>
+              <li><a href="#propostas" onClick={handleMenuClick('propostas')}>Compromissos</a></li>
+              <li><a href="#contato" onClick={handleMenuClick('contato')}>Contato</a></li>
             </ul>
           </nav>
 

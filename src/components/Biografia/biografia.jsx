@@ -1,10 +1,58 @@
-import React from 'react';
-import './Biografia.css';
+import React, { useEffect, useRef, useState } from 'react';
+import './biografia.css';
 import { Link } from 'react-router-dom';
 // Importe uma foto para a biografia (substitua pelo caminho correto da sua imagem)
 import fotoBiografia from '../../assets/images/Carrosel02.png'; 
 
+const statsData = [
+  { value: 25, suffix: '+', label: 'Anos de Vida Pública' },
+  { value: 150, suffix: '', label: 'Projetos Aprovados' },
+  { value: 100, suffix: '%', label: 'Compromisso com o Povo' },
+];
+
 const Biografia = () => {
+  const statsRef = useRef(null);
+  const [displayValues, setDisplayValues] = useState(statsData.map(() => 0));
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const target = statsRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+
+          statsData.forEach((stat, index) => {
+            const duration = 1400;
+            const startTime = performance.now();
+
+            const animate = (now) => {
+              const progress = Math.min((now - startTime) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const currentValue = Math.round(stat.value * eased);
+
+              setDisplayValues((prev) =>
+                prev.map((value, valueIndex) => (valueIndex === index ? currentValue : value))
+              );
+
+              if (progress < 1) {
+                requestAnimationFrame(animate);
+              }
+            };
+
+            requestAnimationFrame(animate);
+          });
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
   return (
     <section id="biografia" className="biografia-section">
       <div className="biografia-container">
@@ -51,17 +99,28 @@ const Biografia = () => {
               <li>Compromisso com a transparência pública</li>
             </ul>
 
-            {/* ABAIXO FOI ADICIONADO O BOTÃO DE SAIBA MAIS */}
             <div className="biografia-acoes">
               <Link to="/biografia-completa" className="btn-saiba-mais">
                 Ler Biografia Completa
               </Link>
             </div>
-            
           </div>
         </div>
-
       </div>
+
+      <section className="biografia-stats" ref={statsRef}>
+        <div className="biografia-stats-inner">
+          {statsData.map((stat, index) => (
+            <div className="biografia-stat-card" key={stat.label}>
+              <div className="biografia-stat-number">
+                {displayValues[index]}
+                {stat.suffix}
+              </div>
+              <p className="biografia-stat-label">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </section>
   );
 };

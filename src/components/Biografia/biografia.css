@@ -1,6 +1,6 @@
 .biografia-section {
   background-color: #FFFFFF;
-  padding: 100px 5%;
+  padding: 100px 5% 0;
   color: #333;
 }
 
@@ -10,6 +10,42 @@
   display: flex;
   align-items: center;
   gap: 60px;
+}
+
+.biografia-stats {
+  margin-top: 48px;
+  padding: 0 0 40px;
+}
+
+.biografia-stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.biografia-stat-card {
+  background: linear-gradient(135deg, var(--primary-green, #196B32), #0f6d2f);
+  border-radius: 18px;
+  padding: 28px 18px;
+  text-align: center;
+  box-shadow: 0 16px 35px rgba(25, 107, 50, 0.22);
+}
+
+.biografia-stat-number {
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.biografia-stat-label {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 /* --- Coluna da Imagem --- */
@@ -130,11 +166,88 @@
   .biografia-titulo {
     font-size: 2.4rem;
   }
+
+  .biografia-stats-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .biografia-acao-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .biografia-section {
+    padding: 80px 5% 0;
+  }
+
+  .biografia-stat-card {
+    padding: 24px 16px;
+  }
 }
 
 /* --- Botão Saiba Mais --- */
 .biografia-acoes {
   margin-top: 25px;
+}
+
+.biografia-acao-parlamentar {
+  margin-top: 24px;
+  padding: 20px 22px;
+  border-left: 4px solid var(--accent-orange, #EF7C00);
+  background: #f8faf8;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.biografia-acao-header {
+  margin-bottom: 16px;
+}
+
+.biografia-acao-tag {
+  display: inline-block;
+  color: var(--accent-orange, #EF7C00);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.biografia-acao-parlamentar h4 {
+  margin: 0;
+  color: var(--primary-green, #196B32);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.biografia-acao-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.biografia-acao-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.biografia-acao-card h5 {
+  margin: 0 0 8px 0;
+  color: var(--primary-green, #196B32);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.biografia-acao-card p {
+  margin: 0;
+  color: #4B5563;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .btn-saiba-mais {
