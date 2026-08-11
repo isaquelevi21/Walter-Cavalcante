@@ -4,43 +4,43 @@ import { useLocation } from "react-router-dom";
 const acoesParlamentares = [
   {
     titulo: 'LEI 15.847/2015',
-    texto: 'adequação e destinação de 5% das unidades habitacionais, construídas pelo estado do ceará, para famílias portadoras de necessidades especiais.'
+    texto: 'Adequação e destinação de 5% das unidades habitacionais, construídas pelo estado do Ceará, para famílias portadoras de necessidades especiais.'
   },
   {
     titulo: 'LEI 16.276/2017',
-    texto: 'institui a “semana estadual de conscientização e orientação sobre o câncer de estômago” no estado do ceará.'
+    texto: 'Institui a “semana estadual de conscientização e orientação sobre o câncer de estômago” no estado do Ceará.'
   },
   {
     titulo: 'LEI 16.488/2017',
-    texto: 'altera a lei nº 16.276/2017 e institui a “semana estadual de conscientização e orientação sobre o câncer do aparelho digestivo” no estado do ceará.'
+    texto: 'Altera a lei nº 16.276/2017 e institui a “semana estadual de conscientização e orientação sobre o câncer do aparelho digestivo” no estado do Ceará.'
   },
   {
     titulo: 'LEI 16.605/2018',
-    texto: 'altera dispositivos da lei nº 12.621, de 26 de agosto de 1996, em relação aos prazos das licenças prévia, licença de instalação, licença de ampliação e licença de operação nos postos de revenda de combustíveis e derivados de petróleo no estado do ceará.'
+    texto: 'Altera dispositivos da lei nº 12.621, de 26 de agosto de 1996, em relação aos prazos das licenças prévia, licença de instalação, licença de ampliação e licença de operação nos postos de revenda de combustíveis e derivados de petróleo no estado do Ceará.'
   },
   {
     titulo: 'LEI 16.607/2018',
-    texto: 'dispõe sobre a redefinição dos limites da área de proteção ambiental do estuário do rio ceará, unidades de conservação estadual, criada por meio do decreto nº 25.413/1999.'
+    texto: 'Dispõe sobre a redefinição dos limites da área de proteção ambiental do estuário do rio Ceará, unidades de conservação estadual, criada por meio do decreto nº 25.413/1999.'
   },
   {
     titulo: 'LEI 16.823/2019',
-    texto: 'institui a obrigatoriedade na realização de processo seletivo para contratação de menor aprendiz e estagiário pelos órgãos públicos estaduais, a reserva de até 10% das vagas aos portadores de necessidade especial, na forma que indica.'
+    texto: 'Institui a obrigatoriedade na realização de processo seletivo para contratação de menor aprendiz e estagiário pelos órgãos públicos estaduais, a reserva de até 10% das vagas aos portadores de necessidade especial, na forma que indica.'
   },
   {
     titulo: 'LEI 16.838/2019',
-    texto: 'dispõe sobre a destinação de unidades habitacionais a serem construídas pelo governo do estado do ceará para os servidores públicos estaduais.'
+    texto: 'Dispõe sobre a destinação de unidades habitacionais a serem construídas pelo governo do estado do Ceará para os servidores públicos estaduais.'
   },
   {
     titulo: 'LEI 17.200/2020',
-    texto: 'dispõe sobre a obrigatoriedade da execução do hino do estado do ceará em todos os eventos esportivos no estado do ceará, na forma que indica.'
+    texto: 'Dispõe sobre a obrigatoriedade da execução do hino do estado do Ceará em todos os eventos esportivos no estado do Ceará, na forma que indica.'
   },
   {
     titulo: 'LEI 17.226/2019',
-    texto: 'proíbe a utilização de fio com cerol ou cortante, da linha chilena ou qualquer tipo de material cortante para empinar pipa ou raia, e dá outras providências.'
+    texto: 'Proíbe a utilização de fio com cerol ou cortante, da linha chilena ou qualquer tipo de material cortante para empinar pipa ou raia, e dá outras providências.'
   },
   {
     titulo: 'LEI 17.234/2020',
-    texto: 'torna-se obrigatória a utilização de máscaras de proteção pela população de modo em geral em espaços de uso público e privado no estado do ceará enquanto perdurar o estado de calamidade pública, na forma que indica.'
+    texto: 'Torna-se obrigatória a utilização de máscaras de proteção pela população de modo em geral em espaços de uso público e privado no estado do Ceará enquanto perdurar o estado de calamidade pública, na forma que indica.'
   }
 ];
 

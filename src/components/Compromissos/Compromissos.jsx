@@ -42,7 +42,7 @@ const Bandeiras = () => {
         {/* Cabeçalho da Seção */}
         <div style={styles.header}>
           <span style={styles.subtitle}>posicionamento</span>
-          <h2 style={styles.title}>bandeiras</h2>
+          <h2 style={styles.title}>Bandeiras</h2>
         </div>
 
         {/* Grid de Bandeiras */}
