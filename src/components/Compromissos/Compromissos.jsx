@@ -1,4 +1,5 @@
 import React from 'react';
+import './Compromissos.css'; // Importando o nosso novo arquivo de estilos!
 
 const Bandeiras = () => {
   // Array com as bandeiras baseadas no histórico do candidato
@@ -36,25 +37,25 @@ const Bandeiras = () => {
   ];
 
   return (
-    <section id="propostas" style={styles.section}>
-      <div className="container" style={styles.container}>
+    <section id="propostas" className="bandeiras-section">
+      <div className="container bandeiras-container">
         
         {/* Cabeçalho da Seção */}
-        <div style={styles.header}>
-          <span style={styles.subtitle}>posicionamento</span>
-          <h2 style={styles.title}>Bandeiras</h2>
+        <div className="bandeiras-header">
+          <span className="bandeiras-subtitle">posicionamento</span>
+          <h2 className="bandeiras-title">Bandeiras</h2>
         </div>
 
         {/* Grid de Bandeiras */}
-        <div style={styles.grid}>
+        <div className="bandeiras-grid">
           {bandeiras.map((item, index) => (
-            <div key={index} style={styles.item}>
-              <div style={styles.iconBox}>
+            <div key={index} className="bandeiras-item">
+              <div className="bandeiras-icon-box">
                 {item.icone}
               </div>
-              <div style={styles.textBox}>
-                <h3 style={styles.itemTitle}>{item.titulo}</h3>
-                <p style={styles.itemDesc}>{item.descricao}</p>
+              <div className="bandeiras-text-box">
+                <h3 className="bandeiras-item-title">{item.titulo}</h3>
+                <p className="bandeiras-item-desc">{item.descricao}</p>
               </div>
             </div>
           ))}
@@ -63,77 +64,6 @@ const Bandeiras = () => {
       </div>
     </section>
   );
-};
-
-const styles = {
-  section: {
-    backgroundColor: '#F8FAF8',
-    padding: '80px 5%',
-  },
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-  },
-  header: {
-    textAlign: 'center',
-    marginBottom: '60px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-  subtitle: {
-    fontSize: '0.8rem',
-    fontWeight: '700',
-    color: '#EF7C00',
-    letterSpacing: '0.08em',
-    textTransform: 'uppercase',
-    marginBottom: '8px'
-  },
-  title: {
-    fontSize: '2rem',
-    fontWeight: '800',
-    color: '#196B32',
-    margin: '0',
-    lineHeight: 1.3
-  },
-  grid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-    gap: '18px',
-  },
-  item: {
-    display: 'flex',
-    alignItems: 'flex-start',
-    gap: '15px',
-    padding: '18px 20px',
-    backgroundColor: '#FFFFFF',
-    border: '1px solid #E5E7EB',
-    borderLeft: '4px solid #EF7C00',
-    borderRadius: '12px',
-    boxShadow: '0 8px 20px rgba(0,0,0,0.04)',
-  },
-  iconBox: {
-    fontSize: '1.8rem',
-    color: '#196B32',
-    flexShrink: 0,
-    marginTop: '-2px'
-  },
-  textBox: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  itemTitle: {
-    fontSize: '1rem',
-    fontWeight: '700',
-    color: '#196B32',
-    margin: '0 0 8px 0',
-  },
-  itemDesc: {
-    fontSize: '0.95rem',
-    color: '#4B5563',
-    lineHeight: '1.6',
-    margin: '0',
-  }
 };
 
 export default Bandeiras;

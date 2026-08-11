@@ -151,46 +151,11 @@
   font-weight: bold;
 }
 
-/* --- Responsividade --- */
-@media (max-width: 992px) {
-  .biografia-container {
-    flex-direction: column;
-    gap: 50px;
-  }
-  
-  .biografia-detalhe-visual {
-    top: 15px;
-    left: 15px;
-  }
-  
-  .biografia-titulo {
-    font-size: 2.4rem;
-  }
-
-  .biografia-stats-inner {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .biografia-acao-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .biografia-section {
-    padding: 80px 5% 0;
-  }
-
-  .biografia-stat-card {
-    padding: 24px 16px;
-  }
-}
-
 /* --- Botão Saiba Mais --- */
 .biografia-acoes {
   margin-top: 25px;
   display: flex;
-  justify-content: flex-end; /* Isso empurra o botão totalmente para a direita */
+  justify-content: flex-end; /* Isso empurra o botão totalmente para a direita no PC */
 }
 
 .biografia-acao-parlamentar {
@@ -269,4 +234,51 @@
   background-color: #125025;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(25, 107, 50, 0.4);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+  .biografia-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .biografia-detalhe-visual {
+    top: 15px;
+    left: 15px;
+  }
+  
+  .biografia-titulo {
+    font-size: 2.4rem;
+  }
+
+  .biografia-stats-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .biografia-acao-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .biografia-section {
+    padding: 80px 5% 0;
+  }
+
+  .biografia-stat-card {
+    padding: 24px 16px;
+  }
+
+  /* MÁGICA PARA O BOTÃO: Centraliza a caixa e larga o botão no celular */
+  .biografia-acoes {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn-saiba-mais {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+  }
 }

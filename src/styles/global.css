@@ -9,12 +9,16 @@
   --cor-destaque: #EF7C00;
 }
 
-* {
+/* 1. KIT DE EMERGÊNCIA: Adicionado ::before e ::after para garantir que bordas e paddings nunca quebrem o layout */
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  /* 2. KIT DE EMERGÊNCIA: Trava rigorosamente o vazamento lateral no HTML */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -23,14 +27,19 @@ body {
   background: var(--cor-fundo);
   color: var(--cor-texto);
   line-height: 1.6;
+  /* 3. KIT DE EMERGÊNCIA: Trava rigorosamente o vazamento lateral no Corpo do site */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 section[id] {
   scroll-margin-top: 90px;
 }
 
-img {
+/* 4. KIT DE EMERGÊNCIA: Incluído o 'video' e 'height: auto' para manter a proporção no celular */
+img, video {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -82,5 +91,3 @@ a {
   margin: 0 auto;
   padding: 3rem 1.5rem;
 }
-
-

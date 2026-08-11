@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './Header.css'; 
-import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok, FaBars, FaTimes } from 'react-icons/fa';
 import logoCampanha from '../../assets/images/logo_header.png';
 import { candidato } from '../../data/candidato';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [submenuOpen, setSubmenuOpen] = useState(false);
+  const [menuMobileOpen, setMenuMobileOpen] = useState(false); // Estado para controlar o menu no celular
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -26,6 +27,9 @@ const Header = () => {
 
   const handleMenuClick = (sectionId) => (event) => {
     event.preventDefault();
+    
+    // Fecha o menu mobile ao clicar em qualquer link
+    setMenuMobileOpen(false);
 
     if (location.pathname === '/' && location.hash === `#${sectionId}`) {
       scrollToSection(sectionId);
@@ -50,9 +54,18 @@ const Header = () => {
             className="header-logo" 
           />
         </div>
+
+        {/* Botão Hambúrguer que só aparece no celular */}
+        <button 
+          className="btn-menu-mobile" 
+          onClick={() => setMenuMobileOpen(!menuMobileOpen)}
+          aria-label="Menu"
+        >
+          {menuMobileOpen ? <FaTimes size={28} color="white" /> : <FaBars size={28} color="white" />}
+        </button>
         
-        {/* Lado Direito: Menu + Redes Sociais agrupados */}
-        <div className="header-direita">
+        {/* Lado Direito: Menu + Redes Sociais agrupados (Recebe a classe 'aberto' no celular) */}
+        <div className={`header-direita ${menuMobileOpen ? 'aberto' : ''}`}>
           <nav className="main-nav">
             <ul>
               <li><a href="#inicio" onClick={handleMenuClick('inicio')}>Início</a></li>

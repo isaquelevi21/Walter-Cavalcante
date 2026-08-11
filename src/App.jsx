@@ -1,14 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import CookieBanner from "./components/Cookies/CookieBanner"; // 1. Importe aqui
+import CookieBanner from "./components/Cookies/CookieBanner";
 import Home from './pages/Home';
 import Privacidade from './pages/Legal/PoliticaPrivacidade';
 import Termos from './pages/Legal/TermosDeUso';
 import BiografiaCompleta from './pages/BiografiaCompleta';
+
 function App() {
   return (
-    <Router>
+    <Router basename="/Walter-Cavalcante">
       <Header />
       
       <Routes>
@@ -20,7 +21,6 @@ function App() {
       
       <Footer />
       
-      {/* 2. Coloque o banner aqui, para que ele sobreponha todas as páginas */}
       <CookieBanner />
     </Router>
   );

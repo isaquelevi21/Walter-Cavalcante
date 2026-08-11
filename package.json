@@ -1,13 +1,16 @@
 {
   "name": "campanha-site",
+  "homepage": "https://SeuUsuario.github.io/Walter-Cavalcante",
   "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "lint": "eslint src"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -20,6 +23,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "gh-pages": "^6.3.0",
     "vite": "^5.4.1"
   }
 }
