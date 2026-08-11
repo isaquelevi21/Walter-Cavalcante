@@ -5,6 +5,7 @@ import foto3 from '../../assets/images/Carrosel03.png';
 import foto5 from '../../assets/images/teste.png';
 import { candidato } from '../../data/candidato';
 
+
 const Hero = () => {
   const imagensCarrossel = [foto5, foto3, foto1, foto2];
   const [indiceAtual, setIndiceAtual] = useState(0);

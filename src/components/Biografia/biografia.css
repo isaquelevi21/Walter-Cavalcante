@@ -1,0 +1,157 @@
+.biografia-section {
+  background-color: #FFFFFF;
+  padding: 100px 5%;
+  color: #333;
+}
+
+.biografia-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* --- Coluna da Imagem --- */
+.biografia-imagem-wrapper {
+  flex: 1;
+  position: relative;
+  min-width: 300px;
+}
+
+.biografia-imagem {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
+  object-fit: cover;
+}
+
+/* Detalhe estético laranja atrás da foto */
+.biografia-detalhe-visual {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-orange, #EF7C00);
+  border-radius: 12px;
+  z-index: 1;
+}
+
+/* --- Coluna do Texto --- */
+.biografia-conteudo {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.biografia-tag {
+  display: inline-block;
+  color: var(--primary-green, #196B32);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.biografia-titulo {
+  font-size: 3rem;
+  color: #111827;
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.biografia-subtitulo {
+  font-size: 1.3rem;
+  color: var(--accent-orange, #EF7C00);
+  margin: 10px 0 0 0;
+  font-weight: 600;
+}
+
+.biografia-texto p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4B5563;
+  margin-bottom: 16px;
+}
+
+.biografia-texto strong {
+  color: var(--primary-green, #196B32);
+  font-size: 1.2rem;
+  font-style: italic;
+  display: block;
+  margin: 25px 0;
+  border-left: 4px solid var(--accent-orange, #EF7C00);
+  padding-left: 15px;
+}
+
+/* Lista de Conquistas */
+.biografia-conquistas {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.biografia-conquistas li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.biografia-conquistas li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--primary-green, #196B32);
+  font-weight: bold;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+  .biografia-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .biografia-detalhe-visual {
+    top: 15px;
+    left: 15px;
+  }
+  
+  .biografia-titulo {
+    font-size: 2.4rem;
+  }
+}
+
+/* --- Botão Saiba Mais --- */
+.biografia-acoes {
+  margin-top: 25px;
+}
+
+.btn-saiba-mais {
+  display: inline-block;
+  background-color: var(--primary-green, #196B32);
+  color: #FFFFFF;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(25, 107, 50, 0.3);
+}
+
+.btn-saiba-mais:hover {
+  background-color: #125025;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(25, 107, 50, 0.4);
+}

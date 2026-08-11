@@ -31,19 +31,7 @@ return (
               >
                 <a href="#biografia">
                   Quem Sou
-                  <span
-                    className="dropdown-arrow"
-                    role="button"
-                    tabIndex={0}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setSubmenuOpen((prev) => !prev);
-                    }}
-                  >▾</span>
                 </a>
-                <ul className="dropdown-menu">
-                  <li><a href="#biografia">Ação Parlamentar</a></li>
-                </ul>
               </li>
               <li><a href="#propostas">Compromissos</a></li>
               <li><a href="#contato">Contato</a></li>
