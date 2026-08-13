@@ -14,11 +14,14 @@ const Hero = () => {
           className="hero-imagem" 
         />
         
-        {/* A caixa que segura o botão */}
+        {/* A caixa que segura o botão ajustada para evitar o bug de tela branca */}
         <div className="hero-box-botao">
-          <a href="#biografia" className="hero-btn">
+          <button 
+            onClick={() => document.getElementById('biografia')?.scrollIntoView({ behavior: 'smooth' })}
+            className="hero-btn"
+          >
             Conheça minha trajetória
-          </a>
+          </button>
         </div>
 
       </div>

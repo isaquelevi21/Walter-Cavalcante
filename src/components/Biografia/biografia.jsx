@@ -1,8 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './biografia.css';
 import { Link } from 'react-router-dom';
 // Importe uma foto para a biografia (substitua pelo caminho correto da sua imagem)
-import fotoBiografia from '../../assets/images/Carrosel02.png'; 
+import foto1 from '../../assets/images/Carrocel01.jpeg'; 
+import foto2 from '../../assets/images/Carrocel02.jpeg';
+import foto3 from '../../assets/images/Carrocel03.jpeg';
+import foto4 from '../../assets/images/Carrocel04.jpeg';
+import foto5 from '../../assets/images/Carrocel05.jpeg';
+
+// Cria a lista com as imagens
+const imagensCarrossel = [foto1, foto2, foto3, foto4, foto5];
 import { FaCalendarAlt, FaCheckCircle, FaHandshake } from 'react-icons/fa';
 const statsData = [
   { value: 25, suffix: '+', label: 'Anos de Vida Pública' },
@@ -11,6 +19,28 @@ const statsData = [
 ];
 
 const Biografia = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Avança para a próxima foto
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % imagensCarrossel.length);
+  };
+
+  // Volta para a foto anterior
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + imagensCarrossel.length) % imagensCarrossel.length);
+  };
+
+  // Autoplay: Troca a foto a cada 3 segundos (3000 milissegundos)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    
+    // Limpa o timer se o usuário sair da página, evitando bugs
+    return () => clearInterval(timer);
+  }, []);
+
   const statsRef = useRef(null);
   const [displayValues, setDisplayValues] = useState(statsData.map(() => 0));
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -56,15 +86,31 @@ const Biografia = () => {
   return (
     <section id="biografia" className="biografia-section">
       <div className="biografia-container">
-        
-        {/* Coluna da Imagem */}
+                
+                {/* --- Coluna da Imagem e Carrossel --- */}
         <div className="biografia-imagem-wrapper">
-          <img 
-            src={fotoBiografia} 
-            alt="Walter Cavalcante em ação" 
-            className="biografia-imagem"
-          />
+          {/* O detalhe laranja de fundo contínua aqui */}
           <div className="biografia-detalhe-visual"></div>
+
+          <div className="carrossel-container">
+            {imagensCarrossel.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Walter Cavalcante - Momento ${index + 1}`}
+                // A MÁGICA: Só a imagem atual recebe a classe 'active' para aparecer
+                className={`biografia-imagem ${index === currentIndex ? 'active' : ''}`}
+              />
+            ))}
+
+            {/* Setas de Navegação */}
+            <button className="carrossel-seta esquerda" onClick={prevSlide} aria-label="Foto anterior">
+              <FaChevronLeft />
+            </button>
+            <button className="carrossel-seta direita" onClick={nextSlide} aria-label="Próxima foto">
+              <FaChevronRight />
+            </button>
+          </div>
         </div>
 
         {/* Coluna do Texto */}
