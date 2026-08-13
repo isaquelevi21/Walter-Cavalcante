@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Header.css'; 
 import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok, FaBars, FaTimes } from 'react-icons/fa';
-import logoCampanha from '../../assets/images/logo_header.png';
+import logoCampanha from '../../assets/images/logo_sem_numero.png';
 import { candidato } from '../../data/candidato';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -26,20 +26,20 @@ const Header = () => {
   };
 
   const handleMenuClick = (sectionId) => (event) => {
+    // 1. MÁGICA: Previne o comportamento padrão (pulo seco) do navegador
     event.preventDefault();
     
     // Fecha o menu mobile ao clicar em qualquer link
     setMenuMobileOpen(false);
 
-    if (location.pathname === '/' && location.hash === `#${sectionId}`) {
-      scrollToSection(sectionId);
-      return;
-    }
-
-    if (sectionId) {
-      navigate(`/#${sectionId}`);
+    // 2. Verifica se estamos na Home (raiz '/' ou no '/Walter-Cavalcante' do GitHub Pages)
+    if (location.pathname === '/' || location.pathname.includes('/Walter-Cavalcante')) {
+      scrollToSection(sectionId); // Força a rolagem suave
+      // Atualiza a URL lá em cima sem recarregar a página
+      window.history.pushState(null, '', `/#${sectionId}`);
     } else {
-      navigate('/');
+      // Se estiver em outra página (ex: Termos de Uso), navega para a Home na seção certa
+      navigate(`/#${sectionId}`);
     }
   };
 
@@ -78,9 +78,12 @@ const Header = () => {
                   Quem Sou
                 </a>
               </li>
+              
               <li><a href="#acao-parlamentar" onClick={handleMenuClick('acao-parlamentar')}>Ação parlamentar</a></li>
               <li><a href="#propostas" onClick={handleMenuClick('propostas')}>Compromissos</a></li>
               <li><a href="#contato" onClick={handleMenuClick('contato')}>Contato</a></li>
+              <li><a href="#fala-walter" onClick={handleMenuClick('fala-walter')}>Fala Walter</a></li>
+              
             </ul>
           </nav>
 

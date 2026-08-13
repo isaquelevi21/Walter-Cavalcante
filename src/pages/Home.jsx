@@ -6,6 +6,7 @@ import Biografia from '../components/Biografia/biografia.jsx';
 import AcaoParlamentar from "../components/AcaoParlamentar/AcaoParlamentar.jsx"; // O componente que acabamos de criar!
 import Compromissos from "../components/Compromissos/Compromissos.jsx";
 import Contato from "../components/Contato/Contato.jsx";
+import FalaWalter from "../components/FalaWalter/FalaWalter.jsx";
 
 export default function Home() {
   const location = useLocation();
@@ -34,6 +35,7 @@ export default function Home() {
       <AcaoParlamentar /> 
       <Compromissos />
       <Contato/>  
+      <FalaWalter />
     </>
   );
 }

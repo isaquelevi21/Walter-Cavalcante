@@ -1,5 +1,5 @@
 /* =========================================
-   1. BARRA PRINCIPAL (GRADIENTE VERDE/LARANJA)
+   1. BARRA PRINCIPAL (GRADIENTE)
    ========================================= */
 .header-fixed {
   position: fixed;
@@ -7,55 +7,52 @@
   left: 0;
   width: 100%;
   height: 70px;
-  
-  /* A MÁGICA DO GRADIENTE ASSIMÉTRICO AQUI: */
-  /* Começa verde, continua verde até 75% da tela, e vira laranja na ponta direita */
   background: linear-gradient(
     200deg, 
     var(--primary-green, #196B32) 30%, 
     #155c29 30%, 
     var(--accent-orange, #EF7C00) 110%
   );
-  
   color: rgb(254, 254, 254);
   z-index: 1000;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Sombra um pouquinho mais forte para destacar as cores */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 .header-content {
   display: flex;
-  justify-content: space-between; /* Empurra logo p/ esquerda e menu p/ direita */
+  justify-content: center; /* MÁGICA 1: Tira o space-between e centraliza tudo */
+  gap: 30px; /* MÁGICA 2: Define a distância exata entre a logo e o menu (pode aumentar ou diminuir esse número como preferir) */
   align-items: center;
   height: 100%;
   width: 100%;
-  max-width: 1250px; /* Trava para não fugir para os cantos em telas gigantes */
+  max-width: 1250px;
   margin: 0 auto;
   padding: 0 4%;
 }
 
-/* Compensar a barra fixa no resto do site */
 body {
   padding-top: 70px;
 }
 
 /* =========================================
-   2. ÁREA DA LOGO E BOTÃO MOBILE
+   2. LOGO E BOTÃO MOBILE
    ========================================= */
 .logo-area {
   display: flex;
-  align-items: center; /* Isso centraliza a logo verticalmente no meio da barra */
-  height: 100%; /* Respeita o limite do cabeçalho */
+  align-items: center;
+  height: 70px;
 }
 
 .header-logo {
-  height: 50px; /* Tamanho base da imagem */
+  height: 45px;
   width: auto;
+  flex-shrink: 0;
   object-fit: contain;
-  transform: scale(2.2); /* Dá o zoom para tirar o espaço transparente */
-  transform-origin: left center; /* Garante que o zoom cresça para a direita */
+  transform: none !important;
+  margin: 0;
+  display: block;
 }
 
-/* Esconde o botão hambúrguer no computador */
 .btn-menu-mobile {
   display: none;
   background: transparent;
@@ -65,19 +62,18 @@ body {
 }
 
 /* =========================================
-   3. LADO DIREITO (MENU + REDES)
+   3. NAVEGAÇÃO E REDES SOCIAIS
    ========================================= */
 .header-direita {
   display: flex;
   align-items: center;
-  gap: 40px; /* Espaço entre as palavras do menu e os ícones */
+  gap: 40px;
 }
 
-/* NAVEGAÇÃO PRINCIPAL */
 .main-nav ul {
-  display: flex; /* Faz os itens ficarem lado a lado (horizontal) */
-  list-style: none; /* Tira as bolinhas feias */
-  gap: 26px; /* Espaço entre os links "Início", "Quem Sou", etc */
+  display: flex;
+  list-style: none;
+  gap: 16px;
   margin: 0;
   padding: 0;
   align-items: center;
@@ -92,7 +88,8 @@ body {
   text-decoration: none;
   font-weight: 700;
   transition: color 0.3s;
-  font-size: 1.12rem;
+  font-size: 1rem;
+  white-space: nowrap; /* MÁGICA: Impede que "Quem Sou" vire duas linhas */
 }
 
 .main-nav a:hover {
@@ -100,23 +97,12 @@ body {
 }
 
 /* =========================================
-   4. DROPDOWN (SUBMENU QUEM SOU)
+   4. DROPDOWN (QUEM SOU)
    ========================================= */
 .nav-dropdown > a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-}
-
-.dropdown-arrow {
-  display: inline-block;
-  font-size: 0.76rem;
-  line-height: 1;
-  transition: transform 0.2s ease;
-}
-
-.nav-dropdown:hover .dropdown-arrow {
-  transform: translateY(1px);
 }
 
 .dropdown-menu {
@@ -129,7 +115,7 @@ body {
   box-shadow: 0 16px 28px rgba(0,0,0,0.14);
   padding: 12px 0;
   min-width: 210px;
-  list-style: none; /* Garante que o submenu também não tenha bolinhas */
+  list-style: none;
   margin: 0;
   opacity: 0;
   visibility: hidden;
@@ -144,13 +130,9 @@ body {
   transform: translate(-50%, 0);
 }
 
-.dropdown-menu li {
-  padding: 0;
-}
-
 .dropdown-menu a {
   display: block;
-  color: #196B32; /* Corrigido para o texto do submenu ficar visível no fundo branco */
+  color: #196B32;
   padding: 10px 12px;
   white-space: nowrap;
   font-weight: 600;
@@ -164,10 +146,10 @@ body {
 }
 
 /* =========================================
-   5. ÍCONES REDES SOCIAIS
+   5. REDES SOCIAIS
    ========================================= */
 .redes-sociais {
-  display: flex; /* Coloca os ícones lado a lado */
+  display: flex;
   gap: 12px;
   align-items: center;
 }
@@ -191,54 +173,51 @@ body {
 }
 
 /* =========================================
-   6. RESPONSIVIDADE (CELULARES E TABLETS)
+   6. RESPONSIVIDADE (MOBILE)
    ========================================= */
 @media (max-width: 992px) {
   .btn-menu-mobile {
-    display: block; /* Mostra o ícone de hambúrguer/X no celular */
+    display: block;
   }
 
   .header-content {
-    flex-direction: row; /* Mantém a logo na esquerda e o botão na direita */
+    flex-direction: row;
     justify-content: space-between;
     padding: 0 20px;
   }
 
   .header-logo {
-    transform: scale(1.6); /* Reduz um pouco o zoom no celular para não estourar */
-    transform-origin: left center;
+    height: 40px;
+    transform: none !important;
   }
 
-  /* Cria o menu em formato de "gaveta" que desliza */
   .header-direita {
     position: fixed;
-    top: 70px; /* Fica exatamente abaixo da barra do cabeçalho */
-    left: -100%; /* Começa escondido fora da tela */
+    top: 70px;
+    left: -100%;
     width: 100%;
     height: calc(100vh - 70px);
-    background: #155c29; /* Fundo sólido para garantir leitura no celular */
+    background: #155c29;
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 40px;
     gap: 40px;
-    transition: left 0.3s ease; /* Animação suave ao abrir */
+    transition: left 0.3s ease;
   }
 
-  /* Classe ativada pelo React quando clica no botão */
   .header-direita.aberto {
     left: 0;
   }
 
   .main-nav ul {
-    flex-direction: column; /* Empilha os itens do menu um abaixo do outro */
+    flex-direction: column;
     gap: 30px;
   }
 
   .main-nav a {
-    font-size: 1.4rem; /* Deixa a fonte maior para facilitar o toque no celular */
+    font-size: 1.4rem;
   }
 
-  /* Ajuste no submenu para o mobile */
   .dropdown-menu {
     position: relative;
     top: 0;
