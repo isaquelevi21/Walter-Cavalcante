@@ -1,0 +1,384 @@
+.biografia-section {
+  background-color: #FFFFFF;
+  padding: 100px 5% 0;
+  color: #333;
+}
+
+.biografia-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.biografia-stats {
+  margin-top: 48px;
+  padding: 0 0 40px;
+}
+
+.biografia-stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* =========================================
+   CARDS DE ESTATÍSTICAS (DINÂMICOS E 3D)
+   ========================================= */
+.biografia-stat-card {
+  background: linear-gradient(135deg, var(--primary-green, #196B32), #0d4a20);
+  border-radius: 18px;
+  padding: 35px 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(25, 107, 50, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  /* A MÁGICA DO HOVER: Transição bem elástica */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+/* O Efeito de levitação ao passar o mouse */
+.biografia-stat-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(25, 107, 50, 0.35);
+}
+
+/* Um brilho charmoso e invisível no fundo do card que cresce no hover */
+.biografia-stat-card::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  transition: transform 0.5s ease;
+}
+
+.biografia-stat-card:hover::after {
+  transform: scale(1.8);
+}
+
+/* Estilo dos novos ícones */
+.stat-icon {
+  font-size: 2.8rem;
+  color: var(--accent-orange, #0060ef);
+  margin-bottom: 5px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); /* Dá um volume no ícone */
+}
+
+/* Números mais vibrantes e destacados */
+.biografia-stat-number {
+  font-size: clamp(2.5rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.biografia-stat-label {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* --- Coluna da Imagem e Carrossel --- */
+.biografia-imagem-wrapper {
+  flex: 1;
+  position: relative;
+  min-width: 300px;
+  display: flex;
+}
+
+/* Detalhe estético laranja atrás da foto */
+.biografia-detalhe-visual {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-orange, #EF7C00);
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.carrossel-container {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  z-index: 2;
+  overflow: hidden;
+  aspect-ratio: 4 / 5; /* Mantém a proporção vertical perfeita de retrato */
+  background-color: #f7f7f7;
+}
+
+/* Oculta as imagens por padrão */
+.biografia-imagem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out; /* Efeito Fade (dissolver) suave de quase 1 segundo */
+  z-index: 1;
+}
+
+/* Revela apenas a imagem ativa */
+.biografia-imagem.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* =========================================
+   SETAS DO CARROSSEL
+   ========================================= */
+.carrossel-seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(25, 107, 50, 0.7); /* Verde do partido transparente */
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.carrossel-seta:hover {
+  background-color: var(--accent-orange, #EF7C00); /* Fica laranja ao passar o mouse */
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carrossel-seta.esquerda {
+  left: 15px;
+}
+
+.carrossel-seta.direita {
+  right: 15px;
+}
+
+/* --- Coluna do Texto --- */
+.biografia-conteudo {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.biografia-tag {
+  display: inline-block;
+  color: var(--primary-green, #196B32);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.biografia-titulo {
+  font-size: 3rem;
+  color: #111827;
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.biografia-subtitulo {
+  font-size: 1.3rem;
+  color: var(--accent-orange, #EF7C00);
+  margin: 10px 0 0 0;
+  font-weight: 600;
+}
+
+.biografia-texto p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4B5563;
+  margin-bottom: 16px;
+}
+
+.biografia-texto strong {
+  color: var(--primary-green, #196B32);
+  font-size: 1.2rem;
+  font-style: italic;
+  display: block;
+  margin: 25px 0;
+  border-left: 4px solid var(--accent-orange, #EF7C00);
+  padding-left: 15px;
+}
+
+/* Lista de Conquistas */
+.biografia-conquistas {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.biografia-conquistas li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.biografia-conquistas li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--primary-green, #196B32);
+  font-weight: bold;
+}
+
+/* --- Botão Saiba Mais --- */
+.biografia-acoes {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end; /* Isso empurra o botão totalmente para a direita no PC */
+}
+
+.biografia-acao-parlamentar {
+  margin-top: 24px;
+  padding: 20px 22px;
+  border-left: 4px solid var(--accent-orange, #EF7C00);
+  background: #f8faf8;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.biografia-acao-header {
+  margin-bottom: 16px;
+}
+
+.biografia-acao-tag {
+  display: inline-block;
+  color: var(--accent-orange, #EF7C00);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.biografia-acao-parlamentar h4 {
+  margin: 0;
+  color: var(--primary-green, #196B32);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.biografia-acao-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.biografia-acao-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.biografia-acao-card h5 {
+  margin: 0 0 8px 0;
+  color: var(--primary-green, #196B32);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.biografia-acao-card p {
+  margin: 0;
+  color: #4B5563;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.btn-saiba-mais {
+  display: inline-block;
+  background-color: var(--primary-green, #196B32);
+  color: #FFFFFF;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(25, 107, 50, 0.3);
+}
+
+.btn-saiba-mais:hover {
+  background-color: #125025;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(25, 107, 50, 0.4);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+  .biografia-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .biografia-detalhe-visual {
+    top: 15px;
+    left: 15px;
+  }
+  
+  .biografia-titulo {
+    font-size: 2.4rem;
+  }
+
+  .biografia-stats-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .biografia-acao-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .biografia-section {
+    padding: 80px 5% 0;
+  }
+
+  /* MÁGICA PARA O BOTÃO: Centraliza a caixa e larga o botão no celular */
+  .biografia-acoes {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn-saiba-mais {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+  }
+}

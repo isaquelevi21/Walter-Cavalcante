@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Contato.css'; // Importando o arquivo CSS separado!
+import './Contato.css';
+import { candidato } from '../../data/candidato';
 
 const Contato = () => {
   const [aceitouTermos, setAceitouTermos] = useState(false);
@@ -35,7 +36,7 @@ const Contato = () => {
               <div className="info-icon">📍</div>
               <div className="info-text">
                 <h4>Comitê Central</h4>
-                <p>Av. Antônio Sales, 1234 - Dionísio Torres<br/>Fortaleza - CE</p>
+                <p>{candidato.enderecoComite}</p>
               </div>
             </div>
 
@@ -43,7 +44,7 @@ const Contato = () => {
               <div className="info-icon">📱</div>
               <div className="info-text">
                 <h4>WhatsApp da Campanha</h4>
-                <p>(85) 99999-4364</p>
+                <p>{candidato.whatsappOficial}</p>
               </div>
             </div>
 
@@ -51,7 +52,7 @@ const Contato = () => {
               <div className="info-icon">✉️</div>
               <div className="info-text">
                 <h4>E-mail</h4>
-                <p>contato@walter43640.com.br</p>
+                <p>{candidato.emailOficial}</p>
               </div>
             </div>
 

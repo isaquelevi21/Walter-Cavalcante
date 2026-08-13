@@ -1,0 +1,258 @@
+/* Container Geral e Fundo */
+.timeline-main {
+  background-color: #F9FAFB;
+  min-height: 100vh;
+  padding: 100px 5% 60px 5%;
+  font-family: 'Inter', sans-serif;
+}
+
+.timeline-page-container {
+  max-width: 1200px; /* Aumentei um pouco para as imagens respirarem */
+  margin: 0 auto;
+}
+
+/* Cabeçalho */
+.timeline-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.timeline-titulo {
+  color: var(--primary-green, #196B32);
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin: 0 0 15px 0;
+}
+
+.timeline-linha-titulo {
+  height: 5px;
+  width: 100px;
+  background-color: var(--accent-orange, #EF7C00);
+  margin: 0 auto 25px auto;
+  border-radius: 4px;
+}
+
+.timeline-intro {
+  color: #4B5563;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* =======================================
+   O ZIGUE-ZAGUE (LINHA DO TEMPO + IMAGENS)
+   ======================================= */
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+/* A Linha Central Verde */
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: var(--primary-green, #196B32);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+/* O Container Flex (Abraça o Texto e a Imagem) */
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centraliza a imagem e o texto no meio exato */
+  width: 100%;
+  margin-bottom: 60px; /* Espaço entre as seções */
+  position: relative;
+}
+
+/* Inverte a ordem para as caixas da Direita */
+.timeline-item.right {
+  flex-direction: row-reverse;
+}
+
+/* As bolinhas laranjas que marcam as datas na linha */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border: 5px solid var(--accent-orange, #EF7C00);
+  border-radius: 50%;
+  top: 50%; /* Centraliza a bolinha com os quadros */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  box-shadow: 0 0 0 4px rgba(239, 124, 0, 0.2);
+}
+
+/* O Quadro de Texto */
+.timeline-content {
+  width: 45%; /* Deixa 10% de espaço livre no meio para a linha passar */
+  padding: 35px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid var(--primary-green, #196B32);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* O Quadro da Imagem */
+.timeline-image-wrapper {
+  width: 45%; /* Mesma largura do texto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 4px solid white; /* Cria uma moldura branca parecida com foto revelada */
+  transition: transform 0.3s ease;
+}
+
+.timeline-image-wrapper:hover {
+  transform: scale(1.02); /* Dá um leve zoom quando passa o mouse na foto */
+}
+
+.timeline-img {
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  object-fit: cover; /* Garante que a foto não amasse, independente do tamanho */
+  display: block;
+}
+
+/* Destaque especial para 2026 */
+.destaque-2026 {
+  border-top: 4px solid var(--accent-orange, #EF7C00);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF9F2 100%);
+}
+
+.destaque-2026 ul {
+  padding-left: 20px;
+  margin-top: 15px;
+  color: #374151;
+}
+
+.destaque-2026 li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Textos dentro dos Cards */
+.timeline-date {
+  display: inline-block;
+  background-color: var(--accent-orange, #EF7C00);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.timeline-content h2 {
+  color: var(--primary-green, #196B32);
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.timeline-content p {
+  color: #4B5563;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Conclusão e Botão */
+.timeline-footer {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 40px;
+  border-top: 2px solid #E5E7EB;
+}
+
+.timeline-conclusao {
+  font-size: 1.15rem;
+  color: #374151;
+  max-width: 800px;
+  margin: 0 auto 35px auto;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.timeline-btn-voltar {
+  display: inline-block;
+  background-color: var(--primary-green, #196B32);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(25, 107, 50, 0.3);
+}
+
+.timeline-btn-voltar:hover {
+  background-color: #125025;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(25, 107, 50, 0.4);
+}
+
+/* =======================================
+   RESPONSIVIDADE (Tablets e Celulares)
+   ======================================= */
+@media screen and (max-width: 768px) {
+  .timeline-titulo {
+    font-size: 2.2rem;
+  }
+  
+  /* Joga a linha verde para a esquerda */
+  .timeline-container::after {
+    left: 20px;
+    transform: none;
+  }
+  
+  /* Faz o container empilhar o texto e a imagem (um embaixo do outro) */
+  .timeline-item, 
+  .timeline-item.right {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 60px; /* Dá espaço para a linha da esquerda */
+    margin-bottom: 60px;
+  }
+  
+  /* Ajusta a bolinha para colar na linha da esquerda */
+  .timeline-item::after {
+    left: 20px;
+    top: 50px; /* Alinha a bolinha com o topo do card de texto */
+    transform: translateX(-50%);
+  }
+
+  /* Garante que o texto fique em cima e a imagem embaixo no celular */
+  .timeline-content {
+    order: 1; 
+    width: 100%;
+    margin-bottom: 20px; /* Espaço entre o texto e a imagem abaixo dele */
+  }
+
+  .timeline-image-wrapper {
+    order: 2;
+    width: 100%;
+  }
+}

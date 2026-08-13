@@ -1,6 +1,6 @@
 /* Container principal do Footer */
 .footer-wrapper {
-  background-color: #1A252F; /* Cor de fundo escura e elegante baseada na referência */
+  background: linear-gradient(180deg, #1A252F 0%, #111827 100%);
   color: #FFFFFF;
   padding-top: 60px;
   font-family: 'Inter', sans-serif;
@@ -109,6 +109,10 @@
 .legal-links a:hover {
   color: #FFFFFF;
   text-decoration: underline;
+}
+
+.social-col .redes-sociais {
+  margin-bottom: 24px;
 }
 
 /* Barra Inferior (Sub-footer) */

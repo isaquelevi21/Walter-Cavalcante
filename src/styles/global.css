@@ -1,16 +1,24 @@
 :root {
-  /* Novas cores baseadas na referência */
-  --primary-green: #196B32; 
-  --accent-orange: #EF7C00; 
-  
-  /* Cores neutras mantidas */
-  --bg-light: #f7f7f7;  /* Cor do box */
-  --text-dark: #fafafa; 
-  --text-light: #000000; /* Cores do texto do footer*/
+  --primary-green: #196B32;
+  --accent-orange: #EF7C00;
+  --bg-light: #f7f7f7;
+  --text-dark: #111827;
+  --text-light: #f9fafb;
+  --cor-fundo: #f7f7f7;
+  --cor-texto: #111827;
+  --cor-destaque: #EF7C00;
 }
 
-* {
+/* 1. KIT DE EMERGÊNCIA: Adicionado ::before e ::after para garantir que bordas e paddings nunca quebrem o layout */
+*, *::before, *::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* 2. KIT DE EMERGÊNCIA: Trava rigorosamente o vazamento lateral no HTML */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -19,9 +27,44 @@ body {
   background: var(--cor-fundo);
   color: var(--cor-texto);
   line-height: 1.6;
+  /* 3. KIT DE EMERGÊNCIA: Trava rigorosamente o vazamento lateral no Corpo do site */
+  overflow-x: hidden;
+  width: 100%;
 }
 
-/* Acessibilidade (item 8): foco visível sempre, nunca remover outline */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* 4. KIT DE EMERGÊNCIA: Incluído o 'video' e 'height: auto' para manter a proporção no celular */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.btn-primary {
+  background-color: var(--primary-green);
+  color: #fff;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 8px 20px rgba(25, 107, 50, 0.18);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background-color: #145226;
+}
+
 :focus-visible {
   outline: 3px solid var(--cor-destaque);
   outline-offset: 2px;
@@ -48,5 +91,3 @@ a {
   margin: 0 auto;
   padding: 3rem 1.5rem;
 }
-
-

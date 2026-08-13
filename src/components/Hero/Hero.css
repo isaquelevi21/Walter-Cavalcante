@@ -1,14 +1,80 @@
-.hero {
-  padding: 4rem 1.5rem;
-  text-align: center;
+/* =========================================
+   ESTRUTURA PRINCIPAL
+   ========================================= */
+.hero-section {
+  background-color: var(--bg-light, #f7f7f7);
+  border-bottom: 4px solid var(--accent-orange, #EF7C00);
+  width: 100%;
 }
 
-.hero__numero {
-  font-size: 2rem;
+.hero-container {
+  position: relative; /* Serve de âncora para o botão flutuar no PC */
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Garante que as coisas se empilhem no celular */
+}
+
+.hero-imagem {
+  width: 100%;
+  display: block;
+  max-height: 750px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================================
+   BOTÃO FLUTUANTE (COMPUTADORES)
+   ========================================= */
+.hero-box-botao {
+  position: absolute;
+  bottom: 50px;
+  left: 8%;
+  z-index: 10;
+}
+
+.hero-btn {
+  background-color: var(--primary-green, #196B32);
+  color: white;
+  padding: 14px 30px;
+  text-decoration: none;
   font-weight: 700;
+  border-radius: 999px;
+  display: inline-block;
+  border: 2px solid white; /* Borda para destacar da imagem */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background-color 0.3s;
 }
 
-.hero__headline {
-  max-width: 40rem;
-  margin: 1rem auto 0;
+.hero-btn:hover {
+  background-color: #145226;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   RESPONSIVIDADE (CELULARES)
+   ========================================= */
+@media (max-width: 768px) {
+  
+  .hero-imagem {
+    height: auto; /* Deixa a imagem calcular sua própria altura */
+    object-fit: contain; /* Impede que corte os lados da imagem */
+  }
+
+  .hero-box-botao {
+    /* MÁGICA: Tira o flutuante e empurra pro fluxo normal da página (embaixo da foto) */
+    position: static; 
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+    background-color: #f7f7f7; /* Fundo cinza clarinho combinando com o site */
+  }
+
+  .hero-btn {
+    border: none; /* Tira a borda branca porque não está mais em cima da foto */
+    box-shadow: 0 8px 20px rgba(25, 107, 50, 0.2);
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 350px; /* Não deixa o botão ficar gigante de ponta a ponta */
+    text-align: center;
+  }
 }

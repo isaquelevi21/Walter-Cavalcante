@@ -1,4 +1,5 @@
 import React from 'react';
+import './Compromissos.css'; // Importando o nosso novo arquivo de estilos!
 
 const Bandeiras = () => {
   // Array com as bandeiras baseadas no histórico do candidato
@@ -36,25 +37,25 @@ const Bandeiras = () => {
   ];
 
   return (
-    <section id="propostas" style={styles.section}>
-      <div className="container" style={styles.container}>
+    <section id="propostas" className="bandeiras-section">
+      <div className="container bandeiras-container">
         
         {/* Cabeçalho da Seção */}
-        <div style={styles.header}>
-          <span style={styles.subtitle}>POSICIONAMENTO</span>
-          <h2 style={styles.title}>Bandeiras</h2>
+        <div className="bandeiras-header">
+          <span className="bandeiras-subtitle">posicionamento</span>
+          <h2 className="bandeiras-title">Bandeiras</h2>
         </div>
 
         {/* Grid de Bandeiras */}
-        <div style={styles.grid}>
+        <div className="bandeiras-grid">
           {bandeiras.map((item, index) => (
-            <div key={index} style={styles.item}>
-              <div style={styles.iconBox}>
+            <div key={index} className="bandeiras-item">
+              <div className="bandeiras-icon-box">
                 {item.icone}
               </div>
-              <div style={styles.textBox}>
-                <h3 style={styles.itemTitle}>{item.titulo}</h3>
-                <p style={styles.itemDesc}>{item.descricao}</p>
+              <div className="bandeiras-text-box">
+                <h3 className="bandeiras-item-title">{item.titulo}</h3>
+                <p className="bandeiras-item-desc">{item.descricao}</p>
               </div>
             </div>
           ))}
@@ -63,74 +64,6 @@ const Bandeiras = () => {
       </div>
     </section>
   );
-};
-
-const styles = {
-  section: {
-    backgroundColor: '#FFFFFF', // Fundo branco e limpo conforme a referência
-    padding: '80px 5%',
-  },
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-  },
-  header: {
-    textAlign: 'center',
-    marginBottom: '60px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-  subtitle: {
-    fontSize: '0.85rem',
-    fontWeight: '600',
-    color: '#6B7280',
-    letterSpacing: '2px',
-    textTransform: 'uppercase',
-    marginBottom: '5px'
-  },
-  title: {
-    fontSize: '2.5rem',
-    fontWeight: '800',
-    color: '#111827',
-    margin: '0',
-    borderBottom: '4px solid var(--primary-green, #196B32)', // Linha verde embaixo do título
-    paddingBottom: '5px',
-    display: 'inline-block'
-  },
-  grid: {
-    display: 'grid',
-    // Grid de 3 colunas para telas grandes, caindo para 2 ou 1 em telas menores
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    gap: '40px 30px', // 40px de espaço vertical, 30px horizontal
-  },
-  item: {
-    display: 'flex', // Coloca o ícone e o texto lado a lado
-    alignItems: 'flex-start', // Alinha tudo pelo topo
-    gap: '15px',
-  },
-  iconBox: {
-    fontSize: '2rem', // Tamanho do ícone
-    color: 'var(--primary-green, #196B32)', // Se usar ícones em fonte depois, puxará essa cor
-    flexShrink: 0, // Impede que o ícone seja esmagado se o texto for muito longo
-    marginTop: '-5px' // Ajuste fino para alinhar visualmente com o título
-  },
-  textBox: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  itemTitle: {
-    fontSize: '1.15rem',
-    fontWeight: '700',
-    color: '#111827',
-    margin: '0 0 8px 0',
-  },
-  itemDesc: {
-    fontSize: '0.95rem',
-    color: '#4B5563',
-    lineHeight: '1.6',
-    margin: '0',
-  }
 };
 
 export default Bandeiras;
