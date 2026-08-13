@@ -7,7 +7,7 @@
 }
 
 .fw-container {
-  max-width: 900px; /* Mais estreito que os outros para facilitar a leitura do texto */
+  max-width: 1200px; /* Aumentado de 900px para 1200px para caber as duas colunas */
   margin: 0 auto;
 }
 
@@ -16,7 +16,7 @@
    ========================================= */
 .fw-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .fw-tag {
@@ -46,13 +46,19 @@
 }
 
 /* =========================================
-   TEXTO PRINCIPAL
+   LAYOUT EM DUAS COLUNAS (O SEGREDO)
    ========================================= */
-.fw-content {
-  margin-bottom: 40px;
+.fw-grid-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* A coluna do texto fica levemente mais larga que a caixa verde */
+  gap: 60px; /* Espaço generoso entre o texto e a caixa */
+  align-items: center; /* Centraliza a caixa verde verticalmente ao lado do texto */
 }
 
-.fw-content p {
+/* =========================================
+   TEXTO PRINCIPAL
+   ========================================= */
+.fw-text-column p {
   font-size: 1.15rem;
   color: #4B5563;
   line-height: 1.8;
@@ -69,7 +75,13 @@
   padding: 40px;
   text-align: center;
   color: #FFFFFF;
-  box-shadow: 0 12px 30px rgba(25, 107, 50, 0.2);
+  box-shadow: 0 16px 35px rgba(25, 107, 50, 0.22);
+  transition: transform 0.3s ease;
+}
+
+/* Efeito sutil para a caixa não parecer 100% estática */
+.fw-cta-box:hover {
+  transform: translateY(-5px); 
 }
 
 .fw-cta-text {
@@ -106,85 +118,45 @@
 }
 
 /* =========================================
-   RESPONSIVIDADE (CELULARES)
-   ========================================= */
-@media (max-width: 768px) {
-  .fw-section {
-    padding: 70px 5%;
-  }
-
-  .fw-title {
-    font-size: 2.2rem;
-  }
-
-  .fw-content p {
-    font-size: 1.05rem;
-    text-align: left; /* No celular, alinhar à esquerda é melhor que justificado */
-  }
-
-  .fw-cta-box {
-    padding: 30px 20px;
-  }
-
-  .fw-vote-number {
-    padding: 12px 20px;
-    font-size: 1.2rem;
-  }
-  
-  .fw-vote-number span {
-    font-size: 1.8rem;
-    display: block; /* Joga o número para a linha de baixo no celular */
-    margin: 5px 0 0 0;
-  }
-}
-/* =========================================
    RESPONSIVIDADE (TABLETS E CELULARES)
    ========================================= */
-
-/* Para Tablets (telas médias) */
 @media (max-width: 992px) {
+  .fw-grid-layout {
+    grid-template-columns: 1fr; /* Empilha as colunas (uma embaixo da outra) quando a tela aperta */
+    gap: 40px;
+  }
   .fw-section {
     padding: 80px 5%;
   }
   .fw-title {
     font-size: 2.5rem;
   }
-  .fw-content p {
-    font-size: 1.1rem;
-  }
 }
 
-/* Para Celulares (telas pequenas) */
 @media (max-width: 768px) {
   .fw-section {
     padding: 70px 5%;
   }
-
   .fw-title {
     font-size: 2.2rem;
   }
-
-  .fw-content p {
+  .fw-text-column p {
     font-size: 1.05rem;
-    text-align: left; /* No celular, o alinhamento à esquerda facilita a leitura */
+    text-align: left; /* No celular, alinhar à esquerda facilita a leitura */
   }
-
   .fw-cta-box {
     padding: 30px 20px;
   }
-
   .fw-cta-text {
     font-size: 1.1rem;
   }
-
   .fw-vote-number {
     padding: 12px 20px;
     font-size: 1.2rem;
   }
-  
   .fw-vote-number span {
     font-size: 1.8rem;
-    display: block; /* Empurra o número para a linha de baixo, ficando centralizado e elegante */
+    display: block; /* Empurra o número para a linha de baixo no celular */
     margin: 5px 0 0 0;
   }
 }

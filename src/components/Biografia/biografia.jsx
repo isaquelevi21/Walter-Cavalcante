@@ -3,7 +3,7 @@ import './biografia.css';
 import { Link } from 'react-router-dom';
 // Importe uma foto para a biografia (substitua pelo caminho correto da sua imagem)
 import fotoBiografia from '../../assets/images/Carrosel02.png'; 
-
+import { FaCalendarAlt, FaCheckCircle, FaHandshake } from 'react-icons/fa';
 const statsData = [
   { value: 25, suffix: '+', label: 'Anos de Vida Pública' },
   { value: 150, suffix: '', label: 'Projetos Aprovados' },
@@ -110,16 +110,29 @@ const Biografia = () => {
 
       <section className="biografia-stats" ref={statsRef}>
         <div className="biografia-stats-inner">
-          {statsData.map((stat, index) => (
-            <div className="biografia-stat-card" key={stat.label}>
-              <div className="biografia-stat-number">
-                {displayValues[index]}
-                {stat.suffix}
-              </div>
-              <p className="biografia-stat-label">{stat.label}</p>
-            </div>
-          ))}
-        </div>
+  
+  {/* Card 1 */}
+      <div className="biografia-stat-card">
+        <FaCalendarAlt className="stat-icon" />
+        <div className="biografia-stat-number">25+</div>
+        <p className="biografia-stat-label">Anos de Vida Pública</p>
+      </div>
+
+      {/* Card 2 */}
+      <div className="biografia-stat-card">
+        <FaCheckCircle className="stat-icon" />
+        <div className="biografia-stat-number">150</div>
+        <p className="biografia-stat-label">Projetos Aprovados</p>
+      </div>
+
+      {/* Card 3 */}
+      <div className="biografia-stat-card">
+        <FaHandshake className="stat-icon" />
+        <div className="biografia-stat-number">100%</div>
+        <p className="biografia-stat-label">Compromisso com o Povo</p>
+      </div>
+
+    </div>
       </section>
     </section>
   );

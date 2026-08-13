@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoCampanha from '../../assets/images/logo_header.png';
+import logoCampanha from '../../assets/images/logo_com_numero.png';
 import './Footer.css';
 import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok } from 'react-icons/fa';
 import { candidato } from '../../data/candidato';

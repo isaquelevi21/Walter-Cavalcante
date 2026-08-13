@@ -6,10 +6,14 @@ import Home from './pages/Home';
 import Privacidade from './pages/Legal/PoliticaPrivacidade';
 import Termos from './pages/Legal/TermosDeUso';
 import BiografiaCompleta from './pages/BiografiaCompleta';
+import ScrollToTop from './components/Scroll/ScrollToTop'; 
 
 function App() {
   return (
     <Router basename="/Walter-Cavalcante">
+      {/* MÁGICA: O componente invisível que joga a tela pro topo */}
+      <ScrollToTop />
+      
       <Header />
       
       <Routes>

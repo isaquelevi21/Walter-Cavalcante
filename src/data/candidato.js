@@ -11,8 +11,8 @@ export const candidato = {
   uf: 'CE',
   municipio: 'Fortaleza',
 
-  siteOficial: 'https://www.walter43640.com.br',
-  cnpjCampanha: '00.000.000/0000-00',
+  siteOficial: 'https://waltercavalcante.com.br',
+  cnpjCampanha: '68.455.381/0001-37',
 
   emailOficial: 'contato@walter43640.com.br',
   whatsappOficial: '+55 (85) 99999-4364',

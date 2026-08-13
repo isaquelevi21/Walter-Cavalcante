@@ -25,27 +25,75 @@
   gap: 20px;
 }
 
+/* =========================================
+   CARDS DE ESTATÍSTICAS (DINÂMICOS E 3D)
+   ========================================= */
 .biografia-stat-card {
-  background: linear-gradient(135deg, var(--primary-green, #196B32), #0f6d2f);
+  background: linear-gradient(135deg, var(--primary-green, #196B32), #0d4a20);
   border-radius: 18px;
-  padding: 28px 18px;
+  padding: 35px 20px;
   text-align: center;
-  box-shadow: 0 16px 35px rgba(25, 107, 50, 0.22);
+  box-shadow: 0 10px 25px rgba(25, 107, 50, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  /* A MÁGICA DO HOVER: Transição bem elástica */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 
+/* O Efeito de levitação ao passar o mouse */
+.biografia-stat-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(25, 107, 50, 0.35);
+}
+
+/* Um brilho charmoso e invisível no fundo do card que cresce no hover */
+.biografia-stat-card::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  transition: transform 0.5s ease;
+}
+
+.biografia-stat-card:hover::after {
+  transform: scale(1.8);
+}
+
+/* Estilo dos novos ícones */
+.stat-icon {
+  font-size: 2.8rem;
+  color: var(--accent-orange, #EF7C00);
+  margin-bottom: 5px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); /* Dá um volume no ícone */
+}
+
+/* Números mais vibrantes e destacados */
 .biografia-stat-number {
-  font-size: clamp(2.2rem, 3vw, 3rem);
-  font-weight: 800;
+  font-size: clamp(2.5rem, 4vw, 3.2rem);
+  font-weight: 900;
   color: #FFFFFF;
-  margin-bottom: 8px;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 .biografia-stat-label {
   margin: 0;
   color: rgba(255, 255, 255, 0.95);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  line-height: 1.5;
+  letter-spacing: 0.5px;
 }
 
 /* --- Coluna da Imagem --- */
@@ -264,10 +312,6 @@
 
   .biografia-section {
     padding: 80px 5% 0;
-  }
-
-  .biografia-stat-card {
-    padding: 24px 16px;
   }
 
   /* MÁGICA PARA O BOTÃO: Centraliza a caixa e larga o botão no celular */
