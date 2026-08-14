@@ -1,5 +1,5 @@
 /* =========================================
-   ESTRUTURA GERAL
+   ESTRUTURA GERAL DA SEÇÃO
    ========================================= */
 .acao-section {
   background-color: #F8FAF8;
@@ -11,11 +11,8 @@
   margin: 0 auto;
 }
 
-/* =========================================
-   CABEÇALHO E TÍTULOS
-   ========================================= */
 .acao-header {
-  margin-bottom: 40px; /* Aumentei um pouco o respiro antes dos cards */
+  margin-bottom: 40px; 
 }
 
 .acao-tag {
@@ -37,58 +34,127 @@
 }
 
 /* =========================================
-   GRID DOS CARDS (COMPUTADOR)
+   GRID DOS CARDS
    ========================================= */
 .acao-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 Colunas */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 25px;
 }
 
-/* O CARD (AS LEIS) */
+/* =========================================
+   ESTILO DASHBOARD / TRANSPARÊNCIA GOVERNAMENTAL
+   ========================================= */
 .acao-card {
+  position: relative;
   background-color: #FFFFFF;
-  border: 1px solid #E5E7EB;
   border-radius: 12px;
-  padding: 25px 30px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 28px 32px;
+  text-decoration: none; /* Essencial para o link <a> */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  /* Borda institucional formal com destaque lateral esquerdo em verde/laranja */
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid var(--primary-green, #196B32);
+  
+  /* Sombra sutil e elegante, sem flutuação estática */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.acao-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+/* O Cabeçalho Técnico do Card (Metadados / Dashboard) */
+.acao-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.acao-card-title {
-  margin: 0 0 12px 0;
+.acao-card-badge {
+  background-color: rgba(25, 107, 50, 0.08);
   color: var(--primary-green, #196B32);
-  font-size: 1.15rem;
-  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
 }
 
+.acao-card-status {
+  color: #059669; /* Verde oficial de aprovado/vigorando */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Título da Lei */
+.acao-card-title {
+  margin: 0 0 10px 0;
+  color: #1F2937;
+  font-size: 1.2rem;
+  font-weight: 800;
+  transition: color 0.2s ease;
+}
+
+/* Texto descritivo */
 .acao-card-text {
-  margin: 0;
+  margin: 0 0 20px 0;
   color: #4B5563;
-  line-height: 1.7;
-  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Rodapé do Card com indicação discreta de link oficial */
+.acao-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-orange, #EF7C00);
+  border-top: 1px solid #F3F4F6;
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.acao-card-footer svg, .acao-card-footer span {
+  transition: transform 0.2s ease;
+}
+
+/* Interação formal e profissional ao passar o mouse (Sem flutuar) */
+.acao-card:hover {
+  border-color: var(--accent-orange, #EF7C00);
+  border-left-color: var(--accent-orange, #EF7C00);
+  box-shadow: 0 10px 25px rgba(239, 124, 0, 0.08);
+  transform: translateY(-2px); /* Movimento microscópico apenas de foco, nada exagerado */
+}
+
+.acao-card:hover .acao-card-title {
+  color: var(--primary-green, #196B32);
+}
+
+.acao-card:hover .acao-card-footer span {
+  transform: translateX(4px); /* Seta sutil indicando ação */
 }
 
 /* =========================================
-   RESPONSIVIDADE (CELULARES E IPHONES)
+   RESPONSIVIDADE
    ========================================= */
 @media (max-width: 768px) {
   .acao-title {
-    font-size: 2rem; /* Título um pouco menor no mobile */
+    font-size: 2rem; 
   }
 
   .acao-grid {
-    grid-template-columns: 1fr; /* MÁGICA: Empilha todas as leis em 1 coluna */
+    grid-template-columns: 1fr; 
     gap: 20px;
   }
 
   .acao-card {
-    padding: 30px 25px; /* Aumenta a caixa pra respirar o texto */
-    height: auto;
+    padding: 24px 20px; 
   }
 }

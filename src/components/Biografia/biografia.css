@@ -17,86 +17,123 @@
   padding: 0 0 40px;
 }
 
+/* =========================================
+   CARDS DE ESTATÍSTICAS (LARANJA E VERDE FUTURISTA)
+   ========================================= */
 .biografia-stats-inner {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 30px;
+  perspective: 1000px; 
 }
 
-/* =========================================
-   CARDS DE ESTATÍSTICAS (DINÂMICOS E 3D)
-   ========================================= */
 .biografia-stat-card {
-  background: linear-gradient(135deg, var(--primary-green, #196B32), #0d4a20);
-  border-radius: 18px;
-  padding: 35px 20px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(25, 107, 50, 0.15);
   position: relative;
-  overflow: hidden;
+  /* Darker base so the orange and green neon lights pop more */
+  background: rgba(15, 40, 20, 0.4); 
+  border-radius: 16px; 
+  padding: 25px 15px; /* Keeps the smaller, compact size! */
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 8px; 
   z-index: 1;
-  /* A MÁGICA DO HOVER: Transição bem elástica */
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  overflow: hidden;
+  
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
+  
+  /* Adds a subtle orange and green futuristic border */
+  border: 1px solid rgba(239, 124, 0, 0.2);
+  border-bottom: 2px solid var(--accent-orange, #EF7C00);
+  
+  animation: floatContinuous 6s ease-in-out infinite;
 }
 
-/* O Efeito de levitação ao passar o mouse */
-.biografia-stat-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(25, 107, 50, 0.35);
-}
+.biografia-stat-card:nth-child(1) { animation-delay: 0s; }
+.biografia-stat-card:nth-child(2) { animation-delay: -2s; }
+.biografia-stat-card:nth-child(3) { animation-delay: -4s; }
 
-/* Um brilho charmoso e invisível no fundo do card que cresce no hover */
-.biografia-stat-card::after {
+/* The Dual-Color Neon Engine */
+.biografia-stat-card::before {
   content: '';
   position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  border-radius: 50%;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  /* THE MAGIC: Mixing an Orange orb and a Green orb together */
+  background: 
+    radial-gradient(circle at 35% 35%, rgba(239, 124, 0, 0.7) 0%, transparent 45%), /* Glowing Orange */
+    radial-gradient(circle at 65% 65%, rgba(25, 107, 50, 0.9) 0%, transparent 45%); /* Glowing Green */
   z-index: -1;
-  transition: transform 0.5s ease;
+  /* Rotates the two colors around each other */
+  animation: spinBlob 10s linear infinite;
+  filter: blur(35px);
 }
 
-.biografia-stat-card:hover::after {
-  transform: scale(1.8);
-}
-
-/* Estilo dos novos ícones */
 .stat-icon {
-  font-size: 2.8rem;
-  color: var(--accent-orange, #0060ef);
-  margin-bottom: 5px;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); /* Dá um volume no ícone */
+  font-size: 2.4rem; 
+  color: var(--accent-orange, #EF7C00);
+  animation: pulseFilter 3s infinite alternate;
 }
 
-/* Números mais vibrantes e destacados */
 .biografia-stat-number {
-  font-size: clamp(2.5rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 3vw, 2.6rem); 
   font-weight: 900;
   color: #FFFFFF;
   margin: 0;
   line-height: 1;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
 .biografia-stat-label {
   margin: 0;
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  color: #f0f0f0;
+  font-size: 0.95rem; 
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* --- Coluna da Imagem e Carrossel --- */
+/* =========================================
+   THE UPDATED ANIMATION KEYFRAMES
+   ========================================= */
+@keyframes floatContinuous {
+  0%, 100% { 
+    transform: translateY(0px); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+  }
+  50% { 
+    transform: translateY(-12px); 
+    box-shadow: 0 25px 40px rgba(239, 124, 0, 0.15); 
+  }
+}
+
+/* Spins both the green and orange colors smoothly */
+@keyframes spinBlob {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes pulseFilter {
+  0% { 
+    filter: drop-shadow(0 0 5px rgba(239,124,0,0.5)); 
+    transform: scale(1); 
+  }
+  100% { 
+    filter: drop-shadow(0 0 20px rgba(239,124,0,0.9)); 
+    transform: scale(1.1); 
+  }
+}
+
+/* =========================================
+   COLUNA DA IMAGEM E CARROSSEL
+   ========================================= */
 .biografia-imagem-wrapper {
   flex: 1;
   position: relative;
@@ -181,7 +218,9 @@
   right: 15px;
 }
 
-/* --- Coluna do Texto --- */
+/* =========================================
+   COLUNA DO TEXTO
+   ========================================= */
 .biografia-conteudo {
   flex: 1.2;
   display: flex;
@@ -255,7 +294,9 @@
   font-weight: bold;
 }
 
-/* --- Botão Saiba Mais --- */
+/* =========================================
+   BOTÕES E AÇÕES
+   ========================================= */
 .biografia-acoes {
   margin-top: 25px;
   display: flex;
@@ -340,7 +381,9 @@
   box-shadow: 0 6px 20px rgba(25, 107, 50, 0.4);
 }
 
-/* --- Responsividade --- */
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
 @media (max-width: 992px) {
   .biografia-container {
     flex-direction: column;
