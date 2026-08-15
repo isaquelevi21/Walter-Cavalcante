@@ -34,8 +34,8 @@ export default function Home() {
       <Biografia />
       <AcaoParlamentar /> 
       <Compromissos />
-      <Contato/>  
       <FalaWalter />
+      {/* <Contato/>   */}
     </>
   );
 }

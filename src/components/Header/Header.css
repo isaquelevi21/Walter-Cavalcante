@@ -89,7 +89,7 @@ body {
   font-weight: 700;
   transition: color 0.3s;
   font-size: 1rem;
-  white-space: nowrap; /* MÁGICA: Impede que "Quem Sou" vire duas linhas */
+  white-space: nowrap; /* MÁGICA: Impede que "Quem Sou" vire duas linhas */ 
 }
 
 .main-nav a:hover {

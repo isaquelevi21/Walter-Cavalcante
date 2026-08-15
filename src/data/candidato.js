@@ -14,7 +14,7 @@ export const candidato = {
   siteOficial: 'https://waltercavalcante.com.br',
   cnpjCampanha: '68.455.381/0001-37',
 
-  emailOficial: 'contato@walter43640.com.br',
+  emailOficial: ' comite@waltercavalcante.com.br',
   whatsappOficial: '+55 (85) 99999-4364',
 
   anoEleicao: 2026,
@@ -25,5 +25,5 @@ export const candidato = {
     tiktok: 'https://www.tiktok.com/@walterlfcavalcante?_r=1&_t=ZS-98fEqpppcgP',
   },
 
-  enderecoComite: 'Av. Antônio Sales, 1234 - Dionísio Torres, Fortaleza - CE',
+  enderecoComite: 'Av. Ambientalista Ary Thiers, 219 Vila Velha, Fortaleza - CE',
 };

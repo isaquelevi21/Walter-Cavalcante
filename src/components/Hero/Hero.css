@@ -1,25 +1,26 @@
 /* =========================================
-   ESTRUTURA PRINCIPAL
+   ESTRUTURA PRINCIPAL (COMPUTADORES)
    ========================================= */
 .hero-section {
-  background-color: var(--bg-light, #f7f7f7);
-  border-bottom: 4px solid var(--accent-orange, #EF7C00);
   width: 100%;
+  height: auto; /* A mágica: deixa a seção seguir a altura natural da foto */
+  position: relative;
+  background-color: #f8faf8;
 }
 
 .hero-container {
-  position: relative; /* Serve de âncora para o botão flutuar no PC */
   width: 100%;
-  display: flex;
-  flex-direction: column; /* Garante que as coisas se empilhem no celular */
+  height: auto; 
+  position: relative;
+  display: block;
 }
 
-.hero-imagem {
+/* A imagem em si */
+.hero-image {
   width: 100%;
-  display: block;
-  max-height: 750px;
-  object-fit: cover;
-  object-position: center;
+  height: auto; /* A imagem vai esticar na largura e manter a proporção da altura */
+  display: block; /* Tira um espaço branco fantasma que toda tag <img> tem por padrão */
+  object-fit: contain; /* Garante que absolutamente nada seja cortado */
 }
 
 /* =========================================
@@ -27,54 +28,61 @@
    ========================================= */
 .hero-box-botao {
   position: absolute;
-  bottom: 50px;
-  left: 8%;
-  z-index: 10;
+  /* Mudamos para porcentagem. Assim, se a tela for muito larga, o botão acompanha a proporção! */
+  bottom: 12%; 
+  left: 8%;     
+  z-index: 10;  
 }
 
 .hero-btn {
   background-color: var(--primary-green, #196B32);
   color: white;
-  padding: 14px 30px;
+  padding: 14px 32px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 999px;
   display: inline-block;
-  border: 2px solid white; /* Borda para destacar da imagem */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s, background-color 0.3s;
+  border: 2px solid white; 
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .hero-btn:hover {
-  background-color: #145226;
-  transform: translateY(-3px);
+  background-color: #125025;
+  transform: translateY(-4px);
 }
 
 /* =========================================
-   RESPONSIVIDADE (CELULARES)
+   RESPONSIVIDADE (CELULARES E IPHONES)
    ========================================= */
 @media (max-width: 768px) {
-  
-  .hero-imagem {
-    height: auto; /* Deixa a imagem calcular sua própria altura */
-    object-fit: contain; /* Impede que corte os lados da imagem */
+  .hero-section, .hero-container {
+    height: auto; 
+    display: flex;
+    flex-direction: column; /* Empilha a imagem em cima e o botão embaixo */
+  }
+
+  .hero-image {
+    position: relative; 
+    width: 100%;
+    height: auto; 
   }
 
   .hero-box-botao {
-    /* MÁGICA: Tira o flutuante e empurra pro fluxo normal da página (embaixo da foto) */
-    position: static; 
+    position: static; /* Tira a flutuação do botão no celular */
+    width: 100%;
     display: flex;
     justify-content: center;
-    padding: 30px 20px;
-    background-color: #f7f7f7; /* Fundo cinza clarinho combinando com o site */
+    padding: 30px 20px 40px;
+    background-color: #f7f7f7; 
   }
 
   .hero-btn {
-    border: none; /* Tira a borda branca porque não está mais em cima da foto */
-    box-shadow: 0 8px 20px rgba(25, 107, 50, 0.2);
+    border: none; 
+    box-shadow: 0 8px 25px rgba(25, 107, 50, 0.25);
     font-size: 1.1rem;
     width: 100%;
-    max-width: 350px; /* Não deixa o botão ficar gigante de ponta a ponta */
-    text-align: center;
+    max-width: 350px;
   }
 }

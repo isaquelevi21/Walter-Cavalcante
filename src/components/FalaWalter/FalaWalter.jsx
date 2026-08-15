@@ -1,5 +1,7 @@
 import React from 'react';
 import './FalaWalter.css';
+// IMPORTANTE: O caminho do seu vídeo local foi mantido perfeitamente
+import VideoApresentacao from '../../assets/videos/fala-video-walter.mp4'; 
 
 const FalaWalter = () => {
   return (
@@ -12,39 +14,49 @@ const FalaWalter = () => {
           <div className="fw-divisor"></div>
         </div>
 
-        {/* A MÁGICA COMEÇA AQUI: Layout em duas colunas */}
+        {/* Layout em duas colunas */}
         <div className="fw-grid-layout">
           
-          {/* Coluna da Esquerda: Apenas o Texto */}
+          {/* Coluna da Esquerda: Texto Persuasivo e Chamada (CTA) */}
           <div className="fw-text-column">
+            
+            {/* NOVO SUBTÍTULO PARA QUEBRAR O GELO */}
+            <h3 className="fw-subtitle">
+              Minha missão é representar você e sua família!
+            </h3>
+            
             <p>
-              Desde o início da vida pública, tenho pautado minha atuação pela defesa dos cearenses, combatendo a discriminação e a injustiça social. Como vereador de Fortaleza e, posteriormente, deputado estadual, sempre busquei atender às necessidades da população com simplicidade, compromisso e dedicação ao bem comum.
+              Ao longo de toda a minha vida pública, minha maior motivação sempre foi a defesa dos cearenses e o combate à injustiça social.
             </p>
 
             <p>
-              Na Assembleia Legislativa, direcionei esforços para fortalecer áreas essenciais, como saúde, educação, esporte, lazer e infraestrutura, contribuindo para a melhoria da qualidade de vida da população. Ao longo desta trajetória, reafirmo meu compromisso de continuar trabalhando com responsabilidade, ética e dedicação em favor do desenvolvimento do Ceará e do bem-estar dos seus cidadãos.
+              Seja como vereador de Fortaleza ou como deputado estadual, meu trabalho é pautado pela ética, pela simplicidade e pela dedicação incansável para levar desenvolvimento e melhores oportunidades a todas as regiões do nosso Estado.
             </p>
 
-            <p>
-              Minha atuação vai muito além dessas ações aqui descritas, alcançando diversos municípios cearenses por meio de outros projetos, iniciativas e conquistas que têm transformado a vida das pessoas. Sigo trabalhando com dedicação para levar desenvolvimento, mais oportunidades e melhorias concretas a todas as regiões do nosso Estado.
-            </p>
+            {/* A NOVA CAIXA COM A SETINHA ANIMADA (GATILHO DE CLIQUE) */}
+            <div className="fw-video-chamada">
+              <span className="seta-animada">➔</span>
+              <div>
+                <strong>Dê o play no vídeo ao lado</strong> e ouça a minha mensagem especial sobre o futuro que podemos construir juntos!
+              </div>
+            </div>
+
           </div>
 
-          {/* Coluna da Direita: A Caixa Informativa */}
-          <div className="fw-cta-column">
-            <div className="fw-cta-box">
-              <p className="fw-cta-text">
-                No dia 02 de outubro, <strong>VAMOS JUNTOS COM FÉ E TRABALHO PELO POVO CEARENSE.</strong> Conto com você e sua família - vote para Deputado Estadual:
-              </p>
+          {/* Coluna da Direita: A Caixa Dinâmica de Vídeo */}
+          <div className="fw-video-container">
+            <div className="fw-video-wrapper">
               
-              <div className="fw-vote-number">
-                Walter Cavalcante <span>43.640</span>
-              </div>
-              
-              <p className="fw-agradecimento">
-                Aos que acreditam em mim, agradeço a confiança para continuar a honrosa missão de representá-los, reafirmando o compromisso de continuar lutando pela melhoria de vida de todos cearenses.<br/><br/>
-                <strong>Muito obrigado!!! Que Deus os abençoe!!!</strong>
-              </p>
+              {/* VÍDEO LOCAL SENDO RENDERIZADO AQUI */}
+              <video 
+                controls 
+                preload="metadata"
+                controlsList="nodownload" /* Opcional: esconde o botão de download do player */
+              >
+                <source src={VideoApresentacao} type="video/mp4" />
+                Seu navegador não suporta a exibição de vídeos.
+              </video>
+
             </div>
           </div>
 

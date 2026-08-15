@@ -7,14 +7,14 @@ const Hero = () => {
     <section id="inicio" className="hero-section">
       <div className="hero-container">
         
-        {/* A imagem do banner */}
+        {/* NOME DA CLASSE CORRIGIDO AQUI PARA "hero-image" */}
         <img 
           src={Interface} 
           alt="Walter Cavalcante" 
-          className="hero-imagem" 
+          className="hero-image" 
         />
         
-        {/* A caixa que segura o botão ajustada para evitar o bug de tela branca */}
+        {/* A caixa que segura o botão */}
         <div className="hero-box-botao">
           <button 
             onClick={() => document.getElementById('biografia')?.scrollIntoView({ behavior: 'smooth' })}

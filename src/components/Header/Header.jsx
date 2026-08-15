@@ -81,8 +81,8 @@ const Header = () => {
               
               <li><a href="#acao-parlamentar" onClick={handleMenuClick('acao-parlamentar')}>Ação parlamentar</a></li>
               <li><a href="#propostas" onClick={handleMenuClick('propostas')}>Compromissos</a></li>
-              <li><a href="#contato" onClick={handleMenuClick('contato')}>Contato</a></li>
               <li><a href="#fala-walter" onClick={handleMenuClick('fala-walter')}>Fala Walter</a></li>
+              {/* <li><a href="#contato" onClick={handleMenuClick('contato')}>Contato</a></li> */}
               
             </ul>
           </nav>

@@ -7,7 +7,7 @@
 }
 
 .fw-container {
-  max-width: 1200px; /* Aumentado de 900px para 1200px para caber as duas colunas */
+  max-width: 1200px; 
   margin: 0 auto;
 }
 
@@ -50,71 +50,120 @@
    ========================================= */
 .fw-grid-layout {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* A coluna do texto fica levemente mais larga que a caixa verde */
-  gap: 60px; /* Espaço generoso entre o texto e a caixa */
-  align-items: center; /* Centraliza a caixa verde verticalmente ao lado do texto */
+  grid-template-columns: 1.1fr 0.9fr; 
+  gap: 60px; 
+  align-items: center; 
 }
 
 /* =========================================
-   TEXTO PRINCIPAL
+   TEXTO PRINCIPAL (FLUIDO E PERSUASIVO)
    ========================================= */
+.fw-text-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fw-subtitle {
+  color: var(--accent-orange, #EF7C00);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
 .fw-text-column p {
   font-size: 1.15rem;
   color: #4B5563;
-  line-height: 1.8;
-  margin-bottom: 24px;
-  text-align: justify;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  /* Alinhamento à esquerda para deixar a leitura leve e moderna */
+  text-align: left; 
 }
 
 /* =========================================
-   CAIXA DE DESTAQUE (CHAMADA PARA O VOTO)
+   CHAMADA PARA O VÍDEO (GATILHO DE CLIQUE)
    ========================================= */
-.fw-cta-box {
-  background: linear-gradient(135deg, var(--primary-green, #196B32), #0f6d2f);
-  border-radius: 16px;
-  padding: 40px;
-  text-align: center;
-  color: #FFFFFF;
-  box-shadow: 0 16px 35px rgba(25, 107, 50, 0.22);
+.fw-video-chamada {
+  margin-top: 15px;
+  padding: 18px 20px;
+  background-color: rgba(25, 107, 50, 0.05); /* Fundo verde bem clarinho */
+  border-left: 5px solid var(--primary-green, #196B32);
+  border-radius: 0 10px 10px 0;
+  font-size: 1.15rem;
+  color: var(--primary-green, #196B32);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.fw-video-chamada strong {
+  font-weight: 800;
+}
+
+.seta-animada {
+  font-size: 1.4rem;
+  color: var(--accent-orange, #EF7C00);
+  animation: moverSeta 1.5s ease-in-out infinite;
+}
+
+/* Animação da seta empurrando para a direita no Computador */
+@keyframes moverSeta {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
+/* =========================================
+   CAIXA DINÂMICA DE VÍDEO
+   ========================================= */
+.fw-video-container {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  padding: 8px; /* A espessura da borda animada */
+  
+  /* Gradiente animado em tons de verde e laranja */
+  background: linear-gradient(135deg, var(--primary-green, #196B32), #0d401b, var(--accent-orange, #EF7C00), #196B32);
+  background-size: 300% 300%;
+  animation: gradientFlow 8s ease infinite;
+  
+  box-shadow: 0 20px 40px rgba(25, 107, 50, 0.3);
   transition: transform 0.3s ease;
 }
 
-/* Efeito sutil para a caixa não parecer 100% estática */
-.fw-cta-box:hover {
-  transform: translateY(-5px); 
+.fw-video-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(239, 124, 0, 0.25);
 }
 
-.fw-cta-text {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin: 0 0 25px 0;
-  color: rgba(255, 255, 255, 0.95);
+.fw-video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Mantém proporção de cinema/YouTube */
+  background-color: #000000;
+  border-radius: 14px;
+  overflow: hidden; 
+  z-index: 2;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
 }
 
-.fw-vote-number {
-  background-color: #FFFFFF;
-  color: var(--primary-green, #196B32);
-  display: inline-block;
-  padding: 15px 35px;
-  border-radius: 999px;
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 25px;
-  border: 3px solid var(--accent-orange, #EF7C00);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+/* Serve tanto para iframe do YouTube quanto tag <video> */
+.fw-video-wrapper iframe,
+.fw-video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-.fw-vote-number span {
-  color: var(--accent-orange, #EF7C00);
-  font-size: 2.2rem;
-  margin-left: 10px;
-}
-
-.fw-agradecimento {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.85);
+/* Motor da Animação do fundo do vídeo */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* =========================================
@@ -122,7 +171,7 @@
    ========================================= */
 @media (max-width: 992px) {
   .fw-grid-layout {
-    grid-template-columns: 1fr; /* Empilha as colunas (uma embaixo da outra) quando a tela aperta */
+    grid-template-columns: 1fr; 
     gap: 40px;
   }
   .fw-section {
@@ -140,23 +189,39 @@
   .fw-title {
     font-size: 2.2rem;
   }
+  
+  /* Ajustes dos textos para mobile */
   .fw-text-column p {
     font-size: 1.05rem;
-    text-align: left; /* No celular, alinhar à esquerda facilita a leitura */
   }
-  .fw-cta-box {
-    padding: 30px 20px;
+
+  /* Ajusta a chamada do vídeo (CTA) para o Celular */
+  .fw-video-chamada {
+    flex-direction: column;
+    text-align: center;
+    border-left: none;
+    border-top: 5px solid var(--primary-green, #196B32);
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 10px;
   }
-  .fw-cta-text {
-    font-size: 1.1rem;
+  
+  /* Faz a setinha apontar para BAIXO e animar para baixo no Celular */
+  .seta-animada {
+    transform: rotate(90deg); 
+    animation: moverSetaBaixo 1.5s ease-in-out infinite;
   }
-  .fw-vote-number {
-    padding: 12px 20px;
-    font-size: 1.2rem;
+
+  .fw-video-container {
+    padding: 5px; /* Borda mais fina no celular */
+    border-radius: 16px;
   }
-  .fw-vote-number span {
-    font-size: 1.8rem;
-    display: block; /* Empurra o número para a linha de baixo no celular */
-    margin: 5px 0 0 0;
+  .fw-video-wrapper {
+    border-radius: 12px;
   }
+}
+
+/* Animação da seta empurrando para baixo no Celular */
+@keyframes moverSetaBaixo {
+  0%, 100% { transform: rotate(90deg) translateX(0); }
+  50% { transform: rotate(90deg) translateX(8px); }
 }
