@@ -24,14 +24,14 @@ export default function Links() {
       icone: <FaGlobe />,
       destaque: true
     },
-    {
-      id: 2,
-      titulo: 'WhatsApp Oficial',
-      subtitulo: 'Fale diretamente com nossa equipe',
-      url: 'https://wa.me/5585999999999', // Substitua pelo número oficial
-      interno: false,
-      icone: <FaWhatsapp className="icon-wpp" />
-    },
+    // {
+    //   id: 2,
+    //   titulo: 'WhatsApp Oficial',
+    //   subtitulo: 'Fale diretamente com nossa equipe',
+    //   url: 'https://wa.me/5585999999999', // Substitua pelo número oficial
+    //   interno: false,
+    //   icone: <FaWhatsapp className="icon-wpp" />
+    // },
     {
       id: 3,
       titulo: 'Instagram',
