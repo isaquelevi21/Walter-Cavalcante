@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import foto1 from '../../assets/images/Carrocel01.jpg'; 
 import foto2 from '../../assets/images/Carrocel02.jpg';
 import foto3 from '../../assets/images/Carrocel03.jpg';
-import foto4 from '../../assets/images/Carrocel04.jpg';
+import foto4 from '../../assets/images/Carrocel04.jpeg';
 import foto5 from '../../assets/images/Carrocel05.jpg';
 
 // Cria a lista com as imagens
