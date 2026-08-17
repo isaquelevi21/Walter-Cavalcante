@@ -1,7 +1,7 @@
 import React from 'react';
 import './FalaWalter.css';
 // IMPORTANTE: O caminho do seu vídeo local foi mantido perfeitamente
-import VideoApresentacao from '../../assets/videos/fala-video-walter.mp4'; 
+import VideoApresentacao from '../../assets/videos/video_site_oficial.mp4'; 
 
 const FalaWalter = () => {
   return (

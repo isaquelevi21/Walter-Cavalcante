@@ -10,7 +10,7 @@ import ScrollToTop from './components/Scroll/ScrollToTop';
 
 function App() {
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       {/* MÁGICA: O componente invisível que joga a tela pro topo */}
       <ScrollToTop />
       

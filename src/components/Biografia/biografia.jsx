@@ -3,11 +3,11 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './biografia.css';
 import { Link } from 'react-router-dom';
 // Importe uma foto para a biografia (substitua pelo caminho correto da sua imagem)
-import foto1 from '../../assets/images/Carrocel01.jpeg'; 
-import foto2 from '../../assets/images/Carrocel02.jpeg';
-import foto3 from '../../assets/images/Carrocel03.jpeg';
+import foto1 from '../../assets/images/Carrocel01.jpg'; 
+import foto2 from '../../assets/images/Carrocel02.jpg';
+import foto3 from '../../assets/images/Carrocel03.jpg';
 import foto4 from '../../assets/images/Carrocel04.jpeg';
-import foto5 from '../../assets/images/Carrocel05.jpeg';
+import foto5 from '../../assets/images/Carrocel05.jpg';
 
 // Cria a lista com as imagens
 const imagensCarrossel = [foto1, foto2, foto3, foto4, foto5];
