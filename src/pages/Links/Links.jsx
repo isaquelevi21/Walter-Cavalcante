@@ -35,7 +35,7 @@ export default function Links() {
     {
       id: 3,
       titulo: 'Instagram',
-      subtitulo: '@waltercavalcantece',
+      subtitulo: '@walterlfcavalcante',
       url: 'https://www.instagram.com/walterlfcavalcante?igsh=MWQwYWNtdm1tYWh4', // Substitua pelo link correto
       interno: false,
       icone: <FaInstagram className="icon-insta" />
