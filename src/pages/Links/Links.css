@@ -1,0 +1,166 @@
+.bio-container {
+  /* Posicionamento absoluto para eliminar o teto branco */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  
+  /* Estrutura e alinhamento */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+
+  /* NOVO FUNDO GRADIENTE ANIMADO (Opção 1) */
+  background: linear-gradient(-45deg, #0d421d, #196B32, #114c22, #0a3316);
+  background-size: 400% 400%;
+  animation: gradientFlow 12s ease infinite;
+}
+
+/* 
+  Animação que faz o gradiente "respirar"
+  Substitua o @keyframes antigo por este abaixo
+*/
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.bio-card {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bio-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.bio-avatar-wrapper {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 15px auto;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(45deg, #EF7C00, #ffffff);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.bio-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.bio-name {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 5px 0;
+}
+
+.bio-badge {
+  display: inline-block;
+  background-color: #EF7C00;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.bio-tagline {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  margin: 5px 0 0 0;
+  padding: 0 10px;
+}
+
+.bio-links-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bio-btn {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  color: #222222;
+  text-decoration: none;
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bio-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  background-color: #fcfcfc;
+}
+
+.bio-btn.destaque {
+  background: #EF7C00;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.bio-btn-icon {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+}
+
+.bio-btn-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.bio-btn-text strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.bio-btn-text small {
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+/* Cores específicas dos ícones */
+.icon-wpp { color: #25D366; }
+.icon-insta { color: #E1306C; }
+.icon-face { color: #1877F2; }
+.icon-yt { color: #FF0000; }
+.icon-tk { color: #000000; }
+
+.destaque .bio-btn-icon,
+.destaque .bio-btn-text small {
+  color: #ffffff;
+}
+
+.bio-footer {
+  margin-top: 30px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+}
