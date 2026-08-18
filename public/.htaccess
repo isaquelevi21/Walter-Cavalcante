@@ -1,0 +1,54 @@
+<IfModule mod_headers.c>
+  # ==============================================================================
+  # 1. CABEÇALHOS DE SEGURANÇA (SECURITY HEADERS)
+  # ==============================================================================
+  
+  # Força a utilização de HTTPS (Prevenção contra SSL-Stripping)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  
+  # Impede que o site seja incorporado em iframes maliciosos (Clickjacking)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # Impede que o navegador tente adivinhar o tipo do arquivo (MIME-Sniffing)
+  Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# ==============================================================================
+# 2. BLOQUEIO FÍSICO DE ARQUIVOS E DIRETÓRIOS SENSÍVEIS
+# ==============================================================================
+
+# Bloqueia acesso ao phpinfo.php
+<Files "phpinfo.php">
+    Require all denied
+</Files>
+
+# Bloqueia acesso a arquivos ocultos de sistema (ex: .env, .git, .htaccess)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  # ==============================================================================
+  # 3. BLINDAGEM CONTRA SCANNERS E RECONHECIMENTO (FALSOS POSITIVOS)
+  # ==============================================================================
+  RewriteEngine On
+  RewriteBase /
+  
+  # Intercepta rotas comuns de ataque/scanners e devolve 403 Forbidden
+  # Cobre: Spring Boot (actuator), WordPress (wp-admin) e Apache Status (server-status)
+  RewriteRule ^(actuator|wp-admin|server-status|phpinfo\.php)(/.*)?$ - [F,L]
+  
+  # Força o bloqueio do .DS_Store caso seja acessado como rota virtual
+  RewriteRule \.DS_Store$ - [F,L]
+  
+  # ==============================================================================
+  # 4. ROTEAMENTO PARA SINGLE PAGE APPLICATIONS (REACT / VITE)
+  # ==============================================================================
+  
+  # Regra para não redirecionar se o arquivo realmente existir na hospedagem
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Regra para enviar todo o restante para o index.html (React Router)
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
