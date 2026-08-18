@@ -13,7 +13,7 @@ import foto5 from '../../assets/images/Carrocel05.jpg';
 const imagensCarrossel = [foto1, foto2, foto3, foto4, foto5];
 import { FaCalendarAlt, FaCheckCircle, FaHandshake } from 'react-icons/fa';
 const statsData = [
-  { value: 25, suffix: '+', label: 'Anos de Vida Pública' },
+  { value: 30, suffix: '+', label: 'Anos de Vida Pública' },
   { value: 150, suffix: '', label: 'Projetos Aprovados' },
   { value: 100, suffix: '%', label: 'Compromisso com o Povo' },
 ];
@@ -160,7 +160,7 @@ const Biografia = () => {
   {/* Card 1 */}
       <div className="biografia-stat-card">
         <FaCalendarAlt className="stat-icon" />
-        <div className="biografia-stat-number">25+</div>
+        <div className="biografia-stat-number">30</div>
         <p className="biografia-stat-label">Anos de Vida Pública</p>
       </div>
 

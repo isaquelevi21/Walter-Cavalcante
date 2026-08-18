@@ -3,11 +3,12 @@ import './Header.css';
 import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok, FaBars, FaTimes } from 'react-icons/fa';
 import logoCampanha from '../../assets/images/logo_sem_numero.png';
 import { candidato } from '../../data/candidato';
-import { useLocation, useNavigate } from 'react-router-dom';
+// Importamos o componente 'Link' aqui na linha abaixo
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 const Header = () => {
   const [submenuOpen, setSubmenuOpen] = useState(false);
-  const [menuMobileOpen, setMenuMobileOpen] = useState(false); // Estado para controlar o menu no celular
+  const [menuMobileOpen, setMenuMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -26,19 +27,13 @@ const Header = () => {
   };
 
   const handleMenuClick = (sectionId) => (event) => {
-    // 1. MÁGICA: Previne o comportamento padrão (pulo seco) do navegador
     event.preventDefault();
-    
-    // Fecha o menu mobile ao clicar em qualquer link
     setMenuMobileOpen(false);
 
-    // 2. Verifica se estamos na Home (raiz '/' ou no '/Walter-Cavalcante' do GitHub Pages)
     if (location.pathname === '/' || location.pathname.includes('/Walter-Cavalcante')) {
-      scrollToSection(sectionId); // Força a rolagem suave
-      // Atualiza a URL lá em cima sem recarregar a página
+      scrollToSection(sectionId);
       window.history.pushState(null, '', `/#${sectionId}`);
     } else {
-      // Se estiver em outra página (ex: Termos de Uso), navega para a Home na seção certa
       navigate(`/#${sectionId}`);
     }
   };
@@ -55,7 +50,6 @@ const Header = () => {
           />
         </div>
 
-        {/* Botão Hambúrguer que só aparece no celular */}
         <button 
           className="btn-menu-mobile" 
           onClick={() => setMenuMobileOpen(!menuMobileOpen)}
@@ -64,7 +58,6 @@ const Header = () => {
           {menuMobileOpen ? <FaTimes size={28} color="white" /> : <FaBars size={28} color="white" />}
         </button>
         
-        {/* Lado Direito: Menu + Redes Sociais agrupados (Recebe a classe 'aberto' no celular) */}
         <div className={`header-direita ${menuMobileOpen ? 'aberto' : ''}`}>
           <nav className="main-nav">
             <ul>
@@ -82,7 +75,17 @@ const Header = () => {
               <li><a href="#acao-parlamentar" onClick={handleMenuClick('acao-parlamentar')}>Ação parlamentar</a></li>
               <li><a href="#propostas" onClick={handleMenuClick('propostas')}>Compromissos</a></li>
               <li><a href="#fala-walter" onClick={handleMenuClick('fala-walter')}>Fala Walter</a></li>
-              {/* <li><a href="#contato" onClick={handleMenuClick('contato')}>Contato</a></li> */}
+              
+              {/* Substituímos a tag <a> normal pelo <Link> do React Router para essa página externa */}
+              <li>
+                <Link 
+                  to="/materiais" 
+                  className="link-destaque" 
+                  onClick={() => setMenuMobileOpen(false)}
+                >
+                  Baixar Materiais
+                </Link>
+              </li>
               
             </ul>
           </nav>
