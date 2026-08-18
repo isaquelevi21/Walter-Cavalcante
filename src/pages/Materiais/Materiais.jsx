@@ -16,14 +16,14 @@ export default function Materiais() {
     {
       id: 2,
       titulo: 'Logo da Campanha',
-      descricao: 'Logomarca oficial',
+      descricao: 'Logotipo oficial',
       arquivo: '/downloads/LOGO_COM_NUMERO.png',
       nomeDownload: 'LOGO COM NÚMERO'
     },
     {
       id: 3,
       titulo: 'Logo Horizontal',
-      descricao: 'Logo Horizontal',
+      descricao: 'Logotipo Oficial',
       arquivo: '/downloads/LOGO_HORIZONTAL.png',
       nomeDownload: 'LOGO HORIZONTAL'
     }
@@ -32,8 +32,8 @@ export default function Materiais() {
   return (
     <main className="materiais-container">
       <div className="materiais-header">
-        <h1>Material de Campanha</h1>
-        <p>Baixe as fotos oficiais e logomarcas para apoiar nossa caminhada.</p>
+        <h1>MATERIAL DE CAMPANHA</h1>
+        <p>Baixe agora nosso material oficial !</p>
       </div>
 
       <div className="materiais-grid">

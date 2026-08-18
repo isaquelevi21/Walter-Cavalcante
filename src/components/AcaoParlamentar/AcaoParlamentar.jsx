@@ -69,8 +69,8 @@ const AcaoParlamentar = () => {
     <section id="acao-parlamentar" className="acao-section">
       <div className="acao-container">
         <div className="acao-header">
-          <span className="acao-tag">Ação Parlamentar</span>
-          <h2 className="acao-title">Principais ações e propostas que marcaram a atuação</h2>
+          <span className="acao-tag">AÇÕES PARLAMENTARES</span>
+          <h2 className="acao-title">Principais ações e <br/>propostas que marcaram a atuação</h2>
         </div>
 
         <div className="acao-grid">

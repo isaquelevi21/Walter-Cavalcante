@@ -29,7 +29,7 @@ const Footer = () => {
 
         {/* Coluna 3: Redes Sociais e Páginas Legais */}
         <div className="footer-col social-col">
-          <h4 className="footer-title">Siga-nos nas redes</h4>
+          <h4 className="footer-title">Siga-nos nas redes sociais !</h4>
           <div className="redes-sociais">
   <a 
     href={candidato.redesSociais.instagram} 

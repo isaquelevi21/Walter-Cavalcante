@@ -60,29 +60,64 @@
   .hero-section, .hero-container {
     height: auto; 
     display: flex;
-    flex-direction: column; /* Empilha a imagem em cima e o botão embaixo */
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent; 
+    padding-bottom: 20px; /* Mata o buraco branco lá embaixo */
   }
 
   .hero-image {
     position: relative; 
     width: 100%;
-    height: auto; 
+    height: auto;
+    z-index: 1; /* Fica abaixo do botão */
   }
 
   .hero-box-botao {
-    position: static; /* Tira a flutuação do botão no celular */
+    position: relative; 
     width: 100%;
+    left: 0; 
+    transform: none; 
     display: flex;
     justify-content: center;
-    padding: 30px 20px 40px;
-    background-color: #f7f7f7; 
+    
+    /* A MÁGICA DO ALINHAMENTO NO ESPAÇO BRANCO */
+    margin-top: 40px; /* Empurra o botão para baixo, desgrudando da foto */
+    margin-bottom: 20px; /* Garante que não vai grudar no card laranja de baixo */
+    padding: 0;
+    
+    z-index: 10;
   }
 
   .hero-btn {
-    border: none; 
-    box-shadow: 0 8px 25px rgba(25, 107, 50, 0.25);
-    font-size: 1.1rem;
-    width: 100%;
-    max-width: 350px;
+    width: 80%; 
+    max-width: 280px;
+    
+    /* Garante o centro absoluto caso o flexbox falhe */
+    margin: 0 auto; 
+    text-align: center;
+    
+    padding: 12px 15px; 
+    font-size: 1.05rem;
+    border-radius: 50px;
+    border: 2px solid #ffffff; 
+    color: white;
+    box-shadow: 0 10px 25px rgba(25, 107, 50, 0.4); 
+    background: linear-gradient(90deg, #196B32, #2dbd4f, #196B32);
+    background-size: 200% auto;
+    animation: moveGradient 3s linear infinite, floatButton 4s ease-in-out infinite;
   }
+}
+
+/* =========================================
+   ANIMAÇÕES MODERNAS DO BOTÃO
+   ========================================= */
+@keyframes moveGradient {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes floatButton {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); } /* O botão sobe e desce bem devagarinho */
 }

@@ -30,9 +30,9 @@ const Bandeiras = () => {
       descricao: "Apoio integral à estruturação de unidades de saúde e valorização dos profissionais, garantindo um atendimento mais humano e eficiente nos municípios."
     },
     {
-      icone: "🛡️", 
-      titulo: "Defesa do Setor Produtivo",
-      descricao: "Valorização do comércio e da indústria cearense, lutando por um ambiente econômico mais competitivo e por menos carga tributária para quem produz."
+      icone: "🌳", 
+      titulo: "Defesa do Meio Ambiente",
+      descricao: "Defesa de um Ceará mais verde e sustentável, com proteção dos recursos naturais, incentivo à preservação ambiental e desenvolvimento que respeite as futuras gerações."
     }
   ];
 

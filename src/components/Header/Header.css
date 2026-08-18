@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 60px;
   background: linear-gradient(
     200deg, 
     var(--primary-green, #196B32) 30%, 
@@ -31,7 +31,7 @@
 }
 
 body {
-  padding-top: 70px;
+  padding-top: 60px;
 }
 
 /* =========================================
@@ -171,17 +171,24 @@ body {
   transform: translateY(-3px);
   background-color: var(--accent-orange, #EF7C00);
 }
+
+
 /* =========================================
    6. RESPONSIVIDADE (MOBILE)
    ========================================= */
 @media (max-width: 992px) {
+  /* 1. FAZ O BOTÃO APARECER E FICAR POR CIMA DE TUDO */
   .btn-menu-mobile {
     display: block;
+    position: relative;
+    z-index: 100; /* Garante que o botão fique em cima do menu aberto */
   }
 
+  /* 2. ALINHA A LOGO NA ESQUERDA E O BOTÃO NA DIREITA */
   .header-content {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding: 0 20px;
   }
 
@@ -190,26 +197,40 @@ body {
     transform: none !important;
   }
 
+  /* 3. MENU DESLIZANTE PELA DIREITA COM FUNDO ANIMADO */
   .header-direita {
     position: fixed;
-    top: 70px;
-    left: -100%;
+    top: 0;
+    right: -100%; /* Começa escondido do lado direito */
+    left: auto !important; /* Remove qualquer alinhamento à esquerda */
     width: 100%;
-    height: calc(100vh - 70px);
-    background: #155c29;
+    height: 100vh;
+    
+    /* Fundo animado */
+    background: linear-gradient(-45deg, #0a3316, #196B32, #2dbd4f, #0d421d);
+    background-size: 300% 300%;
+    animation: animaFundoMenu 6s ease infinite;
+    
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 40px;
+    justify-content: center; /* Centraliza os links no meio da tela */
+    align-items: center;
+    padding-top: 0;
     gap: 40px;
-    transition: left 0.3s ease;
+    
+    /* Animação suave de entrada */
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 99; /* Fica logo abaixo do botão de fechar (que é 100) */
   }
 
+  /* Quando clica no botão, o React adiciona essa classe */
   .header-direita.aberto {
-    left: 0;
+    right: 0;
   }
 
+  /* 4. ESTILO DOS LINKS E DROPDOWN */
   .main-nav ul {
     flex-direction: column;
+    align-items: center;
     gap: 30px;
   }
 
@@ -226,10 +247,33 @@ body {
     box-shadow: none;
     min-width: 100%;
     padding: 10px 0 0 0;
+    text-align: center;
   }
 
   .dropdown-menu a {
     color: white;
     font-size: 1.1rem;
+  }
+
+  /* Centraliza as redes sociais na parte de baixo do menu */
+  .redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* =========================================
+   ANIMAÇÃO DO FUNDO DO MENU MOBILE
+   ========================================= */
+@keyframes animaFundoMenu {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

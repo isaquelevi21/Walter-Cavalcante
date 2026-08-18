@@ -25,9 +25,11 @@
 .logo-col {
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .footer-logo {
+  margin-bottom: 0px !important; /* Zera qualquer empurrão que a imagem estava dando para baixo */
   max-width: 250px;
   height: auto;
   object-fit: contain;
@@ -144,32 +146,73 @@
 }
 
 /* =========================================
-   RESPONSIVIDADE - FOOTER (Celulares e Tablets)
+   RESPONSIVIDADE DO FOOTER (CELULARES)
    ========================================= */
 @media (max-width: 768px) {
-  /* Altera a direção do flex para empilhar as colunas verticalmente */
-  .footer-container {
+  /* 1. DIMINUI O BURACO ENTRE AS COLUNAS (Logo, Informações e Redes Sociais) */
+  .footer-grid {
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 30px; /* Espaço entre as colunas empilhadas */
+    gap: 20px; /* Antes estava 40px, cortamos pela metade! */
   }
 
-  /* Garante que cada coluna ocupe 100% da largura da tela */
-  .footer-column {
+  /* Garante que todas as colunas fiquem 100% no meio */
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    align-items: center; /* Centraliza o conteúdo interno das colunas */
   }
 
-  /* Centraliza os ícones das redes sociais */
-  .redes-sociais {
+  /* Centraliza a lista de informações (Candidato, Partido, E-mail...) */
+  .footer-list {
+    padding-left: 0; /* Tira o recuo padrão que joga o texto pra direita */
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* 3. APROXIMA AS LINHAS DA LISTA DE INFORMAÇÕES */
+  .footer-list li {
+    text-align: center;
     justify-content: center;
-    margin-top: 15px;
+    margin-bottom: 4px; /* Antes estava 8px, deixa as linhas de texto mais unidas */
   }
 
-  /* Ajusta o tamanho da logo no rodapé para não ficar desproporcional */
-  .footer-logo {
-    max-width: 180px;
-    margin: 0 auto;
+  /* 2. APROXIMA OS TÍTULOS DOS TEXTOS */
+  .footer-title {
+    text-align: center;
+    margin-bottom: 8px; /* Antes estava 20px, agora fica coladinho na informação */
+  }
+
+  /* Centraliza a caixa de botões das redes sociais */
+  .redes-sociais {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  /* Centraliza e empilha os links "Política de Privacidade" e "Termos de Uso" */
+  .legal-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espaço para o dedo clicar sem esbarrar no outro link */
+    width: 100%;
+  }
+
+  .legal-links a {
+    text-align: center;
+  }
+
+  /* Centraliza o texto miúdo lá de baixo */
+  .bottom-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
   }
 }
