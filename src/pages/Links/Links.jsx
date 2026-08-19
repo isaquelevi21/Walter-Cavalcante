@@ -18,7 +18,7 @@ export default function Links() {
     {
       id: 1,
       titulo: 'Acessar Site Oficial',
-      subtitulo: 'Conheça nossa história e propostas',
+      subtitulo: 'https://waltercavalcante.com.br/',
       url: '/',
       interno: true,
       icone: <FaGlobe />,
@@ -43,7 +43,7 @@ export default function Links() {
     {
       id: 4,
       titulo: 'Facebook',
-      subtitulo: 'Acompanhe nossas publicações',
+      subtitulo: '@depwaltercavalcante',
       url: 'https://www.facebook.com/depwaltercavalcante', // Substitua pelo link correto
       interno: false,
       icone: <FaFacebookF className="icon-face" />
@@ -51,7 +51,7 @@ export default function Links() {
     {
       id: 5,
       titulo: 'Canal no YouTube',
-      subtitulo: 'Assista aos nossos vídeos e discursos',
+      subtitulo: '@walterlfcavalcante',
       url: 'https://www.youtube.com/@walterlfcavalcante', // Substitua pelo link correto
       interno: false,
       icone: <FaYoutube className="icon-yt" />
@@ -59,7 +59,7 @@ export default function Links() {
     {
       id: 6,
       titulo: 'TikTok',
-      subtitulo: 'Vídeos curtos e bastidores',
+      subtitulo: '@walterlfcavalcante',
       url: 'https://www.tiktok.com/@walterlfcavalcante?_r=1&_t=ZS-98fEqpppcgP', // Substitua pelo link correto
       interno: false,
       icone: <FaTiktok className="icon-tk" />

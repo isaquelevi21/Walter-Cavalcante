@@ -72,8 +72,8 @@ const Header = () => {
                 </a>
               </li>
               
-              <li><a href="#acao-parlamentar" onClick={handleMenuClick('acao-parlamentar')}>Ação parlamentar</a></li>
-              <li><a href="#propostas" onClick={handleMenuClick('propostas')}>Compromissos</a></li>
+              <li><a href="#acao-parlamentar" onClick={handleMenuClick('acao-parlamentar')}>Ações Parlamentares</a></li>
+              <li><a href="#propostas" onClick={handleMenuClick('propostas')}>Bandeiras Que Defendo</a></li>
               <li><a href="#fala-walter" onClick={handleMenuClick('fala-walter')}>Fala Walter</a></li>
               
               {/* Substituímos a tag <a> normal pelo <Link> do React Router para essa página externa */}

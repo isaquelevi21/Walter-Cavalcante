@@ -16,7 +16,7 @@
 
 html {
   scroll-behavior: smooth;
-  /* 2. KIT DE EMERGÊNCIA: Trava rigorosamente o vazamento lateral no HTML */
+  scroll-padding-top: 60px;
   overflow-x: hidden;
   width: 100%;
 }

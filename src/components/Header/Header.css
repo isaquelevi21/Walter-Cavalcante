@@ -21,7 +21,7 @@
 .header-content {
   display: flex;
   justify-content: center; /* MÁGICA 1: Tira o space-between e centraliza tudo */
-  gap: 30px; /* MÁGICA 2: Define a distância exata entre a logo e o menu (pode aumentar ou diminuir esse número como preferir) */
+  gap: 30px; /* MÁGICA 2: Define a distância exata entre a logo e o menu */
   align-items: center;
   height: 100%;
   width: 100%;
@@ -40,15 +40,16 @@ body {
 .logo-area {
   display: flex;
   align-items: center;
-  height: 70px;
+  height: 100%;
+  min-width: 180px; /* MÁGICA 1: Cria um "escudo" para o flexbox não esmagar a logo */
 }
 
 .header-logo {
   height: 45px;
-  width: auto;
+  width: 120%; /* MÁGICA 2: Faz a logo preencher esse espaço seguro */
+  max-width: 200px; /* Limite máximo para não ficar gigante em telas grandes */
+  object-fit: contain; /* Garante que a imagem não vai esticar nem distorcer */
   flex-shrink: 0;
-  object-fit: contain;
-  transform: none !important;
   margin: 0;
   display: block;
 }
@@ -73,14 +74,16 @@ body {
 .main-nav ul {
   display: flex;
   list-style: none;
-  gap: 16px;
   margin: 0;
   padding: 0;
   align-items: center;
+  /* O "gap" foi removido daqui porque a divisória vai criar o espaçamento */
 }
 
 .main-nav li {
   position: relative;
+  display: flex; /* Adicionado para manter texto e linha perfeitamente alinhados */
+  align-items: center;
 }
 
 .main-nav a {
@@ -94,6 +97,18 @@ body {
 
 .main-nav a:hover {
   color: var(--accent-orange, #EF7C00);
+}
+
+/* 👇 DIVISÓRIAS ELEGANTES (APARECEM APENAS NO COMPUTADOR) 👇 */
+@media (min-width: 993px) {
+  .main-nav li:not(:last-child)::after {
+    content: "";
+    display: inline-block;
+    width: 1.5px; 
+    height: 16px; 
+    background-color: rgba(255, 255, 255, 0.4); /* Linha branca suave com transparência */
+    margin: 0 16px; /* Espaço de 16px de cada lado da linha */
+  }
 }
 
 /* =========================================
@@ -172,7 +187,6 @@ body {
   background-color: var(--accent-orange, #EF7C00);
 }
 
-
 /* =========================================
    6. RESPONSIVIDADE (MOBILE)
    ========================================= */
@@ -205,18 +219,18 @@ body {
     left: auto !important; /* Remove qualquer alinhamento à esquerda */
     width: 100%;
     height: 100vh;
-    
+
     /* Fundo animado */
     background: linear-gradient(-45deg, #0a3316, #196B32, #2dbd4f, #0d421d);
     background-size: 300% 300%;
     animation: animaFundoMenu 6s ease infinite;
-    
+
     flex-direction: column;
     justify-content: center; /* Centraliza os links no meio da tela */
     align-items: center;
     padding-top: 0;
     gap: 40px;
-    
+
     /* Animação suave de entrada */
     transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 99; /* Fica logo abaixo do botão de fechar (que é 100) */
@@ -231,7 +245,7 @@ body {
   .main-nav ul {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 30px; /* No celular as linhas não existem, então o gap assume o controle do espaço! */
   }
 
   .main-nav a {

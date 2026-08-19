@@ -6,7 +6,7 @@ const Bandeiras = () => {
   const bandeiras = [
     {
       icone: "🙏", 
-      titulo: "Promoção dos Princípios Cristãos",
+      titulo: "Princípios Cristãos",
       descricao: "Defesa dos valores cristãos, da vida e da família, pautando o mandato na ética, no respeito e na construção do bem comum para a sociedade cearense."
     },
     {
@@ -16,7 +16,7 @@ const Bandeiras = () => {
     },
     {
       icone: "🚀", 
-      titulo: "Fomento ao Empreendedorismo",
+      titulo: "Empreendedorismo",
       descricao: "Incentivo a novos negócios e oportunidades. Como criador da Sala do Empreendedor, o foco é desburocratizar e gerar mais empregos e renda."
     },
     {
