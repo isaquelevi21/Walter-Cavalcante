@@ -12,12 +12,39 @@ export default function CrieSeuAvatar() {
   const [photoFile, setPhotoFile] = useState(null);
   const [zoom, setZoom] = useState(1);
   const [photoPosition, setPhotoPosition] = useState({ x: 0, y: 0 });
+  
   const canvasRef = useRef(null);
   const previewCanvasRef = useRef(null);
   const photoAreaRef = useRef(null);
   const dragState = useRef(null);
   const photoPositionRef = useRef({ x: 0, y: 0 });
   const sourceImagesRef = useRef({ photo: null, art: null });
+
+  // ==========================================
+  // MÁGICA DE BLOQUEIO (A Parede Invisível)
+  // Calcula o limite que a foto pode ser arrastada sem revelar o fundo preto
+  // ==========================================
+  const clampPosition = (x, y, currentZoom) => {
+    const { photo } = sourceImagesRef.current;
+    if (!photo || !photoAreaRef.current) return { x, y };
+
+    const previewWidth = photoAreaRef.current.getBoundingClientRect().width || 380;
+    const photoHeight = previewWidth * 0.62;
+    
+    const scale = Math.max(previewWidth / photo.width, photoHeight / photo.height) * Number(currentZoom);
+    const renderedWidth = photo.width * scale;
+    const renderedHeight = photo.height * scale;
+
+    // Calcula a margem máxima de sobra (em pixels) para a esquerda/direita e cima/baixo
+    const maxX = Math.max(0, (renderedWidth - previewWidth) / 2);
+    const maxY = Math.max(0, (renderedHeight - photoHeight) / 2);
+
+    // Trava as coordenadas X e Y entre o -limite e o +limite
+    return {
+      x: Math.max(-maxX, Math.min(maxX, x)),
+      y: Math.max(-maxY, Math.min(maxY, y)),
+    };
+  };
 
   const drawAvatar = (canvas, size) => {
     const { photo, art } = sourceImagesRef.current;
@@ -39,7 +66,15 @@ export default function CrieSeuAvatar() {
     context.beginPath();
     context.rect(0, 0, size, photoHeight);
     context.clip();
-    context.drawImage(photo, (size - renderedWidth) / 2 + photoPositionRef.current.x * positionScale, (photoHeight - renderedHeight) / 2 + 38 * positionScale + photoPositionRef.current.y * positionScale, renderedWidth, renderedHeight);
+    
+    // Removido o offset de +38 que estava desregulando o topo e aplicando as posições bloqueadas
+    context.drawImage(
+      photo, 
+      (size - renderedWidth) / 2 + photoPositionRef.current.x * positionScale, 
+      (photoHeight - renderedHeight) / 2 + photoPositionRef.current.y * positionScale, 
+      renderedWidth, 
+      renderedHeight
+    );
     context.restore();
 
     const artHeight = size * 0.38;
@@ -74,11 +109,14 @@ export default function CrieSeuAvatar() {
     photo.src = photoUrl;
   }, [photoUrl]);
 
+  // Bloqueia a foto novamente caso o usuário diminua o Zoom depois de ter arrastado
   useEffect(() => {
     if (sourceImagesRef.current.photo) {
+      photoPositionRef.current = clampPosition(photoPositionRef.current.x, photoPositionRef.current.y, zoom);
+      setPhotoPosition(photoPositionRef.current);
       drawAvatar(previewCanvasRef.current, photoAreaRef.current?.getBoundingClientRect().width || 380);
     }
-  }, [zoom, photoPosition]);
+  }, [zoom]);
 
   const handlePhotoChange = (event) => {
     const file = event.target.files?.[0];
@@ -93,6 +131,7 @@ export default function CrieSeuAvatar() {
       photoPositionRef.current = { x: 0, y: 0 };
       setPhotoPosition(photoPositionRef.current);
       setPhotoFile(file);
+      setZoom(1); // Reseta o zoom ao trocar de foto
     };
     validationImage.onerror = () => URL.revokeObjectURL(validationUrl);
     validationImage.src = validationUrl;
@@ -117,14 +156,18 @@ export default function CrieSeuAvatar() {
     };
   };
 
+  // Trava o arrasto usando o clampPosition
   const handlePointerMove = (event) => {
     if (!dragState.current) return;
     if (event.pointerType === 'mouse' && event.buttons !== 1) return;
+    
     const nextPosition = {
       x: dragState.current.position.x + event.clientX - dragState.current.startX,
       y: dragState.current.position.y + event.clientY - dragState.current.startY,
     };
-    photoPositionRef.current = nextPosition;
+    
+    // Mágica sendo aplicada: não deixa a posição passar do limite!
+    photoPositionRef.current = clampPosition(nextPosition.x, nextPosition.y, zoom);
     drawAvatar(previewCanvasRef.current, photoAreaRef.current?.getBoundingClientRect().width || 380);
   };
 
@@ -150,18 +193,18 @@ export default function CrieSeuAvatar() {
       <div className="avatar-hero">
         <img src={fotoOficial} alt="Walter Cavalcante" />
         <div className="avatar-hero-content">
-          <span>Walter Cavalcante</span>
-          <strong>Declare seu apoio</strong>
-          <b>Crie seu avatar</b>
+          <div className="avatar-hero-top">
+            <span>Walter Cavalcante</span>
+            <span className="avatar-numero">43.640</span>
+          </div>
         </div>
-        <img className="avatar-hero-logo" src={logoComNumero} alt="Walter Cavalcante 43.640" />
       </div>
 
       <section className="avatar-builder">
         <div className="avatar-preview-wrap">
           <div className="avatar-preview">
             <div ref={photoAreaRef} className="avatar-photo-area" onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp}>
-              {photoUrl ? <canvas ref={previewCanvasRef} className="avatar-preview-canvas" aria-label="Prévia da sua foto no avatar" /> : <div className="avatar-empty"><FaImage /><strong>Escolha uma foto para começar</strong><span>Sua foto não é enviada para nenhum servidor.</span></div>}
+              {photoUrl ? <canvas ref={previewCanvasRef} className="avatar-preview-canvas" aria-label="Prévia da sua foto no avatar" /> : <div className="avatar-empty"><FaImage /><strong>Escolha sua foto!</strong></div>}
             </div>
             <img className="avatar-campaign-art" src={logoComNumero} alt="Arte oficial Walter Cavalcante 43.640" />
           </div>
@@ -170,7 +213,7 @@ export default function CrieSeuAvatar() {
         <div className="avatar-controls">
           <span className="avatar-eyebrow">Eu apoio 43.640</span>
           <h1>Crie sua foto oficial de apoio</h1>
-          <p>Escolha uma foto, ajuste o enquadramento e baixe sua imagem com a moldura da campanha para usar no Instagram, Facebook e WhatsApp.</p>
+          <p>Escolha uma foto, ajuste o enquadramento e baixe sua imagem com a moldura da campanha para usar nas redes sociais!</p>
           <label className="avatar-step-button"><span>1 · Selecionar foto</span><FaImage /><input type="file" accept="image/*" onChange={handlePhotoChange} /></label>
           <div className="avatar-zoom-label"><strong>2 · AJUSTAR IMAGEM</strong><span className="desktop-hint">Use o botão esquerdo do mouse para mover</span><span className="mobile-hint">Toque e arraste para mover</span></div>
           <input className="avatar-zoom" type="range" min="1" max="1.5" step="0.01" value={zoom} onChange={(event) => setZoom(event.target.value)} disabled={!photoUrl} />

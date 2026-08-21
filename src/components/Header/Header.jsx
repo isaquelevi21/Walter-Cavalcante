@@ -88,7 +88,7 @@ const Header = () => {
               </li>
               <li>
                 <Link to="/crie-seu-avatar" className="link-avatar" onClick={() => setMenuMobileOpen(false)}>
-                  Crie seu avatar
+                  Declare seu apoio
                 </Link>
               </li>
               
