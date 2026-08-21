@@ -30,27 +30,29 @@
    ========================================= */
 .avatar-hero {
   position: relative;
-  height: 330px;
+  width: 100%;
+  max-width: 1130px;
+  height: auto;
   overflow: hidden;
   border-radius: 15px;
-  background: #196b32;
-  box-shadow: 0 18px 35px rgba(25, 107, 50, 0.16);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .avatar-hero > img:first-child {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  opacity: 0.48;
+  height: auto;
+  display: block;
+  object-fit: contain; /* Garante que a imagem inteira apareça sem cortes ou estiramentos */
+  opacity: 1; /* Garante que a imagem exiba 100% da opacidade original */
 }
+
+/* O bloco .avatar-hero::after foi completamente removido para eliminar o filtro verde */
 
 /* Gradiente escuro por cima da foto do banner */
 .avatar-hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(10deg, rgba(8, 67, 29, 0.75), rgba(25, 107, 50, 0.25));
 }
 
 .avatar-hero-content {
@@ -121,17 +123,33 @@
   background: #000;
 }
 
-/* Área onde o usuário clica e arrasta a foto */
 .avatar-photo-area {
   position: absolute;
   inset: 0 0 38%;
   display: grid;
   place-items: center;
   overflow: hidden;
-  touch-action: none;
+  cursor: grab;
+}
+.avatar-preview-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+.avatar-photo-area {
+  position: absolute;
+  inset: 0 0 38%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
   cursor: grab;
 }
 
+.avatar-photo-area.touch-none {
+  touch-action: none;
+}
 .avatar-photo-area:active {
   cursor: grabbing;
 }
@@ -143,7 +161,6 @@
   user-select: none;
 }
 
-/* Arte do candidato que fica por cima do canvas */
 .avatar-campaign-art {
   position: absolute;
   inset: auto 0 0;
@@ -152,6 +169,7 @@
   object-fit: cover;
   object-position: center 94%;
   background: #fff;
+  z-index: 3; /* Fica por cima de tudo cobrindo o rodapé */
 }
 
 /* Estado vazio (Antes do Upload) */

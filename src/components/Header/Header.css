@@ -15,14 +15,13 @@
 
 .header-content {
   display: flex;
-  justify-content: center; /* MÁGICA 1: Tira o space-between e centraliza tudo */
-  gap: 30px; /* MÁGICA 2: Define a distância exata entre a logo e o menu */
+  justify-content: center; /* Garante que o "bloco" inteiro fique no meio do monitor */
   align-items: center;
+  gap: 40px; /* Define o espaço exato entre a Logo e o começo do Menu */
   height: 100%;
   width: 100%;
-  max-width: 1250px;
   margin: 0 auto;
-  padding: 0 4%;
+  padding: 0 20px;
 }
 
 body {
@@ -35,18 +34,14 @@ body {
 .logo-area {
   display: flex;
   align-items: center;
-  height: 100%;
-  min-width: 180px; /* MÁGICA 1: Cria um "escudo" para o flexbox não esmagar a logo */
 }
 
 .header-logo {
   height: 45px;
-  width: 120%; /* MÁGICA 2: Faz a logo preencher esse espaço seguro */
-  max-width: 200px; /* Limite máximo para não ficar gigante em telas grandes */
-  object-fit: contain; /* Garante que a imagem não vai esticar nem distorcer */
-  flex-shrink: 0;
-  margin: 0;
+  width: auto; /* MÁGICA: Removemos o 120% que estava empurrando os outros itens! */
+  object-fit: contain; 
   display: block;
+  margin: 0;
 }
 
 .btn-menu-mobile {
@@ -63,7 +58,7 @@ body {
 .header-direita {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 30px; /* Define o espaço entre o botão "Declare seu apoio" e as Redes Sociais */
 }
 
 .main-nav ul {
@@ -72,12 +67,11 @@ body {
   margin: 0;
   padding: 0;
   align-items: center;
-  /* O "gap" foi removido daqui porque a divisória vai criar o espaçamento */
 }
 
 .main-nav li {
   position: relative;
-  display: flex; /* Adicionado para manter texto e linha perfeitamente alinhados */
+  display: flex;
   align-items: center;
 }
 
@@ -86,8 +80,8 @@ body {
   text-decoration: none;
   font-weight: 700;
   transition: color 0.3s;
-  font-size: 1rem;
-  white-space: nowrap; /* MÁGICA: Impede que "Quem Sou" vire duas linhas */ 
+  font-size: 0.9rem; /* 3. Fonte sutilmente menor para caber perfeito em notebooks */
+  white-space: nowrap; 
 }
 
 .main-nav a:hover {
@@ -97,7 +91,7 @@ body {
 .main-nav .link-avatar {
   background: var(--accent-orange, #EF7C00);
   border-radius: 999px;
-  padding: 8px 14px;
+  padding: 6px 14px;
   color: #fff;
 }
 
@@ -106,15 +100,15 @@ body {
   background: #d96f00;
 }
 
-/* 👇 DIVISÓRIAS ELEGANTES (APARECEM APENAS NO COMPUTADOR) 👇 */
+/* 4. Encolhemos os espaçamentos laterais das linhas divisórias brancas */
 @media (min-width: 993px) {
   .main-nav li:not(:last-child)::after {
     content: "";
     display: inline-block;
     width: 1.5px; 
-    height: 16px; 
-    background-color: rgba(255, 255, 255, 0.4); /* Linha branca suave com transparência */
-    margin: 0 16px; /* Espaço de 16px de cada lado da linha */
+    height: 14px; 
+    background-color: rgba(255, 255, 255, 0.4); 
+    margin: 0 10px; /* Caiu de 16px para 10px: salva muito espaço no total! */
   }
 }
 

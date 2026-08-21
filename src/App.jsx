@@ -51,7 +51,8 @@ function AppContent() {
 // O componente principal App apenas empacota tudo dentro do Router
 function App() {
   return (
-    <Router>
+    // MÁGICA AQUI: O Router agora sabe que no GitHub Pages ele tem um nome base!
+    <Router basename={import.meta.env.BASE_URL}>
       <AppContent />
     </Router>
   );

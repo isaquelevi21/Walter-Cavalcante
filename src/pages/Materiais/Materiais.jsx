@@ -9,22 +9,22 @@ export default function Materiais() {
       id: 1,
       titulo: 'Foto Oficial - Perfil',
       descricao: 'Foto de perfil oficial',
-      // O caminho aponta direto para a pasta public/downloads/
-      arquivo: '/downloads/FOTO_WALTER_2026.png', 
+      // Injetando a variável do Vite para garantir o caminho no GitHub Pages e na Hostinger
+      arquivo: `${import.meta.env.BASE_URL}downloads/FOTO_WALTER_2026.png`, 
       nomeDownload: 'FOTO OFICIAL PERFIL'
     },
     {
       id: 2,
       titulo: 'Logo da Campanha',
       descricao: 'Logotipo oficial',
-      arquivo: '/downloads/LOGO_COM_NUMERO.png',
+      arquivo: `${import.meta.env.BASE_URL}downloads/LOGO_COM_NUMERO.png`,
       nomeDownload: 'LOGO COM NÚMERO'
     },
     {
       id: 3,
       titulo: 'Logo Horizontal',
       descricao: 'Logotipo Oficial',
-      arquivo: '/downloads/LOGO_HORIZONTAL.png',
+      arquivo: `${import.meta.env.BASE_URL}downloads/LOGO_HORIZONTAL.png`,
       nomeDownload: 'LOGO HORIZONTAL'
     }
   ];
