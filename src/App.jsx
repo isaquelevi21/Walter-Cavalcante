@@ -14,6 +14,7 @@ import Termos from './pages/Legal/TermosDeUso';
 import BiografiaCompleta from './pages/BiografiaCompleta';
 import Links from './pages/Links/Links'; 
 import Materiais from './pages/Materiais/Materiais';
+import CrieSeuAvatar from './pages/Avatar/CrieSeuAvatar';
 
 // Criamos um componente interno para gerenciar a visibilidade
 function AppContent() {
@@ -37,6 +38,7 @@ function AppContent() {
         <Route path="/biografia-completa" element={<BiografiaCompleta />} />
         <Route path="/links" element={<Links />} />
         <Route path="/materiais" element={<Materiais />} />
+        <Route path="/crie-seu-avatar" element={<CrieSeuAvatar />} />
       </Routes>
       
       {/* O Footer e os Cookies só vão aparecer se NÃO for a página de links */}

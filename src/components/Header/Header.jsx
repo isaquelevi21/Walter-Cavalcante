@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Header.css'; 
 import { FaInstagram, FaFacebookF, FaYoutube, FaTiktok, FaBars, FaTimes } from 'react-icons/fa';
-import logoCampanha from '../../assets/images/logo_sem_numero.png';
+import logoCampanha from '../../assets/images/logo_header.png';
 import { candidato } from '../../data/candidato';
 // Importamos o componente 'Link' aqui na linha abaixo
 import { useLocation, useNavigate, Link } from 'react-router-dom';
@@ -84,6 +84,11 @@ const Header = () => {
                   onClick={() => setMenuMobileOpen(false)}
                 >
                   Baixar Materiais
+                </Link>
+              </li>
+              <li>
+                <Link to="/crie-seu-avatar" className="link-avatar" onClick={() => setMenuMobileOpen(false)}>
+                  Crie seu avatar
                 </Link>
               </li>
               

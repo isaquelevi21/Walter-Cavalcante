@@ -7,12 +7,7 @@
   left: 0;
   width: 100%;
   height: 60px;
-  background: linear-gradient(
-    200deg, 
-    var(--primary-green, #196B32) 30%, 
-    #155c29 30%, 
-    var(--accent-orange, #EF7C00) 110%
-  );
+  background: var(--primary-green, #196B32);
   color: rgb(254, 254, 254);
   z-index: 1000;
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
@@ -97,6 +92,18 @@ body {
 
 .main-nav a:hover {
   color: var(--accent-orange, #EF7C00);
+}
+
+.main-nav .link-avatar {
+  background: var(--accent-orange, #EF7C00);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #fff;
+}
+
+.main-nav .link-avatar:hover {
+  color: #fff;
+  background: #d96f00;
 }
 
 /* 👇 DIVISÓRIAS ELEGANTES (APARECEM APENAS NO COMPUTADOR) 👇 */
@@ -184,7 +191,7 @@ body {
 
 .icone-social:hover {
   transform: translateY(-3px);
-  background-color: var(--accent-orange, #EF7C00);
+  background-color: #0f5225;
 }
 
 /* =========================================
@@ -220,10 +227,7 @@ body {
     width: 100%;
     height: 100vh;
 
-    /* Fundo animado */
-    background: linear-gradient(-45deg, #0a3316, #196B32, #2dbd4f, #0d421d);
-    background-size: 300% 300%;
-    animation: animaFundoMenu 6s ease infinite;
+    background: var(--primary-green, #196B32);
 
     flex-direction: column;
     justify-content: center; /* Centraliza os links no meio da tela */
@@ -252,6 +256,10 @@ body {
     font-size: 1.4rem;
   }
 
+  .main-nav .link-avatar {
+    padding: 10px 18px;
+  }
+
   .dropdown-menu {
     position: relative;
     top: 0;
@@ -277,17 +285,3 @@ body {
   }
 }
 
-/* =========================================
-   ANIMAÇÃO DO FUNDO DO MENU MOBILE
-   ========================================= */
-@keyframes animaFundoMenu {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
