@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaDownload, FaImage, FaRedo } from 'react-icons/fa';
 import fotoOficial from '../../assets/images/banner_avatar.jpeg';
 import logoComNumero from '../../assets/images/logo_com_numero.png';
-import './CrieSeuAvatar.css';
+// import './CrieSeuAvatar.css';
 
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
 const MAX_IMAGE_DIMENSION = 8000;

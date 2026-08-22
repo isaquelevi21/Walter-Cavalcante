@@ -32,74 +32,19 @@
   position: relative;
   width: 100%;
   max-width: 1130px;
-  height: auto;
+  height: auto; /* Deixa a altura se ajustar automaticamente à imagem */
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: transparent; /* Garante que não há fundo verde por trás */
 }
 
 .avatar-hero > img:first-child {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain; /* Garante que a imagem inteira apareça sem cortes ou estiramentos */
-  opacity: 1; /* Garante que a imagem exiba 100% da opacidade original */
-}
-
-/* O bloco .avatar-hero::after foi completamente removido para eliminar o filtro verde */
-
-/* Gradiente escuro por cima da foto do banner */
-.avatar-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-}
-
-.avatar-hero-content {
-  position: absolute;
-  z-index: 1;
-  left: 8%;
-  right: 15%;
-  top: 50%;
-  transform: translateY(-50%);
-  display: grid;
-  gap: 0.15rem;
-  color: white;
-  text-transform: uppercase;
-}
-.avatar-hero-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-.avatar-numero {
-  color: var(--accent-orange);
-}
-
-.avatar-hero-content span {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.avatar-hero-content b {
-  width: fit-content;
-  margin-top: 0.7rem;
-  padding: 0.5rem 1.3rem;
-  background: var(--accent-orange);
-  color: #fff;
-  font-size: 1.25rem;
-}
-
-.avatar-hero-logo {
-  position: absolute;
-  z-index: 1;
-  right: 5%;
-  bottom: 1.5rem;
-  width: min(32%, 300px);
-  max-height: 100px;
-  object-fit: contain;
+  object-fit: contain; /* Impede que a arte corte nas bordas */
+  opacity: 1; 
 }
 
 /* =========================================
@@ -121,21 +66,6 @@
   display: grid;
   place-items: center;
   background: #000;
-}
-
-.avatar-photo-area {
-  position: absolute;
-  inset: 0 0 38%;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  cursor: grab;
-}
-.avatar-preview-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  user-select: none;
 }
 
 .avatar-photo-area {
@@ -169,7 +99,7 @@
   object-fit: cover;
   object-position: center 94%;
   background: #fff;
-  z-index: 3; /* Fica por cima de tudo cobrindo o rodapé */
+  z-index: 3; 
 }
 
 /* Estado vazio (Antes do Upload) */
@@ -273,6 +203,7 @@
 
 .avatar-action-row {
   display: flex;
+  justify-content: center; /* MÁGICA 1: Empurra todo o bloco de botões para o centro */
   gap: 0.7rem;
   margin-top: 1rem;
 }
@@ -281,11 +212,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 1; /* MÁGICA 2: Faz os dois botões dividirem o espaço por igual, esticando de forma harmônica */
   gap: 0.5rem;
   padding: 0.8rem 1.15rem;
   border-radius: 999px;
   font-weight: 800;
   cursor: pointer;
+  white-space: nowrap; /* Evita que o texto quebre em duas linhas sem necessidade */
 }
 
 .avatar-download {
@@ -319,11 +252,7 @@
   }
 
   .avatar-hero {
-    height: 260px;
-  }
-
-  .avatar-hero-logo {
-    width: 38%;
+    height: auto; /* MÁGICA: Removemos o height: 260px que estragava o enquadramento! */
   }
 
   .avatar-builder {
@@ -338,10 +267,9 @@
   }
 
   .avatar-action-row {
-    flex-wrap: wrap; /* Permite que os botões caiam para a próxima linha */
+    flex-wrap: wrap; 
   }
 
-  /* Troca o aviso de texto do zoom de Mouse para Touch */
   .desktop-hint {
     display: none;
   }
